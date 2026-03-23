@@ -60,6 +60,52 @@ Use Render with GitHub auto-deploy (already configured via `render.yaml` + `Dock
 
 This gives you a live, publicly accessible website and redeploys automatically from GitHub pushes.
 
+## Firebase Hosting (using your existing Firebase project)
+
+This repo is now configured for Firebase web frameworks hosting via [firebase.json](firebase.json).
+
+1. Install Firebase CLI:
+
+```bash
+npm i -g firebase-tools
+```
+
+2. Login and select your Firebase project:
+
+```bash
+firebase login
+firebase use --add
+```
+
+3. Update [/.firebaserc](.firebaserc) default project id (replace `your-firebase-project-id`) or use `firebase use` command above.
+
+4. Deploy:
+
+```bash
+firebase deploy --only hosting
+```
+
+After deploy, Firebase will print your live URL.
+
+### Data persistence on Firebase
+
+- Test results and study progress now use Firestore when Firebase credentials/runtime are available.
+- Static syllabus content and question bank still come from Prisma + SQLite seed data.
+
+### Firebase credentials (local only)
+
+In Firebase Hosting runtime, application default credentials are available automatically.
+
+For local development with Firestore access, set these environment variables (or use service account ADC):
+
+```bash
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_CLIENT_EMAIL=service-account-email
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+```
+
+If these are not set locally, the app falls back to Prisma for results/progress.
+
 ## Important paths
 
 - Exam API: `src/app/api/mock-tests/[id]/route.ts`

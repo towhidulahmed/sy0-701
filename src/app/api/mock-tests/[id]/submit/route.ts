@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { buildExamFromPool, calculateScore } from "@/lib/exam";
 import { DOMAIN_KEYS, EXAM_DURATION_SECONDS, MAX_MOCK_TESTS } from "@/lib/constants";
+import { createResult } from "@/lib/result-store";
 
 type SubmitPayload = {
   startedAt: string;
@@ -50,11 +51,14 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
   let correct = 0;
   const wrongAnswers: Array<{
     questionId: number;
+    questionQid: string;
+    questionPrompt: string;
     selectedAnswer: string;
     correctAnswer: string;
     explanation: string;
     recommendedTopic: string;
     topicId: number;
+    domainName: string;
   }> = [];
 
   for (const question of examQuestions) {
@@ -71,42 +75,42 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     } else {
       wrongAnswers.push({
         questionId: question.id,
+        questionQid: question.qid,
+        questionPrompt: question.prompt,
         selectedAnswer: selected.join(" | ") || "No answer",
         correctAnswer: actual.join(" | "),
         explanation: question.explanation,
         recommendedTopic: question.topic.studyPath,
         topicId: question.topicId,
+        domainName: question.domain.name,
       });
     }
   }
 
   const { score, pass } = calculateScore(correct);
-
-  const created = await prisma.testResult.create({
-    data: {
-      mockTestNumber: testNumber,
-      startedAt,
-      completedAt: endedAt,
-      score900: score,
-      pass,
-      elapsedSeconds,
-      answers: JSON.stringify(payload.answers || {}),
-      domainScores: {
-        create: Object.values(totals).map((item) => ({
-          domainId: item.domainId,
-          correct: item.correct,
-          total: item.total,
-          pct: item.total ? (item.correct / item.total) * 100 : 0,
-        })),
-      },
-      wrongAnswers: {
-        create: wrongAnswers,
-      },
-    },
+  const resultId = await createResult({
+    mockTestNumber: testNumber,
+    startedAt: startedAt.toISOString(),
+    completedAt: endedAt.toISOString(),
+    score900: score,
+    pass,
+    elapsedSeconds,
+    domainScores: Object.values(totals).map((item) => {
+      const matchingQuestion = examQuestions.find((entry) => entry.domainId === item.domainId);
+      return {
+        domainId: item.domainId,
+        domainKey: matchingQuestion?.domain.key || "unknown-domain",
+        domainName: matchingQuestion?.domain.name || "Unknown Domain",
+        correct: item.correct,
+        total: item.total,
+        pct: item.total ? (item.correct / item.total) * 100 : 0,
+      };
+    }),
+    wrongAnswers,
   });
 
   return NextResponse.json({
-    resultId: created.id,
+    resultId,
     score,
     pass,
   });

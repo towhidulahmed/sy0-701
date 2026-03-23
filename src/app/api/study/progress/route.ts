@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { listStudyProgress, upsertStudyProgress } from "@/lib/progress-store";
 
 export async function GET() {
-  const progress = await prisma.studyProgress.findMany();
+  const progress = await listStudyProgress();
   return NextResponse.json(progress);
 }
 
@@ -13,18 +13,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
   }
 
-  const progress = await prisma.studyProgress.upsert({
-    where: {
-      topicId: payload.topicId,
-    },
-    update: {
-      studied: payload.studied,
-    },
-    create: {
-      topicId: payload.topicId,
-      studied: payload.studied,
-    },
-  });
+  const progress = await upsertStudyProgress(payload.topicId, payload.studied);
 
   return NextResponse.json(progress);
 }

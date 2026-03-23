@@ -110,7 +110,7 @@ export function ExamRunner({ testId }: { testId: number }) {
       }),
     });
 
-    const payload = (await response.json()) as { resultId: number };
+    const payload = (await response.json()) as { resultId: string };
     router.push(`/mock-tests/${testId}/result/${payload.resultId}${autoSubmit ? "?auto=1" : ""}`);
   };
 

@@ -1,24 +1,16 @@
-import { prisma } from "@/lib/prisma";
 import { DashboardView } from "@/components/dashboard-view";
+import { listResults } from "@/lib/result-store";
+import { prisma } from "@/lib/prisma";
 
 export default async function DashboardPage() {
-  const results = await prisma.testResult.findMany({
-    orderBy: {
-      createdAt: "asc",
-    },
-    include: {
-      domainScores: {
-        include: {
-          domain: true,
-        },
+  const [results, topics] = await Promise.all([
+    listResults(),
+    prisma.topic.findMany({
+      include: {
+        domain: true,
       },
-      wrongAnswers: {
-        include: {
-          topic: true,
-        },
-      },
-    },
-  });
+    }),
+  ]);
 
   const totalAttempts = results.length;
   const passRate = totalAttempts ? (results.filter((result) => result.pass).length / totalAttempts) * 100 : 0;
@@ -26,10 +18,10 @@ export default async function DashboardPage() {
   const domainTotals = new Map<string, { sum: number; count: number }>();
   results.forEach((result) => {
     result.domainScores.forEach((score) => {
-      const current = domainTotals.get(score.domain.name) || { sum: 0, count: 0 };
+      const current = domainTotals.get(score.domainName) || { sum: 0, count: 0 };
       current.sum += score.pct;
       current.count += 1;
-      domainTotals.set(score.domain.name, current);
+      domainTotals.set(score.domainName, current);
     });
   });
 
@@ -41,15 +33,16 @@ export default async function DashboardPage() {
     .sort((left, right) => left.avgPct - right.avgPct);
 
   const weakDomains = domains.filter((domain) => domain.avgPct < 70).slice(0, 3);
+  const domainTopicMap = new Map(
+    topics.map((topic) => [topic.domain.name, `/study#${topic.slug}`]),
+  );
 
   const recommendations = weakDomains.map((domain) => {
-    const wrong = results
-      .flatMap((result) => result.wrongAnswers)
-      .find((entry) => entry.topic.domainId === results.flatMap((r) => r.domainScores).find((score) => score.domain.name === domain.domain)?.domainId);
+    const wrong = results.flatMap((result) => result.wrongAnswers).find((entry) => entry.domainName === domain.domain);
 
     return {
       domain: domain.domain,
-      studyPath: wrong?.topic.studyPath || "/study",
+      studyPath: wrong?.recommendedTopic || domainTopicMap.get(domain.domain) || "/study",
     };
   });
 
