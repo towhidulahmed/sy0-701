@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: #09090b;
+  color: #e4e4e7;
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
