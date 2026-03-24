@@ -48,6 +48,7 @@ export function ExamRunner({ testId }: { testId: number }) {
   const [reviewMode, setReviewMode] = useState(false);
   const [scenarioOpen, setScenarioOpen] = useState(false);
   const [confirmSubmit, setConfirmSubmit] = useState(false);
+  const [hamMenuOpen, setHamMenuOpen] = useState(false);
   const questionAreaRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef(0);
   const touchStartY = useRef(0);
@@ -215,30 +216,32 @@ export function ExamRunner({ testId }: { testId: number }) {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      {/* ─── STICKY TOP BAR ─── */}
+      {/* ─── MOBILE: ultra-compact top bar ─── */}
       <div className="sticky top-0 z-20 border-b border-zinc-700/60 bg-zinc-900/95 backdrop-blur-md sm:rounded-xl sm:border sm:border-zinc-700 sm:p-4">
-        {/* Progress bar — always visible */}
-        <div className="h-1 w-full bg-zinc-800 sm:hidden">
+        {/* Thin progress bar */}
+        <div className="h-[3px] w-full bg-zinc-800 sm:hidden">
           <div
-            className="h-1 bg-cyan-500 transition-all duration-300"
+            className="h-[3px] bg-cyan-500 transition-all duration-300"
             style={{ width: `${progressPct}%` }}
           />
         </div>
 
-        <div className="flex items-center justify-between gap-2 px-3 py-2.5 sm:px-0 sm:py-0">
-          {/* Mobile: compact info */}
-          <div className="flex items-center gap-2.5 sm:hidden">
-            <Link
-              href="/"
-              className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-800 text-sm active:bg-zinc-700"
-              aria-label="Home"
+        <div className="flex items-center justify-between px-2.5 py-1.5 sm:px-0 sm:py-0">
+          {/* Mobile: hamburger + Q number */}
+          <div className="flex items-center gap-2 sm:hidden">
+            <button
+              type="button"
+              aria-label="Menu"
+              onClick={() => setHamMenuOpen((prev) => !prev)}
+              className="flex h-8 w-8 items-center justify-center rounded-md bg-zinc-800 active:bg-zinc-700"
             >
-              ←
-            </Link>
-            <div>
-              <p className="text-sm font-semibold text-zinc-100">Q {index + 1}/{exam.questions.length}</p>
-              <p className="text-[11px] text-zinc-500">{answeredCount} answered</p>
-            </div>
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+            <span className="text-[13px] font-semibold tabular-nums text-zinc-200">
+              {index + 1}<span className="text-zinc-500">/{exam.questions.length}</span>
+            </span>
           </div>
 
           {/* Desktop info */}
@@ -250,9 +253,9 @@ export function ExamRunner({ testId }: { testId: number }) {
             </p>
           </div>
 
-          {/* Timer */}
+          {/* Timer — compact on mobile */}
           <div
-            className={`rounded-lg px-3 py-1.5 text-base font-bold tabular-nums sm:px-4 sm:py-2 sm:text-2xl ${
+            className={`rounded-md px-2 py-1 text-[13px] font-bold tabular-nums sm:rounded-lg sm:px-4 sm:py-2 sm:text-2xl ${
               isUrgent
                 ? "animate-pulse border border-red-500 bg-red-950/50 text-red-300"
                 : "border border-amber-500/60 bg-amber-950/30 text-amber-300"
@@ -271,14 +274,62 @@ export function ExamRunner({ testId }: { testId: number }) {
         </div>
       </div>
 
+      {/* ─── MOBILE HAMBURGER MENU OVERLAY ─── */}
+      {hamMenuOpen ? (
+        <div className="fixed inset-0 z-50 sm:hidden" onClick={() => setHamMenuOpen(false)}>
+          <div className="absolute inset-0 bg-black/50" />
+          <div
+            className="absolute left-0 top-0 h-full w-64 border-r border-zinc-700 bg-zinc-900 p-5"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">Navigation</p>
+            <nav className="mt-3 space-y-1">
+              <Link
+                href="/"
+                onClick={() => setHamMenuOpen(false)}
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-zinc-300 active:bg-zinc-800"
+              >
+                <svg className="h-4 w-4 text-zinc-500" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955a1.126 1.126 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
+                Home
+              </Link>
+              <Link
+                href="/mock-tests/1"
+                onClick={() => setHamMenuOpen(false)}
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-zinc-300 active:bg-zinc-800"
+              >
+                <svg className="h-4 w-4 text-zinc-500" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" /></svg>
+                Exams
+              </Link>
+              <Link
+                href="/study"
+                onClick={() => setHamMenuOpen(false)}
+                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-zinc-300 active:bg-zinc-800"
+              >
+                <svg className="h-4 w-4 text-zinc-500" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                Study
+              </Link>
+            </nav>
+            <div className="mt-6 border-t border-zinc-800 pt-4">
+              <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">Exam Info</p>
+              <div className="mt-2 space-y-1 text-[13px] text-zinc-400">
+                <p>Mock Test {exam.testNumber}</p>
+                <p>{answeredCount}/{exam.questions.length} answered</p>
+                {flaggedCount > 0 ? <p>{flaggedCount} flagged</p> : null}
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
       {/* ─── QUESTION AREA ─── */}
       <div
         ref={questionAreaRef}
-        className="flex-1 overflow-y-auto px-3 pb-44 pt-3 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0"
+        className="flex-1 overflow-y-auto px-2.5 pb-16 pt-2 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0"
       >
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-3.5 sm:p-5">
-          {/* Question type & difficulty badge */}
-          <div className="mb-3 flex flex-wrap items-center gap-2">
+        {/* Mobile: no card wrapper, direct content for max space */}
+        <div className="sm:rounded-xl sm:border sm:border-zinc-800 sm:bg-zinc-900 sm:p-5">
+          {/* Badges — desktop only */}
+          <div className="mb-3 hidden flex-wrap items-center gap-2 sm:flex">
             {multi ? (
               <span className="rounded-md bg-violet-900/50 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-violet-300">
                 Select {requiredSelections(currentQuestion)}
@@ -294,30 +345,34 @@ export function ExamRunner({ testId }: { testId: number }) {
             </span>
           </div>
 
+          {/* Mobile: multi-select hint — tiny, inline */}
+          {multi ? (
+            <p className="mb-1.5 text-[11px] font-medium text-violet-400 sm:hidden">
+              Select {requiredSelections(currentQuestion)} answers
+            </p>
+          ) : null}
+
           {/* Scenario / Context Panel */}
           {currentQuestion.scenario ? (
-            <div className="mb-4">
+            <div className="mb-3 sm:mb-4">
               <button
                 type="button"
                 onClick={() => setScenarioOpen((prev) => !prev)}
-                className={`flex w-full items-center gap-2 rounded-lg border px-3.5 py-2.5 text-left text-sm font-medium transition-colors ${
+                className={`flex w-full items-center gap-2 rounded-lg border px-3 py-2 text-[13px] font-medium transition-colors sm:px-3.5 sm:py-2.5 sm:text-sm ${
                   scenarioOpen
                     ? "border-blue-500/40 bg-blue-950/30 text-blue-200"
-                    : "border-zinc-600 bg-zinc-800 text-zinc-300 active:bg-zinc-700"
+                    : "border-zinc-700 bg-zinc-800/80 text-zinc-400 active:bg-zinc-700"
                 }`}
               >
-                <span className="text-base">{scenarioOpen ? "▾" : "▸"}</span>
-                <span>{scenarioOpen ? "Hide Scenario Context" : "View Scenario Context"}</span>
-                {!scenarioOpen && currentQuestion.type === "performance-based" ? (
-                  <span className="ml-auto text-[11px] text-amber-400">Recommended</span>
-                ) : null}
+                <span className="text-sm">{scenarioOpen ? "▾" : "▸"}</span>
+                <span>{scenarioOpen ? "Hide Context" : "Context"}</span>
               </button>
               <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  scenarioOpen ? "mt-2 max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                  scenarioOpen ? "mt-1.5 max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
-                <div className="rounded-lg border border-blue-500/20 bg-blue-950/20 p-3.5 text-[13px] leading-6 text-blue-100/90 sm:text-sm sm:leading-7">
+                <div className="rounded-lg border border-blue-500/20 bg-blue-950/20 p-3 text-[13px] leading-6 text-blue-100/90 sm:p-3.5 sm:text-sm sm:leading-7">
                   {currentQuestion.scenario}
                 </div>
               </div>
@@ -325,35 +380,35 @@ export function ExamRunner({ testId }: { testId: number }) {
           ) : null}
 
           {/* Question prompt */}
-          <p className="text-[15px] font-medium leading-7 text-zinc-100 sm:text-lg sm:leading-8">
+          <p className="text-[14px] font-medium leading-[1.6] text-zinc-100 sm:text-lg sm:leading-8">
             {currentQuestion.prompt}
           </p>
 
-          {/* Options */}
-          <div className="mt-4 space-y-2.5 sm:mt-5 sm:space-y-3">
+          {/* Options — tighter on mobile */}
+          <div className="mt-3 space-y-1.5 sm:mt-5 sm:space-y-3">
             {currentQuestion.options.map((option, optIndex) => {
               const selected = (answers[currentQuestion.id] || []).includes(option);
               return (
                 <button
                   type="button"
                   key={option}
-                  className={`group flex w-full items-start gap-3 rounded-xl border px-3.5 py-3 text-left transition-all duration-150 active:scale-[0.98] sm:px-4 sm:py-3.5 ${
+                  className={`group flex w-full items-start gap-2.5 rounded-lg border px-3 py-2 text-left transition-all duration-150 active:scale-[0.98] sm:gap-3 sm:rounded-xl sm:px-4 sm:py-3.5 ${
                     selected
-                      ? "border-cyan-400/60 bg-cyan-950/40 shadow-[0_0_12px_rgba(34,211,238,0.08)]"
-                      : "border-zinc-700/70 bg-zinc-800/80 hover:border-zinc-600 hover:bg-zinc-750 active:bg-zinc-700"
+                      ? "border-cyan-400/60 bg-cyan-950/40"
+                      : "border-zinc-700/60 bg-zinc-800/60 active:bg-zinc-700"
                   }`}
                   onClick={() => toggleOption(currentQuestion.id, option, multi)}
                 >
                   <span
-                    className={`mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg text-xs font-bold transition-colors ${
+                    className={`mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md text-[11px] font-bold transition-colors sm:h-7 sm:w-7 sm:rounded-lg sm:text-xs ${
                       selected
                         ? "bg-cyan-500 text-zinc-900"
-                        : "bg-zinc-700 text-zinc-300 group-hover:bg-zinc-600"
+                        : "bg-zinc-700 text-zinc-400 group-hover:bg-zinc-600"
                     }`}
                   >
                     {OPTION_LABELS[optIndex] || optIndex + 1}
                   </span>
-                  <span className={`text-[14px] leading-6 sm:text-[15px] sm:leading-7 ${selected ? "text-cyan-100" : "text-zinc-200"}`}>
+                  <span className={`text-[13px] leading-[1.5] sm:text-[15px] sm:leading-7 ${selected ? "text-cyan-100" : "text-zinc-200"}`}>
                     {option}
                   </span>
                 </button>
@@ -411,22 +466,22 @@ export function ExamRunner({ testId }: { testId: number }) {
 
         {/* Review panel */}
         {reviewMode ? (
-          <div className="mt-4 rounded-xl border border-zinc-800 bg-zinc-900 p-3.5 sm:p-5">
-            <div className="mb-3 flex items-center justify-between">
-              <h3 className="font-semibold">Answer Review</h3>
-              <div className="flex gap-3 text-[11px]">
-                <span className="flex items-center gap-1.5">
-                  <span className="inline-block h-2.5 w-2.5 rounded-sm bg-emerald-600" /> Answered
+          <div className="mt-3 rounded-xl border border-zinc-800 bg-zinc-900 p-3 sm:mt-4 sm:p-5">
+            <div className="mb-2 flex items-center justify-between sm:mb-3">
+              <h3 className="text-sm font-semibold sm:text-base">Review</h3>
+              <div className="flex gap-3 text-[10px] sm:text-[11px]">
+                <span className="flex items-center gap-1">
+                  <span className="inline-block h-2 w-2 rounded-sm bg-emerald-600" /> Done
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="inline-block h-2.5 w-2.5 rounded-sm bg-amber-600" /> Flagged
+                <span className="flex items-center gap-1">
+                  <span className="inline-block h-2 w-2 rounded-sm bg-amber-600" /> Flag
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="inline-block h-2.5 w-2.5 rounded-sm bg-zinc-600" /> Unanswered
+                <span className="flex items-center gap-1">
+                  <span className="inline-block h-2 w-2 rounded-sm bg-zinc-600" /> Skip
                 </span>
               </div>
             </div>
-            <div className="grid grid-cols-8 gap-1.5 sm:grid-cols-10 sm:gap-2">
+            <div className="grid grid-cols-9 gap-1 sm:grid-cols-10 sm:gap-2">
               {exam.questions.map((question, questionIndex) => {
                 const isAnswered = (answers[question.id] || []).length > 0;
                 const isFlagged = !!flags[question.id];
@@ -439,7 +494,7 @@ export function ExamRunner({ testId }: { testId: number }) {
                       setIndex(questionIndex);
                       setReviewMode(false);
                     }}
-                    className={`rounded-md py-2 text-xs font-medium transition-all ${
+                    className={`rounded py-1.5 text-[10px] font-medium sm:rounded-md sm:py-2 sm:text-xs ${
                       isCurrent
                         ? "ring-2 ring-cyan-400 ring-offset-1 ring-offset-zinc-900"
                         : ""
@@ -448,7 +503,7 @@ export function ExamRunner({ testId }: { testId: number }) {
                         ? "bg-amber-700/80 text-amber-100"
                         : isAnswered
                           ? "bg-emerald-700/80 text-emerald-100"
-                          : "bg-zinc-700/80 text-zinc-300"
+                          : "bg-zinc-700/80 text-zinc-400"
                     }`}
                   >
                     {questionIndex + 1}
@@ -460,64 +515,66 @@ export function ExamRunner({ testId }: { testId: number }) {
         ) : null}
       </div>
 
-      {/* ─── MOBILE BOTTOM BAR (iPhone optimized) ─── */}
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-zinc-700/60 bg-zinc-900/95 pb-[max(0.5rem,env(safe-area-inset-bottom))] backdrop-blur-md sm:hidden">
-        <div className="mx-auto max-w-lg">
-          {/* Navigation row */}
-          <div className="flex items-center gap-1 px-2.5 pt-2">
-            <button
-              type="button"
-              disabled={index === 0}
-              onClick={goPrev}
-              className="flex h-11 flex-1 items-center justify-center rounded-lg bg-zinc-800 text-sm font-medium transition-colors active:bg-zinc-700 disabled:opacity-40"
-            >
-              ← Prev
-            </button>
+      {/* ─── MOBILE BOTTOM BAR — single row of small icons ─── */}
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-zinc-700/50 bg-zinc-900/95 pb-[max(0.25rem,env(safe-area-inset-bottom))] backdrop-blur-md sm:hidden">
+        <div className="flex items-center justify-between px-3 py-1.5">
+          {/* Prev */}
+          <button
+            type="button"
+            disabled={index === 0}
+            onClick={goPrev}
+            className="flex h-9 w-9 items-center justify-center rounded-md active:bg-zinc-800 disabled:opacity-30"
+            aria-label="Previous question"
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+          </button>
 
-            <button
-              type="button"
-              onClick={() => setFlags((prev) => ({ ...prev, [currentQuestion.id]: !prev[currentQuestion.id] }))}
-              className={`flex h-11 w-12 items-center justify-center rounded-lg text-lg transition-colors ${
-                flags[currentQuestion.id]
-                  ? "bg-amber-800/80 text-amber-200"
-                  : "bg-zinc-800 text-zinc-400 active:bg-zinc-700"
-              }`}
-              aria-label={flags[currentQuestion.id] ? "Unflag question" : "Flag question"}
-            >
-              {flags[currentQuestion.id] ? "⚑" : "⚐"}
-            </button>
+          {/* Flag */}
+          <button
+            type="button"
+            onClick={() => setFlags((prev) => ({ ...prev, [currentQuestion.id]: !prev[currentQuestion.id] }))}
+            className={`flex h-9 w-9 items-center justify-center rounded-md ${
+              flags[currentQuestion.id]
+                ? "text-amber-400"
+                : "text-zinc-500 active:bg-zinc-800"
+            }`}
+            aria-label={flags[currentQuestion.id] ? "Unflag" : "Flag"}
+          >
+            <svg className="h-5 w-5" fill={flags[currentQuestion.id] ? "currentColor" : "none"} viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" /></svg>
+          </button>
 
-            <button
-              type="button"
-              onClick={() => setReviewMode((prev) => !prev)}
-              className={`flex h-11 w-12 items-center justify-center rounded-lg text-base transition-colors ${
-                reviewMode ? "bg-cyan-800/60 text-cyan-200" : "bg-zinc-800 text-zinc-400 active:bg-zinc-700"
-              }`}
-              aria-label="Review all questions"
-            >
-              ▦
-            </button>
+          {/* Review grid */}
+          <button
+            type="button"
+            onClick={() => setReviewMode((prev) => !prev)}
+            className={`flex h-9 w-9 items-center justify-center rounded-md ${
+              reviewMode ? "text-cyan-400" : "text-zinc-500 active:bg-zinc-800"
+            }`}
+            aria-label="Review"
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" /></svg>
+          </button>
 
-            <button
-              type="button"
-              disabled={index === exam.questions.length - 1}
-              onClick={goNext}
-              className="flex h-11 flex-1 items-center justify-center rounded-lg bg-zinc-800 text-sm font-medium transition-colors active:bg-zinc-700 disabled:opacity-40"
-            >
-              Next →
-            </button>
-          </div>
+          {/* Submit */}
+          <button
+            type="button"
+            onClick={() => setConfirmSubmit(true)}
+            className="flex h-9 w-9 items-center justify-center rounded-md text-cyan-400 active:bg-zinc-800"
+            aria-label="Submit exam"
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </button>
 
-          {/* Submit row */}
-          <div className="px-2.5 pb-1 pt-1.5">
-            <button
-              type="button"
-              onClick={() => setConfirmSubmit(true)}
-              className="flex h-11 w-full items-center justify-center rounded-lg bg-cyan-700 text-sm font-semibold text-white transition-colors active:bg-cyan-600"
-            >
-              {submitting ? "Submitting..." : `Submit Exam (${answeredCount}/${exam.questions.length})`}
-            </button>
-          </div>
+          {/* Next */}
+          <button
+            type="button"
+            disabled={index === exam.questions.length - 1}
+            onClick={goNext}
+            className="flex h-9 w-9 items-center justify-center rounded-md active:bg-zinc-800 disabled:opacity-30"
+            aria-label="Next question"
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+          </button>
         </div>
       </div>
 
@@ -538,7 +595,7 @@ export function ExamRunner({ testId }: { testId: number }) {
             </div>
             {unansweredCount > 0 ? (
               <p className="mt-3 text-[13px] text-amber-300/80">
-                You have unanswered questions. Unanswered questions will be marked incorrect.
+                Unanswered questions will be marked incorrect.
               </p>
             ) : null}
             <div className="mt-5 grid grid-cols-2 gap-3">
