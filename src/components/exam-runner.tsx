@@ -380,7 +380,7 @@ export function ExamRunner({ testId }: { testId: number }) {
           ) : null}
 
           {/* Question prompt */}
-          <p className="text-[14px] font-medium leading-[1.6] text-zinc-100 sm:text-lg sm:leading-8">
+          <p className="text-[15px] font-medium leading-[1.65] text-zinc-100 sm:text-lg sm:leading-8">
             {currentQuestion.prompt}
           </p>
 
@@ -408,7 +408,7 @@ export function ExamRunner({ testId }: { testId: number }) {
                   >
                     {OPTION_LABELS[optIndex] || optIndex + 1}
                   </span>
-                  <span className={`text-[13px] leading-[1.5] sm:text-[15px] sm:leading-7 ${selected ? "text-cyan-100" : "text-zinc-200"}`}>
+                  <span className={`text-[14px] leading-[1.5] sm:text-[15px] sm:leading-7 ${selected ? "text-cyan-100" : "text-zinc-200"}`}>
                     {option}
                   </span>
                 </button>
@@ -517,52 +517,52 @@ export function ExamRunner({ testId }: { testId: number }) {
 
       {/* ─── MOBILE BOTTOM BAR — single row of small icons ─── */}
       <div className="fixed inset-x-0 bottom-0 z-30 border-t border-zinc-700/50 bg-zinc-900/95 pb-[max(0.25rem,env(safe-area-inset-bottom))] backdrop-blur-md sm:hidden">
-        <div className="flex items-center justify-between px-3 py-1.5">
+        <div className="flex items-center justify-between px-4 py-1">
           {/* Prev */}
           <button
             type="button"
             disabled={index === 0}
             onClick={goPrev}
-            className="flex h-9 w-9 items-center justify-center rounded-md active:bg-zinc-800 disabled:opacity-30"
+            className="flex h-8 w-8 items-center justify-center rounded-md active:bg-zinc-800 disabled:opacity-30"
             aria-label="Previous question"
           >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+            <svg className="h-[18px] w-[18px]" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
           </button>
 
           {/* Flag */}
           <button
             type="button"
             onClick={() => setFlags((prev) => ({ ...prev, [currentQuestion.id]: !prev[currentQuestion.id] }))}
-            className={`flex h-9 w-9 items-center justify-center rounded-md ${
+            className={`flex h-8 w-8 items-center justify-center rounded-md ${
               flags[currentQuestion.id]
                 ? "text-amber-400"
                 : "text-zinc-500 active:bg-zinc-800"
             }`}
             aria-label={flags[currentQuestion.id] ? "Unflag" : "Flag"}
           >
-            <svg className="h-5 w-5" fill={flags[currentQuestion.id] ? "currentColor" : "none"} viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" /></svg>
+            <svg className="h-[18px] w-[18px]" fill={flags[currentQuestion.id] ? "currentColor" : "none"} viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" /></svg>
           </button>
 
           {/* Review grid */}
           <button
             type="button"
             onClick={() => setReviewMode((prev) => !prev)}
-            className={`flex h-9 w-9 items-center justify-center rounded-md ${
+            className={`flex h-8 w-8 items-center justify-center rounded-md ${
               reviewMode ? "text-cyan-400" : "text-zinc-500 active:bg-zinc-800"
             }`}
             aria-label="Review"
           >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" /></svg>
+            <svg className="h-[18px] w-[18px]" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" /></svg>
           </button>
 
           {/* Submit */}
           <button
             type="button"
             onClick={() => setConfirmSubmit(true)}
-            className="flex h-9 w-9 items-center justify-center rounded-md text-cyan-400 active:bg-zinc-800"
+            className="flex h-8 w-8 items-center justify-center rounded-md text-cyan-400 active:bg-zinc-800"
             aria-label="Submit exam"
           >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <svg className="h-[18px] w-[18px]" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </button>
 
           {/* Next */}
@@ -570,10 +570,10 @@ export function ExamRunner({ testId }: { testId: number }) {
             type="button"
             disabled={index === exam.questions.length - 1}
             onClick={goNext}
-            className="flex h-9 w-9 items-center justify-center rounded-md active:bg-zinc-800 disabled:opacity-30"
+            className="flex h-8 w-8 items-center justify-center rounded-md active:bg-zinc-800 disabled:opacity-30"
             aria-label="Next question"
           >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+            <svg className="h-[18px] w-[18px]" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
           </button>
         </div>
       </div>

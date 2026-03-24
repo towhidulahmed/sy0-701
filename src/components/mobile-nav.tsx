@@ -7,7 +7,7 @@ export function MobileNav() {
   const pathname = usePathname();
 
   // Hide mobile nav during exam (mock-tests/[id] but not result pages)
-  const isExamActive = /^\/mock-tests\/\d+$/.test(pathname);
+  const isExamActive = /^\/mock-tests\/\d+\/?$/.test(pathname);
   if (isExamActive) {
     return null;
   }
