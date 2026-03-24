@@ -33,6 +33,7 @@ export function ExamRunner({ testId }: { testId: number }) {
   const [submitting, setSubmitting] = useState(false);
   const [reviewMode, setReviewMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileScenarioOpen, setMobileScenarioOpen] = useState(false);
 
   useEffect(() => {
     const load = () => {
@@ -70,6 +71,10 @@ export function ExamRunner({ testId }: { testId: number }) {
   });
 
   const currentQuestion = exam?.questions[index];
+
+  useEffect(() => {
+    setMobileScenarioOpen(false);
+  }, [index]);
 
   const answeredCount = useMemo(() => Object.keys(answers).filter((key) => answers[Number(key)]?.length > 0).length, [answers]);
 
@@ -138,7 +143,7 @@ export function ExamRunner({ testId }: { testId: number }) {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 pb-28 sm:pb-0">
       <div className="sticky top-0 z-20 rounded-xl border border-zinc-700 bg-zinc-900 p-2.5 sm:top-4 sm:p-4">
         <div className="flex items-center justify-between gap-2 sm:flex-wrap sm:gap-3">
           <div className="flex items-center gap-2 sm:hidden">
@@ -177,13 +182,22 @@ export function ExamRunner({ testId }: { testId: number }) {
 
       <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-3 sm:p-4">
         {currentQuestion.scenario ? (
-          <p className="mb-3 rounded-md bg-zinc-800 p-3 text-sm leading-6 text-zinc-300">
-            {currentQuestion.scenario}
-          </p>
+          <>
+            <button
+              type="button"
+              onClick={() => setMobileScenarioOpen((prev) => !prev)}
+              className="mb-2 rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm sm:hidden"
+            >
+              {mobileScenarioOpen ? "Hide Context" : "Show Context"}
+            </button>
+            <p className={`mb-3 rounded-md bg-zinc-800 p-3 text-sm leading-6 text-zinc-300 ${mobileScenarioOpen ? "block" : "hidden sm:block"}`}>
+              {currentQuestion.scenario}
+            </p>
+          </>
         ) : null}
         <p className="text-base font-medium leading-7 sm:text-lg sm:leading-8">{currentQuestion.prompt}</p>
 
-        <div className="mt-3 space-y-2 sm:mt-4 sm:space-y-2.5">
+        <div className="mt-3 max-h-[46dvh] space-y-2 overflow-y-auto pr-0.5 sm:mt-4 sm:max-h-none sm:space-y-2.5 sm:overflow-visible">
           {currentQuestion.options.map((option) => {
             const selected = (answers[currentQuestion.id] || []).includes(option);
             const multi = currentQuestion.type !== "multiple-choice-single";
@@ -203,7 +217,7 @@ export function ExamRunner({ testId }: { testId: number }) {
         </div>
 
         <div className="mt-10 border-t border-zinc-800 pt-4 sm:mt-8 sm:pt-4">
-          <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+          <div className="hidden gap-2 sm:flex sm:flex-wrap">
           <button
             type="button"
             onClick={() => setFlags((prev) => ({ ...prev, [currentQuestion.id]: !prev[currentQuestion.id] }))}
@@ -241,6 +255,53 @@ export function ExamRunner({ testId }: { testId: number }) {
           >
             {submitting ? "Submitting..." : "Submit Exam"}
           </button>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 sm:hidden">
+            <button
+              type="button"
+              disabled={index === 0}
+              onClick={() => setIndex((prev) => Math.max(0, prev - 1))}
+              className="rounded-md border border-zinc-600 px-3 py-2.5 text-sm disabled:opacity-50"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              disabled={index === exam.questions.length - 1}
+              onClick={() => setIndex((prev) => Math.min(exam.questions.length - 1, prev + 1))}
+              className="rounded-md border border-zinc-600 px-3 py-2.5 text-sm disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-zinc-700 bg-zinc-900/95 p-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] backdrop-blur sm:hidden">
+        <div className="mx-auto max-w-3xl space-y-2">
+          <div className="grid grid-cols-3 gap-2">
+            <button
+              type="button"
+              onClick={() => setFlags((prev) => ({ ...prev, [currentQuestion.id]: !prev[currentQuestion.id] }))}
+              className="rounded-md border border-zinc-600 px-2 py-2 text-xs"
+            >
+              {flags[currentQuestion.id] ? "Unflag" : "Flag"}
+            </button>
+            <button
+              type="button"
+              onClick={() => setReviewMode((prev) => !prev)}
+              className="rounded-md border border-zinc-600 px-2 py-2 text-xs"
+            >
+              {reviewMode ? "Close Review" : "Review"}
+            </button>
+            <button
+              type="button"
+              onClick={() => void submitExam(false)}
+              className="rounded-md bg-cyan-700 px-2 py-2 text-xs font-semibold"
+            >
+              {submitting ? "Submitting" : "Submit"}
+            </button>
           </div>
         </div>
       </div>
