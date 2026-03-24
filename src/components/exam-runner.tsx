@@ -21,6 +21,18 @@ const formatTime = (seconds: number) => {
   return `${mins}:${secs}`;
 };
 
+const shouldOpenContextByDefault = (question: QuestionPayload) => {
+  if (!question.scenario) {
+    return false;
+  }
+
+  if (question.type === "performance-based") {
+    return true;
+  }
+
+  return question.scenario.length > 220;
+};
+
 export function ExamRunner({ testId }: { testId: number }) {
   const router = useRouter();
   const [exam, setExam] = useState<ExamResponse | null>(null);
@@ -73,8 +85,14 @@ export function ExamRunner({ testId }: { testId: number }) {
   const currentQuestion = exam?.questions[index];
 
   useEffect(() => {
-    setMobileScenarioOpen(false);
-  }, [index]);
+    const question = exam?.questions[index];
+    if (!question) {
+      setMobileScenarioOpen(false);
+      return;
+    }
+
+    setMobileScenarioOpen(shouldOpenContextByDefault(question));
+  }, [exam, index]);
 
   const answeredCount = useMemo(() => Object.keys(answers).filter((key) => answers[Number(key)]?.length > 0).length, [answers]);
 
@@ -186,11 +204,11 @@ export function ExamRunner({ testId }: { testId: number }) {
             <button
               type="button"
               onClick={() => setMobileScenarioOpen((prev) => !prev)}
-              className="mb-2 rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm sm:hidden"
+              className="mb-2 rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm"
             >
               {mobileScenarioOpen ? "Hide Context" : "Show Context"}
             </button>
-            <p className={`mb-3 rounded-md bg-zinc-800 p-3 text-sm leading-6 text-zinc-300 ${mobileScenarioOpen ? "block" : "hidden sm:block"}`}>
+            <p className={`mb-3 rounded-md bg-zinc-800 p-3 text-sm leading-6 text-zinc-300 ${mobileScenarioOpen ? "block" : "hidden"}`}>
               {currentQuestion.scenario}
             </p>
           </>
