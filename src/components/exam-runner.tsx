@@ -285,7 +285,7 @@ export function ExamRunner({ testId }: { testId: number }) {
             <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">Navigation</p>
             <nav className="mt-3 space-y-1">
               <Link
-                href="/"
+                href="/security-plus"
                 onClick={() => setHamMenuOpen(false)}
                 className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-zinc-300 active:bg-zinc-800"
               >
@@ -293,7 +293,7 @@ export function ExamRunner({ testId }: { testId: number }) {
                 Home
               </Link>
               <Link
-                href="/mock-tests/1"
+                href="/security-plus/mock-tests/1"
                 onClick={() => setHamMenuOpen(false)}
                 className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-zinc-300 active:bg-zinc-800"
               >
@@ -301,7 +301,7 @@ export function ExamRunner({ testId }: { testId: number }) {
                 Exams
               </Link>
               <Link
-                href="/study"
+                href="/security-plus/study"
                 onClick={() => setHamMenuOpen(false)}
                 className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-zinc-300 active:bg-zinc-800"
               >

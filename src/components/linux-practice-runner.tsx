@@ -2,16 +2,16 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import type { QuestionPayload } from "@/lib/exam";
+import type { LinuxQuestion } from "@/lib/linux-questions";
 
 type Props = {
   topicTitle: string;
   topicSlug: string;
   domainName: string;
-  questions: QuestionPayload[];
+  questions: LinuxQuestion[];
 };
 
-export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }: Props) {
+export function LinuxPracticeRunner({ topicTitle, topicSlug, domainName, questions }: Props) {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [answered, setAnswered] = useState(false);
@@ -22,7 +22,7 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
       <div className="px-3 pt-4 sm:px-0">
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 text-center">
           <p className="text-zinc-400">No questions available for this topic yet.</p>
-          <Link href="/security-plus/practice" className="mt-4 inline-block text-sm text-cyan-400 underline">
+          <Link href="/linux/practice" className="mt-4 inline-block text-sm text-emerald-400 underline">
             ← Back to topics
           </Link>
         </div>
@@ -31,14 +31,14 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
   }
 
   const question = questions[currentIdx];
-  const isCorrect = selectedAnswer === question.correctAnswers[0];
+  const isCorrect = selectedAnswer === question.correctAnswer;
   const isFinished = score.total === questions.length && answered;
 
   const handleSelect = (option: string) => {
     if (answered) return;
     setSelectedAnswer(option);
     setAnswered(true);
-    const correct = option === question.correctAnswers[0];
+    const correct = option === question.correctAnswer;
     setScore((prev) => ({
       correct: prev.correct + (correct ? 1 : 0),
       total: prev.total + 1,
@@ -64,7 +64,7 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
     if (!answered) {
       return "border-zinc-700 bg-zinc-800/60 active:bg-zinc-700";
     }
-    const isThisCorrect = option === question.correctAnswers[0];
+    const isThisCorrect = option === question.correctAnswer;
     const isThisSelected = option === selectedAnswer;
 
     if (isThisCorrect) {
@@ -78,7 +78,7 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
 
   const getOptionIcon = (option: string) => {
     if (!answered) return null;
-    const isThisCorrect = option === question.correctAnswers[0];
+    const isThisCorrect = option === question.correctAnswer;
     const isThisSelected = option === selectedAnswer;
 
     if (isThisCorrect) {
@@ -102,7 +102,7 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
     <div className="px-3 pt-4 sm:px-0">
       {/* Header */}
       <div className="mb-4 flex items-center justify-between">
-        <Link href="/security-plus/practice" className="flex items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-zinc-200">
+        <Link href="/linux/practice" className="flex items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-zinc-200">
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
           </svg>
@@ -114,8 +114,8 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
       </div>
 
       {/* Topic info */}
-      <div className="mb-4 rounded-2xl border border-zinc-800 bg-gradient-to-br from-cyan-950/20 to-zinc-900 p-4 sm:rounded-xl">
-        <p className="text-xs font-medium text-cyan-400/70">{domainName}</p>
+      <div className="mb-4 rounded-2xl border border-zinc-800 bg-gradient-to-br from-emerald-950/20 to-zinc-900 p-4 sm:rounded-xl">
+        <p className="text-xs font-medium text-emerald-400/70">{domainName}</p>
         <h2 className="mt-0.5 text-lg font-bold tracking-tight">{topicTitle}</h2>
         <div className="mt-2 flex gap-3 text-xs text-zinc-500">
           <span className="flex items-center gap-1">
@@ -134,7 +134,7 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 sm:rounded-xl">
           <div className="text-center">
             <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-zinc-800">
-              <span className="text-2xl font-bold text-cyan-400">
+              <span className="text-2xl font-bold text-emerald-400">
                 {Math.round((score.correct / score.total) * 100)}%
               </span>
             </div>
@@ -145,12 +145,12 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
             <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-center">
               <button
                 onClick={handleRestart}
-                className="rounded-xl bg-cyan-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-cyan-500 active:bg-cyan-700"
+                className="rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-500 active:bg-emerald-700"
               >
                 Try Again
               </button>
               <Link
-                href="/security-plus/practice"
+                href="/linux/practice"
                 className="rounded-xl bg-zinc-800 px-5 py-2.5 text-center text-sm font-semibold text-zinc-300 transition-colors hover:bg-zinc-700 active:bg-zinc-700"
               >
                 Back to Topics
@@ -172,15 +172,8 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
             }`}>
               {question.difficulty}
             </span>
-            <span className="text-[10px] text-zinc-600">{question.qid}</span>
+            <span className="text-[10px] text-zinc-600">Q{question.id}</span>
           </div>
-
-          {/* Scenario */}
-          {question.scenario && (
-            <div className="mb-3 rounded-lg border border-zinc-700/50 bg-zinc-800/50 p-3 text-sm leading-relaxed text-zinc-300">
-              {question.scenario}
-            </div>
-          )}
 
           {/* Prompt */}
           <p className="mb-4 text-[15px] font-medium leading-relaxed">{question.prompt}</p>
@@ -197,7 +190,7 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
                 }`}
               >
                 <span className={`flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border text-xs font-semibold ${
-                  answered && option === question.correctAnswers[0]
+                  answered && option === question.correctAnswer
                     ? "border-emerald-500 bg-emerald-500/20 text-emerald-400"
                     : answered && option === selectedAnswer
                     ? "border-red-500 bg-red-500/20 text-red-400"
@@ -243,7 +236,7 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
           {answered && currentIdx < questions.length - 1 && (
             <button
               onClick={handleNext}
-              className="mt-4 w-full rounded-xl bg-cyan-600 py-3 text-sm font-semibold text-white transition-colors hover:bg-cyan-500 active:bg-cyan-700"
+              className="mt-4 w-full rounded-xl bg-emerald-600 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-500 active:bg-emerald-700"
             >
               Next Question →
             </button>
@@ -254,7 +247,7 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
       {/* Progress bar */}
       <div className="mt-4 overflow-hidden rounded-full bg-zinc-800">
         <div
-          className="h-1.5 rounded-full bg-cyan-500/60 transition-all duration-300"
+          className="h-1.5 rounded-full bg-emerald-500/60 transition-all duration-300"
           style={{ width: `${((currentIdx + (answered ? 1 : 0)) / questions.length) * 100}%` }}
         />
       </div>

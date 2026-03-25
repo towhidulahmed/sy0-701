@@ -75,7 +75,7 @@ export function HomeClient({ tests }: { tests: number[] }) {
           return (
             <Link
               key={testNumber}
-              href={`/mock-tests/${testNumber}`}
+              href={`/security-plus/mock-tests/${testNumber}`}
               className={`flex flex-col items-center justify-center rounded-xl border px-2 py-3 text-center transition-all ${borderClass} ${bgClass}`}
             >
               <span className="text-sm font-semibold text-zinc-200">Test {testNumber}</span>

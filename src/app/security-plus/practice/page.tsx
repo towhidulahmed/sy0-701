@@ -29,7 +29,7 @@ export default function PracticePage() {
               return (
                 <Link
                   key={topic.slug}
-                  href={`/practice/${topic.slug}`}
+                  href={`/security-plus/practice/${topic.slug}`}
                   className="group flex items-center justify-between rounded-xl border border-zinc-700/40 bg-zinc-800/40 px-4 py-3 transition-all active:bg-zinc-700/60 sm:hover:bg-zinc-800"
                 >
                   <div className="flex items-center gap-3">

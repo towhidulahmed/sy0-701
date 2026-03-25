@@ -1,92 +1,87 @@
 import Link from "next/link";
-import { MAX_MOCK_TESTS } from "@/lib/constants";
-import { HomeClient } from "@/components/home-client";
-
-const tests = Array.from({ length: MAX_MOCK_TESTS }, (_, index) => index + 1);
 
 export default function Home() {
   return (
     <main className="space-y-4 px-3 pt-4 sm:space-y-6 sm:px-0 sm:pt-0">
-      {/* Hero / welcome section — mobile only */}
-      <section className="rounded-2xl border border-zinc-800 bg-gradient-to-br from-cyan-950/30 to-zinc-900 p-5 sm:rounded-xl sm:p-6">
-        <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Security+ SY0-701</h2>
-        <p className="mt-2 text-sm leading-6 text-zinc-400">
-          Mock exams with 90 questions each, aligned with all 5 CompTIA domains. Scenario-based questions mirror the real exam format.
+      {/* Hero */}
+      <section className="rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-5 sm:rounded-xl sm:p-8">
+        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">LearnLab</h2>
+        <p className="mt-2 text-sm leading-6 text-zinc-400 sm:text-base">
+          Your interactive learning platform. Choose a course below to get started with study guides, flashcards, practice questions, and mock exams.
         </p>
-        <div className="mt-4 grid grid-cols-3 gap-2.5">
-          <div className="rounded-lg bg-zinc-800/60 px-3 py-2.5 text-center">
-            <p className="text-lg font-bold text-zinc-200">410</p>
-            <p className="text-[10px] text-zinc-500">Questions</p>
-          </div>
-          <div className="rounded-lg bg-zinc-800/60 px-3 py-2.5 text-center">
-            <p className="text-lg font-bold text-zinc-200">90 min</p>
-            <p className="text-[10px] text-zinc-500">Per Exam</p>
-          </div>
-          <div className="rounded-lg bg-zinc-800/60 px-3 py-2.5 text-center">
-            <p className="text-lg font-bold text-zinc-200">750</p>
-            <p className="text-[10px] text-zinc-500">Pass Score</p>
-          </div>
-        </div>
       </section>
 
-      {/* Mock test grid with completion indicators (client component) */}
-      <HomeClient tests={tests} />
-
-      {/* Practice CTA */}
+      {/* Security+ Course Card */}
       <Link
-        href="/practice"
-        className="group block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-colors active:bg-zinc-800/80 sm:rounded-xl sm:p-6 sm:hover:bg-zinc-800/60"
+        href="/security-plus"
+        className="group block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-all active:bg-zinc-800/80 sm:rounded-xl sm:p-6 sm:hover:border-cyan-800/50 sm:hover:bg-cyan-950/20"
       >
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-base font-semibold sm:text-lg">Practice by Topic</h3>
-            <p className="mt-1.5 text-sm leading-6 text-zinc-400">
-              Pick a topic and practice questions with instant feedback — see right or wrong immediately.
-            </p>
+        <div className="flex items-start gap-4">
+          <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-cyan-950/40 text-cyan-400">
+            <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
           </div>
-          <span className="flex-shrink-0 text-lg text-violet-500/60 transition-transform group-hover:translate-x-1">→</span>
+          <div className="flex-1">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-bold sm:text-xl">CompTIA Security+ SY0-701</h3>
+              <span className="flex-shrink-0 text-lg text-cyan-500/40 transition-transform group-hover:translate-x-1">→</span>
+            </div>
+            <p className="mt-1.5 text-sm leading-6 text-zinc-400">
+              Full exam prep with 410 questions, 35 mock exams, practice by topic, and a comprehensive study guide covering all 5 domains.
+            </p>
+            <div className="mt-3 flex gap-2">
+              <span className="rounded-md bg-cyan-950/40 px-2 py-0.5 text-[11px] font-medium text-cyan-400">410 Questions</span>
+              <span className="rounded-md bg-zinc-800 px-2 py-0.5 text-[11px] font-medium text-zinc-400">35 Mock Exams</span>
+              <span className="rounded-md bg-zinc-800 px-2 py-0.5 text-[11px] font-medium text-zinc-400">Study Guide</span>
+            </div>
+          </div>
         </div>
       </Link>
 
-      {/* Study guide CTA */}
+      {/* Linux Course Card */}
       <Link
-        href="/study"
-        className="group block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-colors active:bg-zinc-800/80 sm:rounded-xl sm:p-6 sm:hover:bg-zinc-800/60"
+        href="/linux"
+        className="group block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-all active:bg-zinc-800/80 sm:rounded-xl sm:p-6 sm:hover:border-emerald-800/50 sm:hover:bg-emerald-950/20"
       >
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-base font-semibold sm:text-lg">Study Guide</h3>
-            <p className="mt-1.5 text-sm leading-6 text-zinc-400">
-              Review all 5 domains — key terms, real-world scenarios, and exam tips.
-            </p>
+        <div className="flex items-start gap-4">
+          <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-emerald-950/40 text-emerald-400">
+            <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25z" />
+            </svg>
           </div>
-          <span className="flex-shrink-0 text-lg text-zinc-600 transition-transform group-hover:translate-x-1">→</span>
+          <div className="flex-1">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-bold sm:text-xl">Linux Administration</h3>
+              <span className="flex-shrink-0 text-lg text-emerald-500/40 transition-transform group-hover:translate-x-1">→</span>
+            </div>
+            <p className="mt-1.5 text-sm leading-6 text-zinc-400">
+              Master Linux from the command line up. Study guides, interactive flashcards, and practice exams for system administration.
+            </p>
+            <div className="mt-3 flex gap-2">
+              <span className="rounded-md bg-emerald-950/40 px-2 py-0.5 text-[11px] font-medium text-emerald-400">16 Topics</span>
+              <span className="rounded-md bg-zinc-800 px-2 py-0.5 text-[11px] font-medium text-zinc-400">Flashcards</span>
+              <span className="rounded-md bg-zinc-800 px-2 py-0.5 text-[11px] font-medium text-zinc-400">Practice Exams</span>
+            </div>
+          </div>
         </div>
       </Link>
 
-      {/* Exam info */}
+      {/* Platform info */}
       <section className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5 sm:rounded-xl sm:p-6">
-        <h3 className="text-base font-semibold">About the SY0-701 Exam</h3>
-        <div className="mt-3 space-y-2 text-sm leading-6 text-zinc-400">
-          <div className="flex justify-between rounded-lg bg-zinc-800/50 px-3 py-2">
-            <span>Domain 1: General Security Concepts</span>
-            <span className="font-semibold text-zinc-300">12%</span>
+        <h3 className="text-base font-semibold">How It Works</h3>
+        <div className="mt-3 space-y-3 text-sm leading-6 text-zinc-400">
+          <div className="flex items-start gap-3">
+            <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-zinc-800 text-xs font-bold text-zinc-300">1</span>
+            <p><span className="font-medium text-zinc-200">Pick a course</span> — choose Security+ or Linux above to enter the learning path.</p>
           </div>
-          <div className="flex justify-between rounded-lg bg-zinc-800/50 px-3 py-2">
-            <span>Domain 2: Threats, Vulnerabilities & Mitigations</span>
-            <span className="font-semibold text-zinc-300">22%</span>
+          <div className="flex items-start gap-3">
+            <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-zinc-800 text-xs font-bold text-zinc-300">2</span>
+            <p><span className="font-medium text-zinc-200">Study the material</span> — read through study guides, use flashcards, and review key concepts.</p>
           </div>
-          <div className="flex justify-between rounded-lg bg-zinc-800/50 px-3 py-2">
-            <span>Domain 3: Security Architecture</span>
-            <span className="font-semibold text-zinc-300">18%</span>
-          </div>
-          <div className="flex justify-between rounded-lg bg-zinc-800/50 px-3 py-2">
-            <span>Domain 4: Security Operations</span>
-            <span className="font-semibold text-zinc-300">28%</span>
-          </div>
-          <div className="flex justify-between rounded-lg bg-zinc-800/50 px-3 py-2">
-            <span>Domain 5: Program Management & Oversight</span>
-            <span className="font-semibold text-zinc-300">20%</span>
+          <div className="flex items-start gap-3">
+            <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-zinc-800 text-xs font-bold text-zinc-300">3</span>
+            <p><span className="font-medium text-zinc-200">Test your knowledge</span> — take practice exams and get instant feedback on your progress.</p>
           </div>
         </div>
       </section>

@@ -24,7 +24,7 @@ export function ResultView({ testId }: { testId: number }) {
           <p className="text-lg font-medium text-zinc-300">No result found</p>
           <p className="mt-2 text-sm text-zinc-500">Please take the mock test first.</p>
           <Link
-            href={`/mock-tests/${testId}`}
+            href={`/security-plus/mock-tests/${testId}`}
             className="mt-4 inline-block rounded-lg bg-cyan-700 px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-cyan-600"
           >
             Start Mock Test {testId}
@@ -150,13 +150,13 @@ export function ResultView({ testId }: { testId: number }) {
       {/* Action buttons */}
       <div className="grid grid-cols-2 gap-3 pb-4 sm:flex sm:pb-0">
         <Link
-          href={`/mock-tests/${testId}`}
+          href={`/security-plus/mock-tests/${testId}`}
           className="rounded-xl border border-zinc-700 bg-zinc-800 py-3 text-center text-sm font-medium transition-colors active:bg-zinc-700 sm:px-5 sm:hover:bg-zinc-700"
         >
           Retake Test
         </Link>
         <Link
-          href="/"
+          href="/security-plus"
           className="rounded-xl bg-cyan-700 py-3 text-center text-sm font-semibold text-white transition-colors active:bg-cyan-600 sm:px-5 sm:hover:bg-cyan-600"
         >
           All Tests

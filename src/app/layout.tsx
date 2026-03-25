@@ -4,12 +4,12 @@ import Link from "next/link";
 import { MobileNav } from "@/components/mobile-nav";
 
 export const metadata: Metadata = {
-  title: "Security+ SY0-701 Prep",
-  description: "Static CompTIA Security+ exam practice and study platform",
+  title: "LearnLab — Security+ & Linux",
+  description: "Interactive learning platform for CompTIA Security+ and Linux administration",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Sec+ Prep",
+    title: "LearnLab",
   },
 };
 
@@ -33,9 +33,9 @@ export default function RootLayout({
           <header className="mb-8 hidden items-center justify-between rounded-xl border border-zinc-800 bg-zinc-900/70 px-5 py-4 sm:flex">
             <div>
               <Link href="/">
-                <h1 className="text-xl font-bold tracking-tight">Security+ SY0-701 Prep</h1>
+                <h1 className="text-xl font-bold tracking-tight">LearnLab</h1>
               </Link>
-              <p className="mt-0.5 text-sm text-zinc-400">CompTIA exam practice & study guide</p>
+              <p className="mt-0.5 text-sm text-zinc-400">Security+ &amp; Linux learning platform</p>
             </div>
             <nav className="flex gap-2 text-sm">
               <Link
@@ -46,15 +46,15 @@ export default function RootLayout({
               </Link>
               <Link
                 className="rounded-lg bg-zinc-800 px-4 py-2.5 font-medium transition-colors hover:bg-zinc-700"
-                href="/practice"
+                href="/security-plus"
               >
-                Practice
+                Security+
               </Link>
               <Link
                 className="rounded-lg bg-zinc-800 px-4 py-2.5 font-medium transition-colors hover:bg-zinc-700"
-                href="/study"
+                href="/linux"
               >
-                Study Guide
+                Linux
               </Link>
             </nav>
           </header>
