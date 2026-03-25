@@ -62,13 +62,31 @@ const EXAM_SETS_WITH_TOPIC_IDS: Array<{ setNumber: number; questions: QuestionPa
 
 export const getQuestionPool = () => EXAM_SETS_WITH_TOPIC_IDS.flatMap((set) => set.questions);
 
-export const buildExamForTest = (testNumber: number) => {
-  const normalizedTestNumber = Number.isFinite(testNumber)
-    ? Math.min(Math.max(Math.floor(testNumber), 1), EXAM_SETS_WITH_TOPIC_IDS.length)
-    : 1;
+/** Get questions for a specific topic by its study path slug (e.g. "cryptography") */
+export const getQuestionsByTopicSlug = (slug: string): QuestionPayload[] => {
+  const studyPath = `/study#${slug}`;
+  return getQuestionPool().filter((q) => q.studyPath === studyPath);
+};
 
-  const selectedSet = EXAM_SETS_WITH_TOPIC_IDS[normalizedTestNumber - 1] ?? EXAM_SETS_WITH_TOPIC_IDS[0];
-  return selectedSet.questions.slice(0, EXAM_QUESTION_COUNT);
+/** Simple seeded PRNG (mulberry32) for deterministic shuffling */
+const seededRng = (seed: number) => {
+  return () => {
+    seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+    let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+};
+
+export const buildExamForTest = (testNumber: number) => {
+  const pool = getQuestionPool();
+  const rng = seededRng(testNumber * 7919);
+  const shuffled = [...pool];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled.slice(0, EXAM_QUESTION_COUNT).map((q, idx) => ({ ...q, id: idx + 1 }));
 };
 
 export const calculateScore = (correct: number) => {

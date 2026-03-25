@@ -46,6 +46,12 @@ export default function RootLayout({
               </Link>
               <Link
                 className="rounded-lg bg-zinc-800 px-4 py-2.5 font-medium transition-colors hover:bg-zinc-700"
+                href="/practice"
+              >
+                Practice
+              </Link>
+              <Link
+                className="rounded-lg bg-zinc-800 px-4 py-2.5 font-medium transition-colors hover:bg-zinc-700"
                 href="/study"
               >
                 Study Guide

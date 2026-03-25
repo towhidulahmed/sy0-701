@@ -11,11 +11,11 @@ export default function Home() {
       <section className="rounded-2xl border border-zinc-800 bg-gradient-to-br from-cyan-950/30 to-zinc-900 p-5 sm:rounded-xl sm:p-6">
         <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Security+ SY0-701</h2>
         <p className="mt-2 text-sm leading-6 text-zinc-400">
-          35 full-length mock exams with 90 questions each, aligned with all 5 CompTIA domains. Scenario-based questions mirror the real exam format.
+          Mock exams with 90 questions each, aligned with all 5 CompTIA domains. Scenario-based questions mirror the real exam format.
         </p>
         <div className="mt-4 grid grid-cols-3 gap-2.5">
           <div className="rounded-lg bg-zinc-800/60 px-3 py-2.5 text-center">
-            <p className="text-lg font-bold text-zinc-200">3,150</p>
+            <p className="text-lg font-bold text-zinc-200">410</p>
             <p className="text-[10px] text-zinc-500">Questions</p>
           </div>
           <div className="rounded-lg bg-zinc-800/60 px-3 py-2.5 text-center">
@@ -31,6 +31,22 @@ export default function Home() {
 
       {/* Mock test grid with completion indicators (client component) */}
       <HomeClient tests={tests} />
+
+      {/* Practice CTA */}
+      <Link
+        href="/practice"
+        className="group block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-colors active:bg-zinc-800/80 sm:rounded-xl sm:p-6 sm:hover:bg-zinc-800/60"
+      >
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-base font-semibold sm:text-lg">Practice by Topic</h3>
+            <p className="mt-1.5 text-sm leading-6 text-zinc-400">
+              Pick a topic and practice questions with instant feedback — see right or wrong immediately.
+            </p>
+          </div>
+          <span className="flex-shrink-0 text-lg text-violet-500/60 transition-transform group-hover:translate-x-1">→</span>
+        </div>
+      </Link>
 
       {/* Study guide CTA */}
       <Link
