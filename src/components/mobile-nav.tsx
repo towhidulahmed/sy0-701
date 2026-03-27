@@ -19,7 +19,7 @@ export function MobileNav() {
   if (!inSecPlus && !inLinux) {
     return (
       <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-zinc-800 bg-zinc-900/95 pb-[max(0.25rem,env(safe-area-inset-bottom))] backdrop-blur-md sm:hidden">
-        <div className="mx-auto flex max-w-lg items-stretch">
+        <div className="mx-auto flex max-w-lg items-stretch justify-center">
           <Link
             href="/"
             className="flex flex-1 flex-col items-center gap-0.5 py-2.5 text-[11px] font-medium text-cyan-400"
@@ -28,24 +28,6 @@ export function MobileNav() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955a1.126 1.126 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
             </svg>
             Home
-          </Link>
-          <Link
-            href="/security-plus"
-            className="flex flex-1 flex-col items-center gap-0.5 py-2.5 text-[11px] font-medium text-zinc-500 active:text-zinc-300"
-          >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-            </svg>
-            Security+
-          </Link>
-          <Link
-            href="/linux"
-            className="flex flex-1 flex-col items-center gap-0.5 py-2.5 text-[11px] font-medium text-zinc-500 active:text-zinc-300"
-          >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25z" />
-            </svg>
-            Linux
           </Link>
         </div>
       </nav>

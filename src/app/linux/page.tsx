@@ -32,80 +32,68 @@ export default function LinuxHome() {
         </div>
       </section>
 
-      {/* Study Guide CTA */}
-      <Link
-        href="/linux/study"
-        className="group block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-colors active:bg-zinc-800/80 sm:rounded-xl sm:p-6 sm:hover:bg-zinc-800/60"
-      >
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-base font-semibold sm:text-lg">Study Guide</h3>
-            <p className="mt-1.5 text-sm leading-6 text-zinc-400">
-              In-depth guides covering all Linux admin topics — commands, examples, and tips.
-            </p>
+      {/* Feature CTAs — 2-column on desktop */}
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Link
+          href="/linux/flashcards"
+          className="group block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-colors active:bg-zinc-800/80 sm:rounded-xl sm:hover:bg-zinc-800/60"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-base font-semibold">Flashcards</h3>
+              <p className="mt-1 text-sm leading-6 text-zinc-400">
+                {totalFlashcards} cards — flip to test your recall.
+              </p>
+            </div>
+            <span className="flex-shrink-0 text-lg text-emerald-500/60 transition-transform group-hover:translate-x-1">→</span>
           </div>
-          <span className="flex-shrink-0 text-lg text-emerald-500/60 transition-transform group-hover:translate-x-1">→</span>
-        </div>
-      </Link>
+        </Link>
 
-      {/* Flashcards CTA */}
-      <Link
-        href="/linux/flashcards"
-        className="group block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-colors active:bg-zinc-800/80 sm:rounded-xl sm:p-6 sm:hover:bg-zinc-800/60"
-      >
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-base font-semibold sm:text-lg">Flashcards</h3>
-            <p className="mt-1.5 text-sm leading-6 text-zinc-400">
-              {totalFlashcards} interactive flashcards — flip to reveal answers and test your recall.
-            </p>
+        <Link
+          href="/linux/practice"
+          className="group block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-colors active:bg-zinc-800/80 sm:rounded-xl sm:hover:bg-zinc-800/60"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-base font-semibold">Practice Exams</h3>
+              <p className="mt-1 text-sm leading-6 text-zinc-400">
+                Test your Linux knowledge with instant feedback.
+              </p>
+            </div>
+            <span className="flex-shrink-0 text-lg text-emerald-500/60 transition-transform group-hover:translate-x-1">→</span>
           </div>
-          <span className="flex-shrink-0 text-lg text-emerald-500/60 transition-transform group-hover:translate-x-1">→</span>
-        </div>
-      </Link>
+        </Link>
 
-      {/* Practice CTA */}
-      <Link
-        href="/linux/practice"
-        className="group block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-colors active:bg-zinc-800/80 sm:rounded-xl sm:p-6 sm:hover:bg-zinc-800/60"
-      >
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-base font-semibold sm:text-lg">Practice Exams</h3>
-            <p className="mt-1.5 text-sm leading-6 text-zinc-400">
-              Multiple-choice questions to test your Linux knowledge with instant feedback.
-            </p>
+        <Link
+          href="/linux/study"
+          className="group block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-colors active:bg-zinc-800/80 sm:rounded-xl sm:hover:bg-zinc-800/60"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-base font-semibold">Study Guide</h3>
+              <p className="mt-1 text-sm leading-6 text-zinc-400">
+                Commands, examples, and tips for all topics.
+              </p>
+            </div>
+            <span className="flex-shrink-0 text-lg text-emerald-500/60 transition-transform group-hover:translate-x-1">→</span>
           </div>
-          <span className="flex-shrink-0 text-lg text-emerald-500/60 transition-transform group-hover:translate-x-1">→</span>
-        </div>
-      </Link>
+        </Link>
 
-      {/* Topics overview */}
-      <section className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5 sm:rounded-xl sm:p-6">
-        <h3 className="text-base font-semibold">Topics Covered</h3>
-        <div className="mt-3 space-y-2 text-sm leading-6 text-zinc-400">
-          {(["beginner", "intermediate", "advanced"] as const).map((level) => {
-            const levelDomains = LINUX_STUDY.filter((d) => d.level === level);
-            if (levelDomains.length === 0) return null;
-            const labelColor = level === "beginner" ? "text-emerald-400 bg-emerald-950/50" : level === "intermediate" ? "text-amber-400 bg-amber-950/50" : "text-rose-400 bg-rose-950/50";
-            return (
-              <div key={level}>
-                <span className={`mb-2 inline-block rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${labelColor}`}>
-                  {level}
-                </span>
-                {levelDomains.map((domain) => (
-                  <div key={domain.key} className="mb-1.5 flex justify-between rounded-lg bg-zinc-800/50 px-3 py-2">
-                    <span>{domain.name}</span>
-                    <span className="font-semibold text-zinc-300">
-                      {domain.topics.length} {domain.topics.length === 1 ? "topic" : "topics"}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            );
-          })}
-        </div>
-      </section>
+        <Link
+          href="/linux/syllabus"
+          className="group block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-colors active:bg-zinc-800/80 sm:rounded-xl sm:hover:bg-zinc-800/60"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-base font-semibold">Topics Covered</h3>
+              <p className="mt-1 text-sm leading-6 text-zinc-400">
+                Full syllabus organized by difficulty level.
+              </p>
+            </div>
+            <span className="flex-shrink-0 text-lg text-zinc-600 transition-transform group-hover:translate-x-1">→</span>
+          </div>
+        </Link>
+      </div>
     </main>
   );
 }

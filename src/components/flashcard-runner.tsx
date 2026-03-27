@@ -7,7 +7,13 @@ import type { LinuxDomain } from "@/lib/linux-study-data";
 
 type Flashcard = { front: string; back: string; topic: string };
 
-export function FlashcardRunner({ domains }: { domains: LinuxDomain[] }) {
+type FlashcardRunnerProps = {
+  domains: LinuxDomain[];
+  backHref?: string;
+  accentColor?: "emerald" | "cyan";
+};
+
+export function FlashcardRunner({ domains, backHref = "/linux/flashcards", accentColor = "emerald" }: FlashcardRunnerProps) {
   const searchParams = useSearchParams();
   const topicFilter = searchParams.get("topic");
 
@@ -38,7 +44,7 @@ export function FlashcardRunner({ domains }: { domains: LinuxDomain[] }) {
       <div className="px-3 pt-4 sm:px-0">
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 text-center">
           <p className="text-zinc-400">No flashcards available for this topic.</p>
-          <Link href="/linux/flashcards" className="mt-4 inline-block text-sm text-emerald-400 underline">
+          <Link href={backHref} className="mt-4 inline-block text-sm text-emerald-400 underline">
             ← All flashcards
           </Link>
         </div>
@@ -67,31 +73,31 @@ export function FlashcardRunner({ domains }: { domains: LinuxDomain[] }) {
 
   if (isFinished) {
     return (
-      <div className="px-3 pt-4 sm:px-0">
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 text-center">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-950/50">
-            <svg className="h-8 w-8 text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+      <div className="flex min-h-[calc(100dvh-6rem)] items-center justify-center px-3 pt-4 sm:min-h-0 sm:px-0">
+        <div className="w-full max-w-lg rounded-2xl border border-zinc-800 bg-zinc-900 p-8 text-center">
+          <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-950/50">
+            <svg className="h-10 w-10 text-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h3 className="text-lg font-bold text-zinc-100">Session Complete!</h3>
+          <h3 className="text-xl font-bold text-zinc-100">Session Complete!</h3>
           <p className="mt-2 text-sm text-zinc-400">
             {known} of {allCards.length} marked as known
           </p>
-          <div className="mt-2 flex justify-center gap-4 text-sm">
+          <div className="mt-3 flex justify-center gap-6 text-sm">
             <span className="text-emerald-400">✓ {known} known</span>
             <span className="text-amber-400">✗ {unknown} review</span>
           </div>
-          <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-center">
+          <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:justify-center">
             <button
               onClick={handleRestart}
-              className="rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-500"
+              className="rounded-xl bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-500"
             >
               Study Again
             </button>
             <Link
-              href="/linux/flashcards"
-              className="rounded-xl bg-zinc-800 px-5 py-2.5 text-center text-sm font-semibold text-zinc-300 transition-colors hover:bg-zinc-700"
+              href={backHref}
+              className="rounded-xl bg-zinc-800 px-6 py-3 text-center text-sm font-semibold text-zinc-300 transition-colors hover:bg-zinc-700"
             >
               All Topics
             </Link>
@@ -102,39 +108,53 @@ export function FlashcardRunner({ domains }: { domains: LinuxDomain[] }) {
   }
 
   return (
-    <div className="px-3 pt-4 sm:px-0">
+    <div className="flex min-h-[calc(100dvh-6rem)] flex-col px-3 pt-4 sm:min-h-0 sm:px-0">
       {/* Header */}
-      <div className="mb-4 flex items-center justify-between">
-        <Link href="/linux/flashcards" className="flex items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-zinc-200">
+      <div className="mb-3 flex items-center justify-between">
+        <Link href={backHref} className="flex items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-zinc-200">
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
           </svg>
           Topics
         </Link>
-        <span className="rounded-md bg-zinc-800 px-2.5 py-1 text-xs font-medium text-zinc-400">
-          {currentIdx + 1} / {allCards.length}
-        </span>
+        <div className="flex items-center gap-3">
+          <div className="flex gap-2 text-xs text-zinc-500">
+            <span className="text-emerald-400">✓ {known}</span>
+            <span className="text-amber-400">✗ {unknown}</span>
+          </div>
+          <span className="rounded-md bg-zinc-800 px-2.5 py-1 text-xs font-medium text-zinc-400">
+            {currentIdx + 1} / {allCards.length}
+          </span>
+        </div>
+      </div>
+
+      {/* Progress bar */}
+      <div className="mb-4 h-1 overflow-hidden rounded-full bg-zinc-800">
+        <div
+          className="h-full rounded-full bg-emerald-600 transition-all"
+          style={{ width: `${((known + unknown) / allCards.length) * 100}%` }}
+        />
       </div>
 
       {/* Topic label */}
       <p className="mb-3 text-xs font-medium text-emerald-500">{currentTopicTitle} — {card.topic}</p>
 
-      {/* Flashcard */}
+      {/* Flashcard — takes major space */}
       <button
         onClick={() => setFlipped(!flipped)}
-        className="w-full rounded-2xl border border-zinc-700/60 bg-zinc-900 p-6 text-left transition-all active:scale-[0.99] sm:p-8 min-h-[200px] flex flex-col justify-center"
+        className="flex flex-1 flex-col justify-center rounded-2xl border border-zinc-700/60 bg-zinc-900 p-6 text-left transition-all active:scale-[0.995] sm:p-10 md:p-12 min-h-[300px] sm:min-h-[400px]"
       >
         {!flipped ? (
-          <>
-            <p className="text-xs font-medium uppercase tracking-wider text-zinc-500 mb-3">Question</p>
-            <p className="text-base font-medium leading-7 text-zinc-100 sm:text-lg">{card.front}</p>
-            <p className="mt-4 text-xs text-zinc-600">Tap to reveal answer</p>
-          </>
+          <div className="flex w-full flex-1 flex-col justify-center">
+            <p className="text-xs font-medium uppercase tracking-wider text-zinc-500 mb-4">Question</p>
+            <p className="text-lg font-medium leading-8 text-zinc-100 sm:text-xl sm:leading-9 lg:text-2xl lg:leading-10">{card.front}</p>
+            <p className="mt-6 text-xs text-zinc-600">Tap to reveal answer</p>
+          </div>
         ) : (
-          <>
-            <p className="text-xs font-medium uppercase tracking-wider text-emerald-500 mb-3">Answer</p>
-            <p className="text-base leading-7 text-zinc-200 sm:text-lg">{card.back}</p>
-          </>
+          <div className="flex w-full flex-1 flex-col justify-center">
+            <p className="text-xs font-medium uppercase tracking-wider text-emerald-500 mb-4">Answer</p>
+            <p className="text-lg leading-8 text-zinc-200 sm:text-xl sm:leading-9 lg:text-2xl lg:leading-10">{card.back}</p>
+          </div>
         )}
       </button>
 
@@ -143,26 +163,18 @@ export function FlashcardRunner({ domains }: { domains: LinuxDomain[] }) {
         <div className="mt-4 grid grid-cols-2 gap-3">
           <button
             onClick={() => handleMark(false)}
-            className="rounded-xl border border-amber-800/40 bg-amber-950/20 py-3 text-sm font-semibold text-amber-400 transition-colors active:bg-amber-900/30"
+            className="rounded-xl border border-amber-800/40 bg-amber-950/20 py-3.5 text-sm font-semibold text-amber-400 transition-colors active:bg-amber-900/30 sm:py-4"
           >
             ✗ Still Learning
           </button>
           <button
             onClick={() => handleMark(true)}
-            className="rounded-xl border border-emerald-800/40 bg-emerald-950/20 py-3 text-sm font-semibold text-emerald-400 transition-colors active:bg-emerald-900/30"
+            className="rounded-xl border border-emerald-800/40 bg-emerald-950/20 py-3.5 text-sm font-semibold text-emerald-400 transition-colors active:bg-emerald-900/30 sm:py-4"
           >
             ✓ Got It
           </button>
         </div>
       )}
-
-      {/* Progress bar */}
-      <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-zinc-800">
-        <div
-          className="h-full rounded-full bg-emerald-600 transition-all"
-          style={{ width: `${((known + unknown) / allCards.length) * 100}%` }}
-        />
-      </div>
     </div>
   );
 }

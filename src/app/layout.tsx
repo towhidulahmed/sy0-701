@@ -1,15 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import Link from "next/link";
+import { SiteHeader } from "@/components/site-header";
 import { MobileNav } from "@/components/mobile-nav";
 
 export const metadata: Metadata = {
-  title: "LearnLab — Security+ & Linux",
-  description: "Interactive learning platform for CompTIA Security+ and Linux administration",
+  title: "Stuick — Why Study Long When You Can Study Quick",
+  description: "Your quick and focused learning platform. Study smarter, not longer.",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "LearnLab",
+    title: "Stuick",
   },
 };
 
@@ -29,35 +29,7 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth">
       <body>
         <div className="mx-auto min-h-dvh max-w-5xl px-0 pb-20 sm:px-6 sm:pb-6 sm:pt-6">
-          {/* Desktop header */}
-          <header className="mb-8 hidden items-center justify-between rounded-xl border border-zinc-800 bg-zinc-900/70 px-5 py-4 sm:flex">
-            <div>
-              <Link href="/">
-                <h1 className="text-xl font-bold tracking-tight">LearnLab</h1>
-              </Link>
-              <p className="mt-0.5 text-sm text-zinc-400">Security+ &amp; Linux learning platform</p>
-            </div>
-            <nav className="flex gap-2 text-sm">
-              <Link
-                className="rounded-lg bg-zinc-800 px-4 py-2.5 font-medium transition-colors hover:bg-zinc-700"
-                href="/"
-              >
-                Home
-              </Link>
-              <Link
-                className="rounded-lg bg-zinc-800 px-4 py-2.5 font-medium transition-colors hover:bg-zinc-700"
-                href="/security-plus"
-              >
-                Security+
-              </Link>
-              <Link
-                className="rounded-lg bg-zinc-800 px-4 py-2.5 font-medium transition-colors hover:bg-zinc-700"
-                href="/linux"
-              >
-                Linux
-              </Link>
-            </nav>
-          </header>
+          <SiteHeader />
           {children}
         </div>
         {/* Mobile bottom tab bar — hidden during exam */}
