@@ -15,7 +15,7 @@ export default function LinuxSyllabusPage() {
           </div>
           <Link
             href="/linux"
-            className="flex-shrink-0 rounded-lg bg-zinc-800 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:bg-zinc-700"
+            className="flex-shrink-0 rounded-lg bg-zinc-800 px-3 py-2 text-sm font-medium text-zinc-300 transition-colors hover:bg-zinc-700 active:bg-zinc-600"
           >
             ← Back
           </Link>

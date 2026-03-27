@@ -45,11 +45,11 @@ export default function Home() {
   return (
     <main className="px-3 pt-4 sm:px-0 sm:pt-0">
       {/* Hero — full-width centered */}
-      <section className="flex flex-col items-center justify-center py-12 text-center sm:py-20">
-        <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+      <section className="flex flex-col items-center justify-center py-8 text-center sm:py-20">
+        <h2 className="hidden text-4xl font-extrabold tracking-tight sm:block sm:text-5xl lg:text-6xl">
           Stuick
         </h2>
-        <p className="mt-3 text-base text-zinc-400 sm:mt-4 sm:text-lg">
+        <p className="text-base text-zinc-400 sm:mt-4 sm:text-lg">
           Why Study Long When You Can Study Quick
         </p>
         <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-zinc-500 sm:text-base">
@@ -94,8 +94,20 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Bottom spacer for mobile nav */}
-      <div className="h-8 sm:h-12" />
+      {/* Footer */}
+      <footer className="mt-10 pb-2 text-center sm:mt-14">
+        <p className="text-xs text-zinc-600">
+          © {new Date().getFullYear()} Stuick · Made by{" "}
+          <a
+            href="https://www.towhid.info"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-500 underline underline-offset-2 transition-colors hover:text-zinc-400"
+          >
+            Towhid
+          </a>
+        </p>
+      </footer>
     </main>
   );
 }
