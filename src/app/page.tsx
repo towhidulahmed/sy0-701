@@ -69,8 +69,13 @@ export default function Home() {
         <h2 className="leading-none">
           <Logo large />
         </h2>
-        <p className="mt-3 text-base font-semibold text-zinc-300 sm:mt-4 sm:text-lg sm:font-normal sm:text-zinc-400">
-          Why Study Long When You Can Study Quick
+        <p className="mt-4 text-base text-zinc-500 sm:mt-5 sm:text-lg">
+          Why{" "}
+          <span className="font-semibold text-zinc-200">Stu</span>
+          <span className="font-semibold text-zinc-400">dy</span>{" "}long when you can{" "}
+          <span className="font-semibold text-zinc-200">stu</span>
+          <span className="font-semibold text-zinc-400">dy</span>{" "}qu
+          <span className="font-semibold text-yellow-400">ick</span>?
         </p>
         <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-zinc-500 sm:max-w-md sm:mt-4 sm:text-base">
           Pick a course and start learning with flashcards, practice questions, and mock exams — all in one place.
