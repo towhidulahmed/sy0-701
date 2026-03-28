@@ -8,7 +8,7 @@ import type { LinuxDomain } from "./linux-study-data";
 function generateFlashcards(topic: (typeof STATIC_SYLLABUS)[number]["topics"][number]): { front: string; back: string }[] {
   const cards: { front: string; back: string }[] = [];
 
-  // Key terms as flashcards — ask "What is X?"
+  // Key terms as flashcards, ask "What is X?"
   for (const term of topic.keyTerms) {
     cards.push({
       front: `What is ${term}?`,
@@ -49,7 +49,7 @@ function extractDefinition(content: string, term: string): string {
     }
   }
 
-  return `A key concept in ${term} — review the study guide for details.`;
+  return `A key concept in ${term}, review the study guide for details.`;
 }
 
 /**

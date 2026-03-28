@@ -14,15 +14,15 @@ export function Logo({ large = false, className = "" }: LogoProps) {
       aria-label="Stuick"
       role="img"
     >
-      {/* "Stu" — heavy white */}
+      {/* "Stu", heavy white */}
       <span className="text-zinc-100">Stu</span>
 
-      {/* "i" — dotless-i with lightning bolt replacing the dot */}
+      {/* "i", dotless-i with lightning bolt replacing the dot */}
       <span
         className="relative text-yellow-400"
         style={{ display: "inline-block", lineHeight: 1 }}
       >
-        {/* U+0131 — dotless i, leaves space for the bolt */}
+        {/* U+0131, dotless i, leaves space for the bolt */}
         ı
         <svg
           aria-hidden="true"
@@ -46,7 +46,7 @@ export function Logo({ large = false, className = "" }: LogoProps) {
         </svg>
       </span>
 
-      {/* "ck" — same yellow accent */}
+      {/* "ck", same yellow accent */}
       <span className="text-yellow-400">ck</span>
     </span>
   );

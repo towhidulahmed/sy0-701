@@ -167,7 +167,7 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
           </div>
         </div>
       ) : (
-        /* Question card — full page focus */
+        /* Question card, full page focus */
         <div className="flex flex-1 flex-col rounded-2xl border border-zinc-800 bg-zinc-900 p-5 sm:rounded-xl sm:p-8">
           {/* Difficulty badge */}
           <div className="mb-4 flex items-center gap-2">
@@ -219,7 +219,7 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
             ))}
           </div>
 
-          {/* Feedback on wrong answer — compact, just shows correct answer */}
+          {/* Feedback on wrong answer, compact, just shows correct answer */}
           {answered && !isCorrect && (
             <div className="mt-4 rounded-xl border border-red-700/40 bg-red-950/20 p-4">
               <p className="text-sm font-semibold text-red-400">Incorrect</p>
@@ -227,7 +227,7 @@ export function PracticeRunner({ topicTitle, topicSlug, domainName, questions }:
             </div>
           )}
 
-          {/* Next button — only on wrong answer (correct auto-advances) */}
+          {/* Next button, only on wrong answer (correct auto-advances) */}
           {answered && !isCorrect && currentIdx < questions.length - 1 && (
             <button
               onClick={handleNext}

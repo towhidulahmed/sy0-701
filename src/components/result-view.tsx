@@ -45,7 +45,7 @@ export function ResultView({ testId }: { testId: number }) {
       <section className="rounded-2xl border border-zinc-800 bg-gradient-to-br from-cyan-950/30 to-zinc-900 p-5 sm:rounded-xl sm:p-6">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Mock Test {testId} — Result</h2>
+            <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Mock Test {testId}, Result</h2>
             <p className="mt-2 text-sm leading-6 text-zinc-400">
               Review your score and identify areas for improvement.
             </p>
@@ -73,7 +73,7 @@ export function ResultView({ testId }: { testId: number }) {
           </div>
 
           {autoSubmit ? (
-            <p className="mt-2 text-sm text-amber-300/80">Auto-submitted — time expired</p>
+            <p className="mt-2 text-sm text-amber-300/80">Auto-submitted, time expired</p>
           ) : null}
 
           <p className="mt-1 text-sm text-zinc-500">Passing score: 750</p>
@@ -130,7 +130,7 @@ export function ResultView({ testId }: { testId: number }) {
           {result.wrongAnswers.length === 0 ? "All Correct!" : `Review Wrong Answers (${result.wrongAnswers.length})`}
         </h3>
         {result.wrongAnswers.length === 0 ? (
-          <p className="mt-2 text-sm text-emerald-400">Perfect score — no incorrect answers.</p>
+          <p className="mt-2 text-sm text-emerald-400">Perfect score, no incorrect answers.</p>
         ) : (
           <div className="mt-3 space-y-3">
             {result.wrongAnswers.map((wrong, idx) => (

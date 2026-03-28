@@ -47,7 +47,7 @@ export const EXAM_SETS: ExamSet[] = [
         "correctAnswers": [
           "Assess exposure and implement compensating controls for internet-facing servers while expediting the patch"
         ],
-        "scenario": "The security team is alerted at 6 PM. The company has 15 Apache servers — 3 public-facing and 12 internal. IT change management requires a 2-week patch window.",
+        "scenario": "The security team is alerted at 6 PM. The company has 15 Apache servers, 3 public-facing and 12 internal. IT change management requires a 2-week patch window.",
         "domainKey": "security-operations",
         "domainName": "Security Operations",
         "topicId": 0,
@@ -112,7 +112,7 @@ export const EXAM_SETS: ExamSet[] = [
           "FIDO2 hardware security key",
           "Push notification via mobile app"
         ],
-        "explanation": "FIDO2 hardware security keys (e.g., YubiKey) are phishing-resistant because authentication is bound to the origin domain — a fake site cannot intercept and replay the credential. SMS OTP is vulnerable to SIM-swapping. TOTP codes can be phished in real-time. Push notifications can be exploited via MFA fatigue attacks.",
+        "explanation": "FIDO2 hardware security keys (e.g., YubiKey) are phishing-resistant because authentication is bound to the origin domain, a fake site cannot intercept and replay the credential. SMS OTP is vulnerable to SIM-swapping. TOTP codes can be phished in real-time. Push notifications can be exploited via MFA fatigue attacks.",
         "correctAnswers": [
           "FIDO2 hardware security key"
         ],
@@ -267,14 +267,14 @@ export const EXAM_SETS: ExamSet[] = [
         "type": "multiple-choice-single",
         "difficulty": "medium",
         "options": [
-          "Brute force — it tries all possible combinations",
-          "Password spraying — it avoids account lockout thresholds",
-          "Credential stuffing — it uses breached credentials",
-          "Dictionary attack — it uses a wordlist of common passwords"
+          "Brute force, it tries all possible combinations",
+          "Password spraying, it avoids account lockout thresholds",
+          "Credential stuffing, it uses breached credentials",
+          "Dictionary attack, it uses a wordlist of common passwords"
         ],
         "explanation": "Password spraying attempts one or a few common passwords against many accounts, staying below the lockout threshold per account. It's effective because many organizations have users with passwords like 'Welcome1!' that meet basic complexity requirements. Brute force targets one account with many passwords. Credential stuffing uses known username/password pairs. Dictionary attacks try many passwords against fewer accounts.",
         "correctAnswers": [
-          "Password spraying — it avoids account lockout thresholds"
+          "Password spraying, it avoids account lockout thresholds"
         ],
         "scenario": "The SIEM shows login attempts across 5,000 accounts over 24 hours, each account attempted only twice. The password 'Welcome1!' appears in 90% of the attempts.",
         "domainKey": "threats-vulnerabilities-mitigations",
@@ -358,7 +358,7 @@ export const EXAM_SETS: ExamSet[] = [
           "False negative",
           "True positive",
           "False positive",
-          "Alert fatigue only — this is expected behavior"
+          "Alert fatigue only, this is expected behavior"
         ],
         "explanation": "A false positive occurs when a security system incorrectly identifies benign activity as malicious. The legitimate database tool triggers the signature because the traffic pattern matches, but it's not an actual attack. Excessive false positives cause alert fatigue. A false negative is a missed real attack. A true positive is a correctly identified real attack.",
         "correctAnswers": [
@@ -378,7 +378,7 @@ export const EXAM_SETS: ExamSet[] = [
         "difficulty": "medium",
         "options": [
           "Patch it immediately because CVSS 9.8 always requires emergency response",
-          "Deprioritize it because the system has no internet exposure — CVSS alone determines priority",
+          "Deprioritize it because the system has no internet exposure, CVSS alone determines priority",
           "Consider CVSS score alongside asset exposure, data sensitivity, and compensating controls to assign real priority",
           "Ignore it since internal systems are not at risk from external attackers"
         ],
@@ -486,7 +486,7 @@ export const EXAM_SETS: ExamSet[] = [
       {
         "id": 22,
         "qid": "Q0022",
-        "prompt": "A policy that defines what employees may and may not do with company IT resources — including personal use, social media, and software installation — is called a/an:",
+        "prompt": "A policy that defines what employees may and may not do with company IT resources, including personal use, social media, and software installation, is called a/an:",
         "type": "multiple-choice-single",
         "difficulty": "easy",
         "options": [
@@ -517,7 +517,7 @@ export const EXAM_SETS: ExamSet[] = [
           "NetFlow/IPFIX",
           "Syslog"
         ],
-        "explanation": "NetFlow (Cisco) and IPFIX (IETF standard) collect network flow metadata — 5-tuple (source/destination IP, source/destination port, protocol) plus byte/packet counts and timing — without capturing the actual payload. This provides traffic visibility with manageable storage. Wireshark captures full packets. SNMP monitors device health metrics. Syslog collects device event logs.",
+        "explanation": "NetFlow (Cisco) and IPFIX (IETF standard) collect network flow metadata, 5-tuple (source/destination IP, source/destination port, protocol) plus byte/packet counts and timing, without capturing the actual payload. This provides traffic visibility with manageable storage. Wireshark captures full packets. SNMP monitors device health metrics. Syslog collects device event logs.",
         "correctAnswers": [
           "NetFlow/IPFIX"
         ],
@@ -561,7 +561,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Whaling",
           "Vishing"
         ],
-        "explanation": "Spear phishing is targeted phishing using research about the individual to personalize the attack and increase credibility. Whaling is specifically targeting executives (C-suite) — a subcategory of spear phishing. Generic phishing uses the same message for thousands of recipients. Vishing uses voice calls rather than email.",
+        "explanation": "Spear phishing is targeted phishing using research about the individual to personalize the attack and increase credibility. Whaling is specifically targeting executives (C-suite), a subcategory of spear phishing. Generic phishing uses the same message for thousands of recipients. Vishing uses voice calls rather than email.",
         "correctAnswers": [
           "Spear phishing"
         ],
@@ -649,7 +649,7 @@ export const EXAM_SETS: ExamSet[] = [
           "CRL Distribution Point",
           "Certificate pinning"
         ],
-        "explanation": "OCSP stapling allows the web server to proactively fetch and cache the OCSP response from the CA, then attach (staple) it to the TLS handshake — giving clients real-time revocation status without contacting the CA directly. CRL requires downloading the full revocation list. Certificate Transparency improves issuance auditing. Certificate pinning prevents substitution but doesn't handle revocation.",
+        "explanation": "OCSP stapling allows the web server to proactively fetch and cache the OCSP response from the CA, then attach (staple) it to the TLS handshake, giving clients real-time revocation status without contacting the CA directly. CRL requires downloading the full revocation list. Certificate Transparency improves issuance auditing. Certificate pinning prevents substitution but doesn't handle revocation.",
         "correctAnswers": [
           "OCSP stapling"
         ],
@@ -693,7 +693,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Not conducting regular penetration testing of the SaaS application",
           "Failure to encrypt data stored in the SaaS platform"
         ],
-        "explanation": "Vendor dependency risk — including what happens if a vendor fails, exits, or terminates service — must be addressed in third-party risk management. Contracts should include: exit clauses, data portability rights, transition assistance, and minimum notice periods. An exit strategy should be documented. MFA, pen testing, and encryption are security controls but don't address vendor continuity risk.",
+        "explanation": "Vendor dependency risk, including what happens if a vendor fails, exits, or terminates service, must be addressed in third-party risk management. Contracts should include: exit clauses, data portability rights, transition assistance, and minimum notice periods. An exit strategy should be documented. MFA, pen testing, and encryption are security controls but don't address vendor continuity risk.",
         "correctAnswers": [
           "Inadequate third-party risk management and exit strategy planning"
         ],
@@ -715,7 +715,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Tokenization",
           "Format-preserving encryption"
         ],
-        "explanation": "Tokenization replaces sensitive data with non-sensitive placeholder tokens that retain the format but have no mathematical relationship to the original value — they are only meaningful with the secure vault mapping. Hashing is one-way and can't be reversed to the original. Masking replaces values with realistic-looking fake data but is often not reversible. Format-preserving encryption is mathematically derived from the original and is reversible with the key.",
+        "explanation": "Tokenization replaces sensitive data with non-sensitive placeholder tokens that retain the format but have no mathematical relationship to the original value, they are only meaningful with the secure vault mapping. Hashing is one-way and can't be reversed to the original. Masking replaces values with realistic-looking fake data but is often not reversible. Format-preserving encryption is mathematically derived from the original and is reversible with the key.",
         "correctAnswers": [
           "Tokenization"
         ],
@@ -781,7 +781,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Deploy a network tap between the analyst's workstation and the switch",
           "Enable NetFlow on all routers"
         ],
-        "explanation": "A SPAN (Switched Port ANalyzer) session mirrors traffic from source ports or VLANs to a designated monitoring port where a packet capture tool is connected — without interrupting network traffic. Promiscuous mode on endpoints only captures traffic on the local segment. A network tap requires physical insertion between devices. NetFlow provides flow metadata (IP, port, bytes) but not full packet content.",
+        "explanation": "A SPAN (Switched Port ANalyzer) session mirrors traffic from source ports or VLANs to a designated monitoring port where a packet capture tool is connected, without interrupting network traffic. Promiscuous mode on endpoints only captures traffic on the local segment. A network tap requires physical insertion between devices. NetFlow provides flow metadata (IP, port, bytes) but not full packet content.",
         "correctAnswers": [
           "Configure a SPAN (port mirroring) session on the switch"
         ],
@@ -825,7 +825,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Tokenization replacing data with random tokens",
           "Anonymization removing all direct and indirect identifiers"
         ],
-        "explanation": "Anonymization removes all direct identifiers (name, SSN, DOB) AND indirect identifiers (rare conditions + ZIP code combinations) that could re-identify individuals, creating a dataset safe for research. HIPAA's Safe Harbor method specifies 18 identifiers to remove. Encryption protects data at rest but not when shared. Masking replaces with fake but realistic data — still potentially re-identifiable. Tokenization maintains referential integrity but requires the token vault to reverse.",
+        "explanation": "Anonymization removes all direct identifiers (name, SSN, DOB) AND indirect identifiers (rare conditions + ZIP code combinations) that could re-identify individuals, creating a dataset safe for research. HIPAA's Safe Harbor method specifies 18 identifiers to remove. Encryption protects data at rest but not when shared. Masking replaces with fake but realistic data, still potentially re-identifiable. Tokenization maintains referential integrity but requires the token vault to reverse.",
         "correctAnswers": [
           "Anonymization removing all direct and indirect identifiers"
         ],
@@ -872,7 +872,7 @@ export const EXAM_SETS: ExamSet[] = [
           "$5,000,000",
           "$45,000"
         ],
-        "explanation": "ALE = ARO × SLE. ARO (Annual Rate of Occurrence) = 10% = 0.10. SLE (Single Loss Expectancy) = $500,000. ALE = 0.10 × $500,000 = $50,000. Since the ALE ($50,000) is less than the control cost ($60,000), the quantitative analysis does not justify the investment on financial grounds alone — other factors like compliance and reputation must be considered.",
+        "explanation": "ALE = ARO × SLE. ARO (Annual Rate of Occurrence) = 10% = 0.10. SLE (Single Loss Expectancy) = $500,000. ALE = 0.10 × $500,000 = $50,000. Since the ALE ($50,000) is less than the control cost ($60,000), the quantitative analysis does not justify the investment on financial grounds alone, other factors like compliance and reputation must be considered.",
         "correctAnswers": [
           "$50,000"
         ],
@@ -916,7 +916,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Worm",
           "Botnet agent"
         ],
-        "explanation": "A rootkit modifies operating system components to hide its presence — it intercepts system calls to conceal processes, files, and network connections from standard tools. Keyloggers capture keystrokes but don't hide themselves. Worms self-replicate across networks. Botnet agents are remotely controlled malware but don't inherently include rootkit-level stealth.",
+        "explanation": "A rootkit modifies operating system components to hide its presence, it intercepts system calls to conceal processes, files, and network connections from standard tools. Keyloggers capture keystrokes but don't hide themselves. Worms self-replicate across networks. Botnet agents are remotely controlled malware but don't inherently include rootkit-level stealth.",
         "correctAnswers": [
           "Rootkit"
         ],
@@ -960,7 +960,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Use a Privileged Access Management (PAM) solution to issue time-limited, session-recorded credentials",
           "Add the user to the local administrators group permanently, then remove after maintenance"
         ],
-        "explanation": "PAM solutions provide just-in-time privileged access — granting elevated permissions only for the required window, recording all actions, and automatically revoking access afterward. Shared accounts eliminate accountability. Permanent admin rights violate least privilege. Manually adding/removing group membership is error-prone and doesn't provide session recording or automatic revocation.",
+        "explanation": "PAM solutions provide just-in-time privileged access, granting elevated permissions only for the required window, recording all actions, and automatically revoking access afterward. Shared accounts eliminate accountability. Permanent admin rights violate least privilege. Manually adding/removing group membership is error-prone and doesn't provide session recording or automatic revocation.",
         "correctAnswers": [
           "Use a Privileged Access Management (PAM) solution to issue time-limited, session-recorded credentials"
         ],
@@ -1004,7 +1004,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Role-Based Access Control (RBAC)",
           "Attribute-Based Access Control (ABAC)"
         ],
-        "explanation": "RBAC assigns permissions to roles (e.g., Accountant, HR Manager, Developer), and users inherit permissions by being assigned to a role. This simplifies administration — adding a new employee just requires assigning the appropriate role. MAC uses security labels and is policy-enforced (used in government). DAC lets resource owners control access. ABAC uses multiple attributes (user, environment, resource) for fine-grained decisions.",
+        "explanation": "RBAC assigns permissions to roles (e.g., Accountant, HR Manager, Developer), and users inherit permissions by being assigned to a role. This simplifies administration, adding a new employee just requires assigning the appropriate role. MAC uses security labels and is policy-enforced (used in government). DAC lets resource owners control access. ABAC uses multiple attributes (user, environment, resource) for fine-grained decisions.",
         "correctAnswers": [
           "Role-Based Access Control (RBAC)"
         ],
@@ -1026,7 +1026,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Symmetric encryption",
           "Elliptic curve cryptography"
         ],
-        "explanation": "Symmetric encryption uses a single shared key for both encryption and decryption, making it much faster than asymmetric encryption — ideal for bulk data encryption. Asymmetric (public key) encryption uses a key pair (public/private). ECC is a form of asymmetric cryptography. Symmetric algorithms include AES, DES, and 3DES.",
+        "explanation": "Symmetric encryption uses a single shared key for both encryption and decryption, making it much faster than asymmetric encryption, ideal for bulk data encryption. Asymmetric (public key) encryption uses a key pair (public/private). ECC is a form of asymmetric cryptography. Symmetric algorithms include AES, DES, and 3DES.",
         "correctAnswers": [
           "Symmetric encryption"
         ],
@@ -1070,7 +1070,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Ransomware encryption activity",
           "Exfiltration via DNS tunneling"
         ],
-        "explanation": "The pattern — multiple failures followed by success from the same source — is a classic indicator of a successful brute force or credential stuffing attack where the attacker eventually guesses or finds the correct password. Insider threats typically succeed on first attempt. Ransomware and DNS exfiltration have different log signatures (file encryption events, high-volume DNS queries).",
+        "explanation": "The pattern, multiple failures followed by success from the same source, is a classic indicator of a successful brute force or credential stuffing attack where the attacker eventually guesses or finds the correct password. Insider threats typically succeed on first attempt. Ransomware and DNS exfiltration have different log signatures (file encryption events, high-volume DNS queries).",
         "correctAnswers": [
           "Brute force attack followed by successful compromise"
         ],
@@ -1205,7 +1205,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Configuring endpoint management to block USB storage class devices while allowing HID class devices",
           "Requiring employees to sign an AUP prohibiting USB use"
         ],
-        "explanation": "USB device control policies in endpoint management (e.g., via MDM, GPO, or EDR policy) can restrict access by USB device class — blocking USB Mass Storage Class (drives) while allowing Human Interface Devices (keyboards, mice). Physically destroying ports is destructive and removes legitimate device support. DLP detects but may not prevent USB exfiltration. An AUP is a policy, not a technical control.",
+        "explanation": "USB device control policies in endpoint management (e.g., via MDM, GPO, or EDR policy) can restrict access by USB device class, blocking USB Mass Storage Class (drives) while allowing Human Interface Devices (keyboards, mice). Physically destroying ports is destructive and removes legitimate device support. DLP detects but may not prevent USB exfiltration. An AUP is a policy, not a technical control.",
         "correctAnswers": [
           "Configuring endpoint management to block USB storage class devices while allowing HID class devices"
         ],
@@ -1275,7 +1275,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Background check procedures",
           "Intrusion detection system"
         ],
-        "explanation": "Administrative (managerial) controls are policies, procedures, and guidelines — they govern how people behave. An AUP, training programs, and background checks are all administrative controls. Firewall rules and IDS systems are technical controls that are implemented in technology.",
+        "explanation": "Administrative (managerial) controls are policies, procedures, and guidelines, they govern how people behave. An AUP, training programs, and background checks are all administrative controls. Firewall rules and IDS systems are technical controls that are implemented in technology.",
         "correctAnswers": [
           "Acceptable use policy",
           "Security awareness training program",
@@ -1321,7 +1321,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Risk mitigation",
           "Risk transference"
         ],
-        "explanation": "Risk transference shifts the financial consequences of a risk to a third party — in this case, an insurance company. The risk still exists but the potential financial loss is transferred. Risk acceptance acknowledges and accepts the potential loss. Risk avoidance eliminates the risk-causing activity entirely. Risk mitigation implements controls to reduce likelihood or impact.",
+        "explanation": "Risk transference shifts the financial consequences of a risk to a third party, in this case, an insurance company. The risk still exists but the potential financial loss is transferred. Risk acceptance acknowledges and accepts the potential loss. Risk avoidance eliminates the risk-causing activity entirely. Risk mitigation implements controls to reduce likelihood or impact.",
         "correctAnswers": [
           "Risk transference"
         ],
@@ -1365,7 +1365,7 @@ export const EXAM_SETS: ExamSet[] = [
           "SOC 2",
           "PCI-DSS"
         ],
-        "explanation": "The NIST CSF organizes cybersecurity activities around five core functions: Identify, Protect, Detect, Respond, Recover — providing a flexible, risk-based framework applicable to any sector. ISO 27001 is an international standard requiring a formal ISMS with certification audits. SOC 2 is a third-party audit framework for service organizations. PCI-DSS is a prescriptive standard specific to payment card data.",
+        "explanation": "The NIST CSF organizes cybersecurity activities around five core functions: Identify, Protect, Detect, Respond, Recover, providing a flexible, risk-based framework applicable to any sector. ISO 27001 is an international standard requiring a formal ISMS with certification audits. SOC 2 is a third-party audit framework for service organizations. PCI-DSS is a prescriptive standard specific to payment card data.",
         "correctAnswers": [
           "NIST Cybersecurity Framework (CSF)"
         ],
@@ -1409,7 +1409,7 @@ export const EXAM_SETS: ExamSet[] = [
           "To provide a teachable moment and improve phishing resistance through reinforced learning",
           "To fulfill the annual security training checkbox requirement"
         ],
-        "explanation": "Immediate post-click education (the 'teachable moment') is the most effective phishing simulation element — users learn from their mistake in context, improving real-world phishing resistance over time. Research shows immediate feedback is more effective than delayed training. Using simulations purely for punishment or compliance checkbox reduces employee trust and engagement with the security program.",
+        "explanation": "Immediate post-click education (the 'teachable moment') is the most effective phishing simulation element, users learn from their mistake in context, improving real-world phishing resistance over time. Research shows immediate feedback is more effective than delayed training. Using simulations purely for punishment or compliance checkbox reduces employee trust and engagement with the security program.",
         "correctAnswers": [
           "To provide a teachable moment and improve phishing resistance through reinforced learning"
         ],
@@ -1475,7 +1475,7 @@ export const EXAM_SETS: ExamSet[] = [
           "It contains the public keys of all trusted CAs",
           "It encrypts certificate data during transmission"
         ],
-        "explanation": "A CRL is a list published by a Certificate Authority containing serial numbers of certificates that have been revoked — made invalid — before their scheduled expiration, typically due to compromise or policy violation. It does not list all issued certificates, contain CA public keys, or encrypt data.",
+        "explanation": "A CRL is a list published by a Certificate Authority containing serial numbers of certificates that have been revoked, made invalid, before their scheduled expiration, typically due to compromise or policy violation. It does not list all issued certificates, contain CA public keys, or encrypt data.",
         "correctAnswers": [
           "It identifies certificates that are no longer valid before their expiration date"
         ],
@@ -1514,17 +1514,17 @@ export const EXAM_SETS: ExamSet[] = [
         "type": "multiple-choice-multiple",
         "difficulty": "medium",
         "options": [
-          "Hot site — fully operational duplicate facility",
-          "Warm site — partially configured with hardware but no live data",
-          "Cold site — empty facility with power/connectivity but no equipment",
-          "Mobile site — trailer-based deployable facility",
-          "Cloud-based DR — pay-per-use infrastructure provisioned on demand"
+          "Hot site, fully operational duplicate facility",
+          "Warm site, partially configured with hardware but no live data",
+          "Cold site, empty facility with power/connectivity but no equipment",
+          "Mobile site, trailer-based deployable facility",
+          "Cloud-based DR, pay-per-use infrastructure provisioned on demand"
         ],
-        "explanation": "Recovery speed: Hot site (minutes to hours — systems already running, data replicated in real time) > Warm site (hours to days — hardware ready, needs data restoration) > Cold site (days to weeks — must procure, install, and configure equipment from scratch). Mobile and cloud DR don't neatly fit this ordered sequence, though cloud can approximate a warm or hot site depending on configuration.",
+        "explanation": "Recovery speed: Hot site (minutes to hours, systems already running, data replicated in real time) > Warm site (hours to days, hardware ready, needs data restoration) > Cold site (days to weeks, must procure, install, and configure equipment from scratch). Mobile and cloud DR don't neatly fit this ordered sequence, though cloud can approximate a warm or hot site depending on configuration.",
         "correctAnswers": [
-          "Hot site — fully operational duplicate facility",
-          "Warm site — partially configured with hardware but no live data",
-          "Cold site — empty facility with power/connectivity but no equipment"
+          "Hot site, fully operational duplicate facility",
+          "Warm site, partially configured with hardware but no live data",
+          "Cold site, empty facility with power/connectivity but no equipment"
         ],
         "scenario": "The BC team is evaluating three DR options for the CIO. Cost, complexity, and recovery time must all be considered in the recommendation.",
         "domainKey": "security-program-management-oversight",
@@ -1544,7 +1544,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Legal hold",
           "Write blocking"
         ],
-        "explanation": "Chain of custody documents who handled evidence, when, and what was done — ensuring evidence integrity from collection to court. Hashing both drives before and after demonstrates the copy is forensically identical to the original (integrity verification). Write blocking prevents modifications during imaging. Order of volatility is about collection priority. Legal hold preserves data from deletion.",
+        "explanation": "Chain of custody documents who handled evidence, when, and what was done, ensuring evidence integrity from collection to court. Hashing both drives before and after demonstrates the copy is forensically identical to the original (integrity verification). Write blocking prevents modifications during imaging. Order of volatility is about collection priority. Legal hold preserves data from deletion.",
         "correctAnswers": [
           "Chain of custody"
         ],
@@ -1588,7 +1588,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Remote code execution",
           "XML External Entity (XXE)"
         ],
-        "explanation": "SSRF tricks a server into making requests to internal resources on behalf of the attacker — in this case, the AWS EC2 metadata endpoint (169.254.169.254) which exposes IAM credentials. Directory traversal accesses files on the server's filesystem. RCE executes arbitrary code. XXE exploits XML parsers to access internal files or perform SSRF via XML entities.",
+        "explanation": "SSRF tricks a server into making requests to internal resources on behalf of the attacker, in this case, the AWS EC2 metadata endpoint (169.254.169.254) which exposes IAM credentials. Directory traversal accesses files on the server's filesystem. RCE executes arbitrary code. XXE exploits XML parsers to access internal files or perform SSRF via XML entities.",
         "correctAnswers": [
           "Server-Side Request Forgery (SSRF)"
         ],
@@ -1610,7 +1610,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Cloud Security Posture Management (CSPM)",
           "Secure Web Gateway (SWG)"
         ],
-        "explanation": "A CASB is a security policy enforcement point between cloud service users and cloud applications, providing visibility, threat protection, compliance, and DLP across all cloud services — including unsanctioned shadow IT. A WAF protects web applications from attacks. CSPM monitors cloud infrastructure configuration. A SWG filters web traffic but lacks deep cloud application intelligence.",
+        "explanation": "A CASB is a security policy enforcement point between cloud service users and cloud applications, providing visibility, threat protection, compliance, and DLP across all cloud services, including unsanctioned shadow IT. A WAF protects web applications from attacks. CSPM monitors cloud infrastructure configuration. A SWG filters web traffic but lacks deep cloud application intelligence.",
         "correctAnswers": [
           "Cloud Access Security Broker (CASB)"
         ],
@@ -1654,7 +1654,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Implementing a SOAR platform with automated playbooks",
           "Deploying additional IDS sensors"
         ],
-        "explanation": "SOAR (Security Orchestration, Automation, and Response) automates repetitive SOC tasks through playbooks — automatically triaging alerts, querying threat intelligence, isolating hosts, and closing false positives without analyst intervention. Simply adding analysts scales linearly with cost. Upgrading the SIEM improves detection but not response speed. More IDS sensors generate more alerts, exacerbating the problem.",
+        "explanation": "SOAR (Security Orchestration, Automation, and Response) automates repetitive SOC tasks through playbooks, automatically triaging alerts, querying threat intelligence, isolating hosts, and closing false positives without analyst intervention. Simply adding analysts scales linearly with cost. Upgrading the SIEM improves detection but not response speed. More IDS sensors generate more alerts, exacerbating the problem.",
         "correctAnswers": [
           "Implementing a SOAR platform with automated playbooks"
         ],
@@ -1698,7 +1698,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Incomplete access recertification and role change provisioning",
           "Lack of a password complexity policy"
         ],
-        "explanation": "Access recertification (periodic review of user rights) and proper role-change provisioning processes would catch and remove stale access. This is an example of access creep — accumulating permissions over time without proper revocation. MFA, lockout, and password policies address authentication security, not authorization lifecycle management.",
+        "explanation": "Access recertification (periodic review of user rights) and proper role-change provisioning processes would catch and remove stale access. This is an example of access creep, accumulating permissions over time without proper revocation. MFA, lockout, and password policies address authentication security, not authorization lifecycle management.",
         "correctAnswers": [
           "Incomplete access recertification and role change provisioning"
         ],
@@ -1764,7 +1764,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Credentialed (authenticated) scan",
           "Passive network scan"
         ],
-        "explanation": "Credentialed scans authenticate to target systems and can read installed software versions, registry keys, and configuration details — finding vulnerabilities invisible to unauthenticated scans (e.g., unpatched software with no open ports). Unauthenticated scans only see externally observable services. Passive scans analyze traffic without probing targets.",
+        "explanation": "Credentialed scans authenticate to target systems and can read installed software versions, registry keys, and configuration details, finding vulnerabilities invisible to unauthenticated scans (e.g., unpatched software with no open ports). Unauthenticated scans only see externally observable services. Passive scans analyze traffic without probing targets.",
         "correctAnswers": [
           "Credentialed (authenticated) scan"
         ],
@@ -1786,7 +1786,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Deploying a next-generation firewall at the perimeter",
           "Installing endpoint agents on all medical devices"
         ],
-        "explanation": "Microsegmentation creates fine-grained, software-defined network segments with precise access policies for each device or workload — an IoT device can only communicate with its authorized management system, not the EHR. NAT provides some isolation but not granular access control. A perimeter NGFW doesn't control east-west (internal) traffic. Most IoT/medical devices cannot run endpoint agents.",
+        "explanation": "Microsegmentation creates fine-grained, software-defined network segments with precise access policies for each device or workload, an IoT device can only communicate with its authorized management system, not the EHR. NAT provides some isolation but not granular access control. A perimeter NGFW doesn't control east-west (internal) traffic. Most IoT/medical devices cannot run endpoint agents.",
         "correctAnswers": [
           "Implementing microsegmentation with device-specific access policies"
         ],
@@ -1808,7 +1808,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Worm",
           "Adware"
         ],
-        "explanation": "Fileless malware operates entirely in memory, abusing legitimate tools like PowerShell, WMI, or process injection to avoid writing to disk — evading traditional signature-based AV. Trojans masquerade as legitimate software but still write files. Worms self-replicate across networks. Adware displays unwanted advertisements.",
+        "explanation": "Fileless malware operates entirely in memory, abusing legitimate tools like PowerShell, WMI, or process injection to avoid writing to disk, evading traditional signature-based AV. Trojans masquerade as legitimate software but still write files. Worms self-replicate across networks. Adware displays unwanted advertisements.",
         "correctAnswers": [
           "Fileless malware"
         ],
@@ -1830,7 +1830,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Privileges Required (PR)",
           "User Interaction (UI)"
         ],
-        "explanation": "Attack Complexity (AC) represents conditions beyond the attacker's control required for successful exploitation. AC:L (Low) means no special conditions — the attack can be reliably repeated. Combined with AV:N (network accessible), PR:N (no privileges), and UI:N (no user interaction), these metrics drive the 9.8 score. Scope refers to whether the impact crosses security boundaries. PR is about required privileges. UI is about whether a user must take action.",
+        "explanation": "Attack Complexity (AC) represents conditions beyond the attacker's control required for successful exploitation. AC:L (Low) means no special conditions, the attack can be reliably repeated. Combined with AV:N (network accessible), PR:N (no privileges), and UI:N (no user interaction), these metrics drive the 9.8 score. Scope refers to whether the impact crosses security boundaries. PR is about required privileges. UI is about whether a user must take action.",
         "correctAnswers": [
           "Attack Complexity (AC)"
         ],
@@ -1875,7 +1875,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Code signing enforcement",
           "Disabling Windows Defender to reduce false positives"
         ],
-        "explanation": "Application allowlisting permits only approved, explicitly listed applications to execute — the most restrictive and effective approach. GPO Software Restriction Policies can block execution from unauthorized paths (e.g., %TEMP%, %APPDATA%). Code signing enforcement rejects unsigned or improperly signed executables. Full-disk encryption protects data at rest but doesn't control application execution. Disabling Defender removes protection.",
+        "explanation": "Application allowlisting permits only approved, explicitly listed applications to execute, the most restrictive and effective approach. GPO Software Restriction Policies can block execution from unauthorized paths (e.g., %TEMP%, %APPDATA%). Code signing enforcement rejects unsigned or improperly signed executables. Full-disk encryption protects data at rest but doesn't control application execution. Disabling Defender removes protection.",
         "correctAnswers": [
           "Application allowlisting (whitelisting)",
           "Software restriction policies via GPO",
@@ -1899,7 +1899,7 @@ export const EXAM_SETS: ExamSet[] = [
           "SAML 2.0",
           "Kerberos"
         ],
-        "explanation": "SAML 2.0 (Security Assertion Markup Language) enables browser-based federated identity — the IdP (identity provider) issues signed XML assertions that the SP (service provider) trusts, enabling cross-domain SSO without re-authentication. RADIUS is used for network access authentication (Wi-Fi, VPN). LDAP is a directory protocol for internal identity stores. Kerberos is for internal Windows domain authentication.",
+        "explanation": "SAML 2.0 (Security Assertion Markup Language) enables browser-based federated identity, the IdP (identity provider) issues signed XML assertions that the SP (service provider) trusts, enabling cross-domain SSO without re-authentication. RADIUS is used for network access authentication (Wi-Fi, VPN). LDAP is a directory protocol for internal identity stores. Kerberos is for internal Windows domain authentication.",
         "correctAnswers": [
           "SAML 2.0"
         ],
@@ -1969,7 +1969,7 @@ export const EXAM_SETS: ExamSet[] = [
           "An IDS generates alerts without blocking traffic",
           "An IPS requires more careful tuning to avoid blocking legitimate traffic"
         ],
-        "explanation": "Key IDS vs IPS differences: IPS is inline and actively drops/blocks malicious traffic; IDS passively monitors (via tap/span port) and only generates alerts. Both can use signature and anomaly detection — this is not a distinguishing characteristic. IPS requires careful tuning because false positives result in blocking legitimate traffic, not just alert noise.",
+        "explanation": "Key IDS vs IPS differences: IPS is inline and actively drops/blocks malicious traffic; IDS passively monitors (via tap/span port) and only generates alerts. Both can use signature and anomaly detection, this is not a distinguishing characteristic. IPS requires careful tuning because false positives result in blocking legitimate traffic, not just alert noise.",
         "correctAnswers": [
           "An IPS can block malicious traffic inline; an IDS only alerts",
           "An IPS requires inline network placement; an IDS can use a network tap",
@@ -1993,7 +1993,7 @@ export const EXAM_SETS: ExamSet[] = [
           "BIA and BCP",
           "MTTD and MTTR"
         ],
-        "explanation": "RTO (Recovery Time Objective) = 4 hours — the maximum time to restore a system after a disaster. RPO (Recovery Point Objective) = 30 minutes — the maximum acceptable data loss measured in time (backups must occur at least every 30 minutes). MTTR is mean time to repair. MTBF is mean time between failures. BIA is the Business Impact Analysis process. MTTD is mean time to detect.",
+        "explanation": "RTO (Recovery Time Objective) = 4 hours, the maximum time to restore a system after a disaster. RPO (Recovery Point Objective) = 30 minutes, the maximum acceptable data loss measured in time (backups must occur at least every 30 minutes). MTTR is mean time to repair. MTBF is mean time between failures. BIA is the Business Impact Analysis process. MTTD is mean time to detect.",
         "correctAnswers": [
           "RPO and RTO"
         ],
@@ -2037,7 +2037,7 @@ export const EXAM_SETS: ExamSet[] = [
           "MD5",
           "Argon2"
         ],
-        "explanation": "MD5 is cryptographically broken — collision attacks are computationally feasible, making it unsuitable for password storage. bcrypt and Argon2 are purpose-built, slow password hashing algorithms. SHA-256 is collision-resistant for general use but lacks the cost factor needed for passwords.",
+        "explanation": "MD5 is cryptographically broken, collision attacks are computationally feasible, making it unsuitable for password storage. bcrypt and Argon2 are purpose-built, slow password hashing algorithms. SHA-256 is collision-resistant for general use but lacks the cost factor needed for passwords.",
         "correctAnswers": [
           "MD5"
         ],
@@ -2059,7 +2059,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Penetration tests are done by internal staff; vulnerability assessments require external contractors",
           "Vulnerability assessments always include social engineering; penetration tests never do"
         ],
-        "explanation": "A vulnerability assessment scans and identifies potential weaknesses but does not exploit them. A penetration test actively attempts to exploit vulnerabilities to demonstrate real-world impact and attacker paths. Both can use automated tools and both can be conducted by internal or external teams — those are not the defining differences.",
+        "explanation": "A vulnerability assessment scans and identifies potential weaknesses but does not exploit them. A penetration test actively attempts to exploit vulnerabilities to demonstrate real-world impact and attacker paths. Both can use automated tools and both can be conducted by internal or external teams, those are not the defining differences.",
         "correctAnswers": [
           "A vulnerability assessment identifies and reports potential weaknesses; a penetration test actively exploits vulnerabilities to demonstrate impact"
         ],
@@ -2219,7 +2219,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Zero-day exploit",
           "Fileless malware"
         ],
-        "explanation": "A supply chain attack compromises software, hardware, or services before delivery to the end customer — often through third-party vendors, libraries, or build systems. The SolarWinds attack is a real-world example. A watering hole attack compromises websites visited by targets. Zero-day exploits target unknown vulnerabilities. Fileless malware operates in memory without disk artifacts.",
+        "explanation": "A supply chain attack compromises software, hardware, or services before delivery to the end customer, often through third-party vendors, libraries, or build systems. The SolarWinds attack is a real-world example. A watering hole attack compromises websites visited by targets. Zero-day exploits target unknown vulnerabilities. Fileless malware operates in memory without disk artifacts.",
         "correctAnswers": [
           "Supply chain attack"
         ],
@@ -2263,7 +2263,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Three factors",
           "Four factors"
         ],
-        "explanation": "Authentication factors are: something you know (password), something you have (token/card), and something you are (biometric). A username is an identifier, not an authentication factor. The password is 'something you know' and the fingerprint is 'something you are' — that is two factors. The username is simply the identity claim.",
+        "explanation": "Authentication factors are: something you know (password), something you have (token/card), and something you are (biometric). A username is an identifier, not an authentication factor. The password is 'something you know' and the fingerprint is 'something you are', that is two factors. The username is simply the identity claim.",
         "correctAnswers": [
           "Two factors"
         ],
@@ -2307,7 +2307,7 @@ export const EXAM_SETS: ExamSet[] = [
           "No user or device is trusted by default, regardless of location",
           "The perimeter firewall is sufficient to protect internal resources"
         ],
-        "explanation": "Zero Trust operates on the principle of 'never trust, always verify' — no implicit trust is granted based on network location or device type. Every access request must be verified. VPN is a perimeter-based control inconsistent with Zero Trust philosophy. Implicit internal trust is the traditional perimeter model that Zero Trust replaces.",
+        "explanation": "Zero Trust operates on the principle of 'never trust, always verify', no implicit trust is granted based on network location or device type. Every access request must be verified. VPN is a perimeter-based control inconsistent with Zero Trust philosophy. Implicit internal trust is the traditional perimeter model that Zero Trust replaces.",
         "correctAnswers": [
           "No user or device is trusted by default, regardless of location"
         ],
@@ -2420,7 +2420,7 @@ export const EXAM_SETS: ExamSet[] = [
           "AES-256 key wrapping",
           "ECDSA key derivation"
         ],
-        "explanation": "Diffie-Hellman allows two parties to derive a shared secret over an untrusted channel without transmitting the key itself. RSA key transport encrypts the key with the recipient's public key — the key material is transmitted. AES-256 requires a pre-existing key. ECDSA is a signing algorithm, not key agreement.",
+        "explanation": "Diffie-Hellman allows two parties to derive a shared secret over an untrusted channel without transmitting the key itself. RSA key transport encrypts the key with the recipient's public key, the key material is transmitted. AES-256 requires a pre-existing key. ECDSA is a signing algorithm, not key agreement.",
         "correctAnswers": [
           "Diffie-Hellman key exchange"
         ],
@@ -2442,7 +2442,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Corrective control",
           "Compensating control"
         ],
-        "explanation": "A security camera that records footage is a detective control — it identifies and records security events after they occur. A preventive control stops incidents before they happen (e.g., a fence). A corrective control restores systems after an incident. A compensating control substitutes for a primary control when it cannot be implemented.",
+        "explanation": "A security camera that records footage is a detective control, it identifies and records security events after they occur. A preventive control stops incidents before they happen (e.g., a fence). A corrective control restores systems after an incident. A compensating control substitutes for a primary control when it cannot be implemented.",
         "correctAnswers": [
           "Detective control"
         ],
@@ -2486,7 +2486,7 @@ export const EXAM_SETS: ExamSet[] = [
           "A help desk technician resetting passwords upon request",
           "A security analyst reading threat intelligence feeds daily"
         ],
-        "explanation": "A script that automatically scans for missing patches and generates reports is automating compliance checks — it replaces manual effort with consistent, repeatable verification. Manual log reviews, password resets, and reading feeds are all human-driven activities, not automation.",
+        "explanation": "A script that automatically scans for missing patches and generates reports is automating compliance checks, it replaces manual effort with consistent, repeatable verification. Manual log reviews, password resets, and reading feeds are all human-driven activities, not automation.",
         "correctAnswers": [
           "A script that scans all servers for missing patches and generates a compliance report"
         ],
@@ -2710,7 +2710,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Disabling the device's Wi-Fi remotely",
           "Revoking the employee's building access badge"
         ],
-        "explanation": "MAM (Mobile Application Management) manages only corporate applications and data within a container on the device. A selective wipe removes only the corporate container (email, apps, documents) while leaving personal data intact. Full remote wipe erases everything — inappropriate for personal BYOD devices. Disabling Wi-Fi and revoking badges don't address data on the device.",
+        "explanation": "MAM (Mobile Application Management) manages only corporate applications and data within a container on the device. A selective wipe removes only the corporate container (email, apps, documents) while leaving personal data intact. Full remote wipe erases everything, inappropriate for personal BYOD devices. Disabling Wi-Fi and revoking badges don't address data on the device.",
         "correctAnswers": [
           "MAM (Mobile Application Management) with selective wipe"
         ],
@@ -2758,7 +2758,7 @@ export const EXAM_SETS: ExamSet[] = [
           "NIC (Network Interface Card)",
           "PSU (Power Supply Unit)"
         ],
-        "explanation": "The TPM is a dedicated hardware chip that securely stores cryptographic keys, certificates, and passwords. It enables Secure Boot (verifying boot integrity), BitLocker drive encryption, and remote attestation. GPU handles graphics processing, NIC handles network connectivity, and PSU provides power — none store cryptographic material.",
+        "explanation": "The TPM is a dedicated hardware chip that securely stores cryptographic keys, certificates, and passwords. It enables Secure Boot (verifying boot integrity), BitLocker drive encryption, and remote attestation. GPU handles graphics processing, NIC handles network connectivity, and PSU provides power, none store cryptographic material.",
         "correctAnswers": [
           "TPM (Trusted Platform Module)"
         ],
@@ -2802,7 +2802,7 @@ export const EXAM_SETS: ExamSet[] = [
           "The battery is low",
           "The user entered the wrong password"
         ],
-        "explanation": "Secure Boot verifies the digital signature of the bootloader and OS kernel before allowing them to execute. A verification failure means the code has been modified, replaced, or is unsigned — possibly by a bootkit or rootkit. Wi-Fi drivers, battery level, and login passwords are unrelated to the Secure Boot chain.",
+        "explanation": "Secure Boot verifies the digital signature of the bootloader and OS kernel before allowing them to execute. A verification failure means the code has been modified, replaced, or is unsigned, possibly by a bootkit or rootkit. Wi-Fi drivers, battery level, and login passwords are unrelated to the Secure Boot chain.",
         "correctAnswers": [
           "The bootloader or OS kernel has been modified or replaced with unsigned code"
         ],
@@ -2846,7 +2846,7 @@ export const EXAM_SETS: ExamSet[] = [
           "A brute-force attack against user passwords",
           "A DNS cache poisoning attack"
         ],
-        "explanation": "Attacks targeting ICS/SCADA environments (like Stuxnet) manipulate PLC logic to alter physical processes — changing motor speeds, valve positions, temperature settings, etc. This can cause physical damage or safety hazards. SQL injection targets databases, brute-force targets authentication, and DNS poisoning targets name resolution — none directly affect physical industrial processes.",
+        "explanation": "Attacks targeting ICS/SCADA environments (like Stuxnet) manipulate PLC logic to alter physical processes, changing motor speeds, valve positions, temperature settings, etc. This can cause physical damage or safety hazards. SQL injection targets databases, brute-force targets authentication, and DNS poisoning targets name resolution, none directly affect physical industrial processes.",
         "correctAnswers": [
           "An attack that modifies PLC (Programmable Logic Controller) logic to alter physical processes"
         ],
@@ -2890,7 +2890,7 @@ export const EXAM_SETS: ExamSet[] = [
           "A vulnerability scan requires physical access; a penetration test is always remote",
           "A vulnerability scan tests applications; a penetration test tests networks only"
         ],
-        "explanation": "A vulnerability scan is an automated tool that identifies potential weaknesses (open ports, missing patches, misconfigurations) but does not exploit them. A penetration test goes further — a tester actively attempts to exploit vulnerabilities to demonstrate real-world impact and prove that the vulnerability can actually be leveraged. Frequency, access method, and scope vary for both.",
+        "explanation": "A vulnerability scan is an automated tool that identifies potential weaknesses (open ports, missing patches, misconfigurations) but does not exploit them. A penetration test goes further, a tester actively attempts to exploit vulnerabilities to demonstrate real-world impact and prove that the vulnerability can actually be leveraged. Frequency, access method, and scope vary for both.",
         "correctAnswers": [
           "A vulnerability scan identifies potential weaknesses; a penetration test actively exploits them to prove impact"
         ],
@@ -2903,7 +2903,7 @@ export const EXAM_SETS: ExamSet[] = [
       {
         "id": 130,
         "qid": "Q0130",
-        "prompt": "During a penetration test, the tester is given no information about the target environment — no IP ranges, no network diagrams, no credentials. What type of test is this?",
+        "prompt": "During a penetration test, the tester is given no information about the target environment, no IP ranges, no network diagrams, no credentials. What type of test is this?",
         "type": "multiple-choice-single",
         "difficulty": "easy",
         "options": [
@@ -2956,7 +2956,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Macro virus",
           "Polymorphic virus"
         ],
-        "explanation": "Fileless malware operates entirely in RAM without writing files to disk, making it extremely difficult for traditional signature-based AV to detect. It commonly leverages legitimate tools (PowerShell, WMI, .NET framework) — a technique called 'living off the land.' Boot sector viruses infect the MBR. Macro viruses embed in documents. Polymorphic viruses change their code with each infection.",
+        "explanation": "Fileless malware operates entirely in RAM without writing files to disk, making it extremely difficult for traditional signature-based AV to detect. It commonly leverages legitimate tools (PowerShell, WMI, .NET framework), a technique called 'living off the land.' Boot sector viruses infect the MBR. Macro viruses embed in documents. Polymorphic viruses change their code with each infection.",
         "correctAnswers": [
           "Fileless malware"
         ],
@@ -3026,7 +3026,7 @@ export const EXAM_SETS: ExamSet[] = [
           "The vulnerability only affects the cloud provider's management console",
           "VM escape only works against Type 2 hypervisors"
         ],
-        "explanation": "VM escape allows an attacker to break out of their VM and access the hypervisor layer. Since the hypervisor manages all VMs on the host, this could compromise every tenant's VM on that physical server — a catastrophic multi-tenant breach. VM escape affects both Type 1 and Type 2 hypervisors. It is not limited to the management console.",
+        "explanation": "VM escape allows an attacker to break out of their VM and access the hypervisor layer. Since the hypervisor manages all VMs on the host, this could compromise every tenant's VM on that physical server, a catastrophic multi-tenant breach. VM escape affects both Type 1 and Type 2 hypervisors. It is not limited to the management console.",
         "correctAnswers": [
           "An attacker in one tenant's VM could access the hypervisor and potentially all other tenants' VMs on the same physical host"
         ],
@@ -3202,7 +3202,7 @@ export const EXAM_SETS: ExamSet[] = [
           "It eliminates the need for a full backup entirely",
           "It encrypts data more securely than a full backup"
         ],
-        "explanation": "Incremental backups only copy data that changed since the last backup (full or incremental), requiring less time and storage. However, restore is SLOWER because you need the full backup plus every incremental backup in sequence. Incremental does not replace full backups — you still need periodic full backups. Encryption is independent of backup type.",
+        "explanation": "Incremental backups only copy data that changed since the last backup (full or incremental), requiring less time and storage. However, restore is SLOWER because you need the full backup plus every incremental backup in sequence. Incremental does not replace full backups, you still need periodic full backups. Encryption is independent of backup type.",
         "correctAnswers": [
           "It takes less time and storage because it only backs up data changed since the last backup"
         ],
@@ -3224,7 +3224,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Only external users need to be verified; internal users are automatically trusted",
           "Verification is only required for administrative accounts"
         ],
-        "explanation": "Zero Trust's core principle is 'never trust, always verify.' Every access request — from any user, device, or location — must be authenticated, authorized, and continuously validated. There is no concept of a 'trusted' internal network. VPN connectivity does not grant implicit trust. The policy applies to ALL accounts, not just admins.",
+        "explanation": "Zero Trust's core principle is 'never trust, always verify.' Every access request, from any user, device, or location, must be authenticated, authorized, and continuously validated. There is no concept of a 'trusted' internal network. VPN connectivity does not grant implicit trust. The policy applies to ALL accounts, not just admins.",
         "correctAnswers": [
           "Every access request is verified regardless of the user's location or previous authentication status"
         ],
@@ -3268,7 +3268,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Blocks all incoming phone calls",
           "Prevents the device from connecting to any Wi-Fi network"
         ],
-        "explanation": "Geofencing uses GPS or network location to define geographic boundaries. When a device enters or leaves a defined zone, policies are triggered — such as disabling the camera in sensitive areas, requiring additional authentication, or blocking certain apps. It does not encrypt data, block calls, or prevent Wi-Fi connections as its primary function.",
+        "explanation": "Geofencing uses GPS or network location to define geographic boundaries. When a device enters or leaves a defined zone, policies are triggered, such as disabling the camera in sensitive areas, requiring additional authentication, or blocking certain apps. It does not encrypt data, block calls, or prevent Wi-Fi connections as its primary function.",
         "correctAnswers": [
           "Restricts or modifies device functionality based on geographic location"
         ],
@@ -3312,7 +3312,7 @@ export const EXAM_SETS: ExamSet[] = [
           "DAC (Discretionary Access Control)",
           "MAC (Mandatory Access Control)"
         ],
-        "explanation": "ABAC evaluates multiple attributes simultaneously — user attributes (department, clearance), resource attributes, environmental attributes (time, location), and device attributes — to make access decisions. RBAC uses roles only. DAC uses owner discretion. MAC uses labels and clearance. Only ABAC natively supports evaluating all these factors together in a single policy decision.",
+        "explanation": "ABAC evaluates multiple attributes simultaneously, user attributes (department, clearance), resource attributes, environmental attributes (time, location), and device attributes, to make access decisions. RBAC uses roles only. DAC uses owner discretion. MAC uses labels and clearance. Only ABAC natively supports evaluating all these factors together in a single policy decision.",
         "correctAnswers": [
           "ABAC (Attribute-Based Access Control)"
         ],
@@ -3378,7 +3378,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Replacement of all security analysts",
           "Guaranteed prevention of all cyber attacks"
         ],
-        "explanation": "Automation provides consistent, repeatable processes at a scale impossible for manual work. Checking thousands of log entries against threat intel feeds daily would take analysts hours — a script does it in minutes with perfect consistency. Automation does NOT eliminate false positives, replace analysts entirely, or guarantee prevention of all attacks.",
+        "explanation": "Automation provides consistent, repeatable processes at a scale impossible for manual work. Checking thousands of log entries against threat intel feeds daily would take analysts hours, a script does it in minutes with perfect consistency. Automation does NOT eliminate false positives, replace analysts entirely, or guarantee prevention of all attacks.",
         "correctAnswers": [
           "Consistent, repeatable analysis at scale that would be impractical manually"
         ],
@@ -3466,11 +3466,11 @@ export const EXAM_SETS: ExamSet[] = [
           "Upgrade the thermostat's firmware",
           "Ignore it since IoT devices often send telemetry"
         ],
-        "explanation": "The first step is containment — isolate the device on a restricted network segment to prevent potential lateral movement or data exfiltration while preserving evidence for investigation. Factory reset could destroy forensic evidence. Firmware upgrade doesn't address the immediate threat. Ignoring suspicious outbound traffic from a device that should only communicate locally is negligent.",
+        "explanation": "The first step is containment, isolate the device on a restricted network segment to prevent potential lateral movement or data exfiltration while preserving evidence for investigation. Factory reset could destroy forensic evidence. Firmware upgrade doesn't address the immediate threat. Ignoring suspicious outbound traffic from a device that should only communicate locally is negligent.",
         "correctAnswers": [
           "Isolate the thermostat on a restricted VLAN and investigate the traffic"
         ],
-        "scenario": "DNS logs show the thermostat querying domains like 'x7f2a.suspect-domain.com' every 300 seconds — a pattern consistent with beaconing.",
+        "scenario": "DNS logs show the thermostat querying domains like 'x7f2a.suspect-domain.com' every 300 seconds, a pattern consistent with beaconing.",
         "domainKey": "security-operations",
         "domainName": "Security Operations",
         "topicId": 0,
@@ -3488,7 +3488,7 @@ export const EXAM_SETS: ExamSet[] = [
           "To allow wireless access for maintenance technicians",
           "To enable cloud-based monitoring of industrial processes"
         ],
-        "explanation": "An air gap provides complete physical isolation — no network connectivity between the SCADA/ICS network and external networks (internet, corporate LAN). This prevents remote cyber attacks from reaching critical infrastructure. It does not improve browsing (no internet connection), does not provide wireless access, and is the opposite of cloud connectivity.",
+        "explanation": "An air gap provides complete physical isolation, no network connectivity between the SCADA/ICS network and external networks (internet, corporate LAN). This prevents remote cyber attacks from reaching critical infrastructure. It does not improve browsing (no internet connection), does not provide wireless access, and is the opposite of cloud connectivity.",
         "correctAnswers": [
           "To physically isolate the industrial control network from the internet and corporate networks"
         ],
@@ -3510,7 +3510,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Transfer the risk to an insurance company for $200,000 per year",
           "Avoid the risk by shutting down the business function entirely"
         ],
-        "explanation": "When the cost of mitigation ($150K) exceeds the ALE ($120K), the mitigation is not financially justified. Risk acceptance with formal documentation is appropriate — management acknowledges the risk and signs off. Implementing a control that costs more than the risk is wasteful. Insurance at $200K is even more expensive. Shutting down the business function may be disproportionate.",
+        "explanation": "When the cost of mitigation ($150K) exceeds the ALE ($120K), the mitigation is not financially justified. Risk acceptance with formal documentation is appropriate, management acknowledges the risk and signs off. Implementing a control that costs more than the risk is wasteful. Insurance at $200K is even more expensive. Shutting down the business function may be disproportionate.",
         "correctAnswers": [
           "Accept the risk with formal documentation, since the mitigation cost exceeds the expected annual loss"
         ],
@@ -3554,7 +3554,7 @@ export const EXAM_SETS: ExamSet[] = [
           "ARP spoofing on the local network",
           "Brute-force password attacks"
         ],
-        "explanation": "Stripping macros from Office attachments at the email gateway prevents macro-based malware (a common delivery mechanism for trojans, ransomware, and other malware) from reaching users. SQL injection targets web applications. ARP spoofing targets local networks. Brute-force targets authentication — none are delivered via document macros.",
+        "explanation": "Stripping macros from Office attachments at the email gateway prevents macro-based malware (a common delivery mechanism for trojans, ransomware, and other malware) from reaching users. SQL injection targets web applications. ARP spoofing targets local networks. Brute-force targets authentication, none are delivered via document macros.",
         "correctAnswers": [
           "Macro-based malware delivered via email attachments"
         ],
@@ -3576,7 +3576,7 @@ export const EXAM_SETS: ExamSet[] = [
           "To provide high-availability failover for web servers",
           "To accelerate DNS lookups"
         ],
-        "explanation": "A honeytoken is a decoy — a fake credential, database record, file, or account that has no legitimate use. Any access to the honeytoken indicates unauthorized activity and triggers an alert. Examples: a fake admin account that nobody should use, a fake file named 'employee-salaries.xlsx' in a shared drive. Honeytokens are detective controls, not related to encryption, HA, or DNS.",
+        "explanation": "A honeytoken is a decoy, a fake credential, database record, file, or account that has no legitimate use. Any access to the honeytoken indicates unauthorized activity and triggers an alert. Examples: a fake admin account that nobody should use, a fake file named 'employee-salaries.xlsx' in a shared drive. Honeytokens are detective controls, not related to encryption, HA, or DNS.",
         "correctAnswers": [
           "To detect unauthorized access by placing a fake credential, file, or record that triggers an alert when accessed"
         ],
@@ -3598,7 +3598,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Phishing emails",
           "DNS cache poisoning"
         ],
-        "explanation": "A mantrap (security vestibule) is a small room with two interlocking doors — only one can be open at a time. This prevents tailgating, where an unauthorized person follows an authorized person through a secured door. SQL injection, phishing, and DNS poisoning are all cyber attacks, not physical security concerns.",
+        "explanation": "A mantrap (security vestibule) is a small room with two interlocking doors, only one can be open at a time. This prevents tailgating, where an unauthorized person follows an authorized person through a secured door. SQL injection, phishing, and DNS poisoning are all cyber attacks, not physical security concerns.",
         "correctAnswers": [
           "Tailgating / piggybacking into secure areas"
         ],
@@ -3642,7 +3642,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Installing every available software update",
           "Connecting all devices to the same network segment"
         ],
-        "explanation": "Least functionality means configuring systems to provide only the essential capabilities required for their intended function. Unnecessary services, ports, protocols, and applications are disabled or removed to reduce the attack surface. This is different from least privilege (user permissions) — least functionality applies to system configuration.",
+        "explanation": "Least functionality means configuring systems to provide only the essential capabilities required for their intended function. Unnecessary services, ports, protocols, and applications are disabled or removed to reduce the attack surface. This is different from least privilege (user permissions), least functionality applies to system configuration.",
         "correctAnswers": [
           "Disabling or removing unnecessary services, ports, protocols, and features from a system"
         ],
@@ -3840,7 +3840,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Something you have",
           "Somewhere you are"
         ],
-        "explanation": "A fingerprint is a biometric — 'something you are.' It is a unique physical characteristic. 'Something you know' is a password or PIN. 'Something you have' is a token or smart card. 'Somewhere you are' is location-based authentication.",
+        "explanation": "A fingerprint is a biometric, 'something you are.' It is a unique physical characteristic. 'Something you know' is a password or PIN. 'Something you have' is a token or smart card. 'Somewhere you are' is location-based authentication.",
         "correctAnswers": [
           "Something you are (biometric)"
         ],
@@ -3862,7 +3862,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Managed File Access",
           "Maximum Failure Attempts"
         ],
-        "explanation": "MFA stands for Multi-Factor Authentication — requiring two or more different types of authentication factors (something you know, have, are, or somewhere you are) to verify identity.",
+        "explanation": "MFA stands for Multi-Factor Authentication, requiring two or more different types of authentication factors (something you know, have, are, or somewhere you are) to verify identity.",
         "correctAnswers": [
           "Multi-Factor Authentication"
         ],
@@ -3994,7 +3994,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Generate random passwords for users",
           "Compress files to save storage space"
         ],
-        "explanation": "A cryptographic hash function takes any input and produces a fixed-length output (digest/hash). It is one-way (cannot be reversed) and is used to verify data integrity — if the data changes, the hash changes. Common algorithms: SHA-256, SHA-3, MD5 (deprecated). Hashing does not encrypt, generate passwords, or compress files.",
+        "explanation": "A cryptographic hash function takes any input and produces a fixed-length output (digest/hash). It is one-way (cannot be reversed) and is used to verify data integrity, if the data changes, the hash changes. Common algorithms: SHA-256, SHA-3, MD5 (deprecated). Hashing does not encrypt, generate passwords, or compress files.",
         "correctAnswers": [
           "Produce a fixed-length digest that uniquely represents input data for integrity verification"
         ],
@@ -4038,7 +4038,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Privileges should be assigned based on seniority",
           "Users should share accounts to simplify access management"
         ],
-        "explanation": "Least privilege means granting only the minimum access rights and permissions needed for a user to perform their specific job function — nothing more. This limits the blast radius if an account is compromised. Admin access for all, seniority-based access, and shared accounts all violate this principle.",
+        "explanation": "Least privilege means granting only the minimum access rights and permissions needed for a user to perform their specific job function, nothing more. This limits the blast radius if an account is compromised. Admin access for all, seniority-based access, and shared accounts all violate this principle.",
         "correctAnswers": [
           "Users should be given only the minimum permissions necessary to perform their job duties"
         ],
@@ -4346,7 +4346,7 @@ export const EXAM_SETS: ExamSet[] = [
           "Containment",
           "Eradication"
         ],
-        "explanation": "The NIST Incident Response lifecycle has four phases: (1) Preparation, (2) Detection and Analysis, (3) Containment, Eradication, and Recovery, (4) Post-Incident Activity (Lessons Learned). Preparation comes first — establishing the IR plan, team, tools, and communication procedures before an incident occurs.",
+        "explanation": "The NIST Incident Response lifecycle has four phases: (1) Preparation, (2) Detection and Analysis, (3) Containment, Eradication, and Recovery, (4) Post-Incident Activity (Lessons Learned). Preparation comes first, establishing the IR plan, team, tools, and communication procedures before an incident occurs.",
         "correctAnswers": [
           "Preparation"
         ],
@@ -4566,7 +4566,7 @@ export const EXAM_SETS: ExamSet[] = [
           "A backup server for disaster recovery",
           "A DNS server for name resolution"
         ],
-        "explanation": "A honeypot is an intentionally vulnerable decoy system placed on a network to attract attackers. It serves no legitimate production purpose — any interaction with it is suspicious. Honeypots gather intelligence about attacker techniques, tools, and procedures (TTPs) while diverting them from real assets.",
+        "explanation": "A honeypot is an intentionally vulnerable decoy system placed on a network to attract attackers. It serves no legitimate production purpose, any interaction with it is suspicious. Honeypots gather intelligence about attacker techniques, tools, and procedures (TTPs) while diverting them from real assets.",
         "correctAnswers": [
           "A decoy system designed to attract and detect attackers while gathering intelligence about their methods"
         ],
@@ -4711,7 +4711,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "An organization implements biometric scanners at building entrances, requires smart card badge-in at server room doors, and uses PIN-based locks on equipment cabinets. Which type of security control is being applied at all three points?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Physical control","Technical control","Administrative control","Compensating control"],
-        "explanation": "All three — biometric scanners, smart card readers, and PIN locks — are physical controls that restrict physical access to facilities and equipment. Technical controls are software/hardware-based (firewalls, encryption). Administrative controls are policies and procedures.",
+        "explanation": "All three, biometric scanners, smart card readers, and PIN locks, are physical controls that restrict physical access to facilities and equipment. Technical controls are software/hardware-based (firewalls, encryption). Administrative controls are policies and procedures.",
         "correctAnswers": ["Physical control"],
         "scenario": null,
         "domainKey": "general-security-concepts", "domainName": "General Security Concepts", "topicId": 0, "studyPath": "/study#physical-security"
@@ -4731,7 +4731,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "What is the PRIMARY purpose of a mantrap (access control vestibule)?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Prevent tailgating by allowing only one person to pass through at a time","Detect fire hazards in the building","Monitor network traffic at the entrance","Provide emergency exit during evacuations"],
-        "explanation": "A mantrap (access control vestibule) is a small room with two interlocking doors — the second door will not open until the first door closes. This prevents tailgating/piggybacking, ensuring each person must individually authenticate before entering.",
+        "explanation": "A mantrap (access control vestibule) is a small room with two interlocking doors, the second door will not open until the first door closes. This prevents tailgating/piggybacking, ensuring each person must individually authenticate before entering.",
         "correctAnswers": ["Prevent tailgating by allowing only one person to pass through at a time"],
         "scenario": null,
         "domainKey": "general-security-concepts", "domainName": "General Security Concepts", "topicId": 0, "studyPath": "/study#physical-security"
@@ -4761,7 +4761,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which of the following describes ephemeral keys?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Temporary keys generated for a single session and discarded afterward","Permanent keys stored in a hardware security module","Keys shared between all users in an organization","Backup copies of the master encryption key"],
-        "explanation": "Ephemeral keys are temporary cryptographic keys generated for one session or transaction and then discarded. They enable perfect forward secrecy (PFS) — even if a long-term key is later compromised, past session traffic cannot be decrypted because the ephemeral keys no longer exist.",
+        "explanation": "Ephemeral keys are temporary cryptographic keys generated for one session or transaction and then discarded. They enable perfect forward secrecy (PFS), even if a long-term key is later compromised, past session traffic cannot be decrypted because the ephemeral keys no longer exist.",
         "correctAnswers": ["Temporary keys generated for a single session and discarded afterward"],
         "scenario": null,
         "domainKey": "general-security-concepts", "domainName": "General Security Concepts", "topicId": 0, "studyPath": "/study#cryptography"
@@ -4811,7 +4811,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "A company wants to ensure that only authorized wireless clients can connect to its corporate Wi-Fi. Which authentication protocol should be implemented?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["802.1X with EAP-TLS using client certificates","WEP with a shared key","MAC address filtering only","Hidden SSID"],
-        "explanation": "802.1X with EAP-TLS provides certificate-based mutual authentication, ensuring only devices with valid certificates can connect. WEP is deprecated and easily cracked. MAC filtering is easily spoofed. Hidden SSIDs provide no real security — the SSID is still transmitted in probe requests.",
+        "explanation": "802.1X with EAP-TLS provides certificate-based mutual authentication, ensuring only devices with valid certificates can connect. WEP is deprecated and easily cracked. MAC filtering is easily spoofed. Hidden SSIDs provide no real security, the SSID is still transmitted in probe requests.",
         "correctAnswers": ["802.1X with EAP-TLS using client certificates"],
         "scenario": null,
         "domainKey": "general-security-concepts", "domainName": "General Security Concepts", "topicId": 0, "studyPath": "/study#wireless-security"
@@ -4840,9 +4840,9 @@ export const EXAM_SETS: ExamSet[] = [
         "id": 226, "qid": "Q0226",
         "prompt": "In a zero trust architecture, which statement BEST describes the security model?",
         "type": "multiple-choice-single", "difficulty": "medium",
-        "options": ["Never trust, always verify — every access request is authenticated and authorized regardless of network location","Trust all internal users but verify external users","Trust users after initial authentication for the duration of their session","Trust devices that are connected to the corporate LAN"],
+        "options": ["Never trust, always verify, every access request is authenticated and authorized regardless of network location","Trust all internal users but verify external users","Trust users after initial authentication for the duration of their session","Trust devices that are connected to the corporate LAN"],
         "explanation": "Zero trust operates on the principle of 'never trust, always verify.' Every access request is authenticated, authorized, and continuously validated regardless of whether the user is inside or outside the network perimeter. No implicit trust is granted based on network location.",
-        "correctAnswers": ["Never trust, always verify — every access request is authenticated and authorized regardless of network location"],
+        "correctAnswers": ["Never trust, always verify, every access request is authenticated and authorized regardless of network location"],
         "scenario": null,
         "domainKey": "general-security-concepts", "domainName": "General Security Concepts", "topicId": 0, "studyPath": "/study#zero-trust"
       },
@@ -4921,7 +4921,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which of the following is a corrective security control?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Restoring systems from backup after a ransomware attack","Installing a firewall","Conducting a security audit","Implementing an acceptable use policy"],
-        "explanation": "A corrective control remediates or restores systems after a security incident. Restoring from backup is corrective — it fixes damage from ransomware. Firewalls are preventive. Audits are detective. Policies are administrative/preventive.",
+        "explanation": "A corrective control remediates or restores systems after a security incident. Restoring from backup is corrective, it fixes damage from ransomware. Firewalls are preventive. Audits are detective. Policies are administrative/preventive.",
         "correctAnswers": ["Restoring systems from backup after a ransomware attack"],
         "scenario": null,
         "domainKey": "general-security-concepts", "domainName": "General Security Concepts", "topicId": 0, "studyPath": "/study#security-controls"
@@ -5011,7 +5011,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which of the following is an advantage of Elliptic Curve Cryptography (ECC) over RSA?",
         "type": "multiple-choice-single", "difficulty": "hard",
         "options": ["ECC provides equivalent security with shorter key lengths, resulting in faster operations and less resource consumption","ECC is simpler to implement than RSA","ECC has been in use longer than RSA","ECC does not require a key pair"],
-        "explanation": "ECC achieves the same security level as RSA with significantly shorter keys (256-bit ECC ≈ 3072-bit RSA). This means faster computations, lower power consumption, and smaller certificates — making ECC ideal for mobile devices, IoT, and TLS connections.",
+        "explanation": "ECC achieves the same security level as RSA with significantly shorter keys (256-bit ECC ≈ 3072-bit RSA). This means faster computations, lower power consumption, and smaller certificates, making ECC ideal for mobile devices, IoT, and TLS connections.",
         "correctAnswers": ["ECC provides equivalent security with shorter key lengths, resulting in faster operations and less resource consumption"],
         "scenario": null,
         "domainKey": "general-security-concepts", "domainName": "General Security Concepts", "topicId": 0, "studyPath": "/study#cryptography"
@@ -5021,7 +5021,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "A security team is evaluating post-quantum cryptographic algorithms. Why is this effort important?",
         "type": "multiple-choice-single", "difficulty": "hard",
         "options": ["Quantum computers could break current asymmetric algorithms like RSA and ECC by efficiently solving their underlying mathematical problems","Quantum computers make symmetric encryption obsolete","Current hash functions will no longer work after quantum computing","All current TLS implementations will be immediately broken"],
-        "explanation": "Quantum computers using Shor's algorithm could efficiently factor large integers (breaking RSA) and solve discrete logarithm problems (breaking ECC/DH). Symmetric algorithms like AES and hash functions are less affected — they only need doubled key lengths. NIST has standardized post-quantum algorithms like CRYSTALS-Kyber and CRYSTALS-Dilithium.",
+        "explanation": "Quantum computers using Shor's algorithm could efficiently factor large integers (breaking RSA) and solve discrete logarithm problems (breaking ECC/DH). Symmetric algorithms like AES and hash functions are less affected, they only need doubled key lengths. NIST has standardized post-quantum algorithms like CRYSTALS-Kyber and CRYSTALS-Dilithium.",
         "correctAnswers": ["Quantum computers could break current asymmetric algorithms like RSA and ECC by efficiently solving their underlying mathematical problems"],
         "scenario": null,
         "domainKey": "general-security-concepts", "domainName": "General Security Concepts", "topicId": 0, "studyPath": "/study#cryptography"
@@ -5301,7 +5301,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which of the following is a supply chain attack vector?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Compromising a software vendor's build system to inject malware into legitimate software updates","Sending phishing emails to end users","Performing a port scan on a target network","Cracking passwords with a rainbow table"],
-        "explanation": "Supply chain attacks compromise a trusted vendor, supplier, or partner to distribute malware through legitimate channels. The SolarWinds attack (2020) is a prime example — attackers compromised the build system and injected malware into software updates distributed to thousands of customers.",
+        "explanation": "Supply chain attacks compromise a trusted vendor, supplier, or partner to distribute malware through legitimate channels. The SolarWinds attack (2020) is a prime example, attackers compromised the build system and injected malware into software updates distributed to thousands of customers.",
         "correctAnswers": ["Compromising a software vendor's build system to inject malware into legitimate software updates"],
         "scenario": null,
         "domainKey": "threats-vulnerabilities-mitigations", "domainName": "Threats, Vulnerabilities & Mitigations", "topicId": 0, "studyPath": "/study#supply-chain-attacks"
@@ -5311,7 +5311,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "A disgruntled employee scheduled a script to delete critical databases on their last day of employment. What type of malware is this?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Logic bomb","Time bomb variant of a Trojan","Ransomware","Worm"],
-        "explanation": "A logic bomb is malicious code that executes when specific conditions are met (a date, event, or action — such as the employee being removed from the system). In this case, the trigger is the employee's last day. Logic bombs are a common insider threat vector.",
+        "explanation": "A logic bomb is malicious code that executes when specific conditions are met (a date, event, or action, such as the employee being removed from the system). In this case, the trigger is the employee's last day. Logic bombs are a common insider threat vector.",
         "correctAnswers": ["Logic bomb"],
         "scenario": null,
         "domainKey": "threats-vulnerabilities-mitigations", "domainName": "Threats, Vulnerabilities & Mitigations", "topicId": 0, "studyPath": "/study#insider-threats"
@@ -5331,7 +5331,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "What is the difference between a vulnerability scan and a penetration test?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["A vulnerability scan identifies known weaknesses; a penetration test actively exploits them to assess real-world impact","They are the same thing","A penetration test only scans for vulnerabilities","A vulnerability scan exploits weaknesses"],
-        "explanation": "Vulnerability scans use automated tools to identify known vulnerabilities and misconfigurations. Penetration tests go further — skilled testers actively exploit vulnerabilities to demonstrate real-world impact and assess how far an attacker could get. Pen tests are manual, targeted, and simulate actual attacks.",
+        "explanation": "Vulnerability scans use automated tools to identify known vulnerabilities and misconfigurations. Penetration tests go further, skilled testers actively exploit vulnerabilities to demonstrate real-world impact and assess how far an attacker could get. Pen tests are manual, targeted, and simulate actual attacks.",
         "correctAnswers": ["A vulnerability scan identifies known weaknesses; a penetration test actively exploits them to assess real-world impact"],
         "scenario": null,
         "domainKey": "threats-vulnerabilities-mitigations", "domainName": "Threats, Vulnerabilities & Mitigations", "topicId": 0, "studyPath": "/study#vulnerability-scanning"
@@ -5350,9 +5350,9 @@ export const EXAM_SETS: ExamSet[] = [
         "id": 277, "qid": "Q0277",
         "prompt": "Which type of cross-site request forgery (CSRF) attack tricks a user's browser into performing an unwanted action on a site where the user is authenticated?",
         "type": "multiple-choice-single", "difficulty": "hard",
-        "options": ["CSRF / session riding — the attacker crafts a request that the victim's browser sends with valid session cookies","SQL injection","Buffer overflow","Denial of service"],
+        "options": ["CSRF / session riding, the attacker crafts a request that the victim's browser sends with valid session cookies","SQL injection","Buffer overflow","Denial of service"],
         "explanation": "CSRF (also called session riding or XSRF) tricks a user's browser into making unintended requests to a site where they are authenticated. The attacker exploits the browser's automatic inclusion of cookies. Prevention includes anti-CSRF tokens, SameSite cookies, and requiring re-authentication for sensitive actions.",
-        "correctAnswers": ["CSRF / session riding — the attacker crafts a request that the victim's browser sends with valid session cookies"],
+        "correctAnswers": ["CSRF / session riding, the attacker crafts a request that the victim's browser sends with valid session cookies"],
         "scenario": null,
         "domainKey": "threats-vulnerabilities-mitigations", "domainName": "Threats, Vulnerabilities & Mitigations", "topicId": 0, "studyPath": "/study#application-attacks"
       },
@@ -5421,7 +5421,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "What is a race condition vulnerability?",
         "type": "multiple-choice-single", "difficulty": "hard",
         "options": ["A flaw where the outcome depends on the timing of events, allowing an attacker to exploit the window between a security check and the use of the checked resource","A vulnerability in encryption algorithms","A weakness in physical access controls","A flaw in network routing protocols"],
-        "explanation": "A race condition (TOCTOU — Time of Check to Time of Use) occurs when a system checks a condition then acts on it, but the condition can change between the check and the action. Attackers exploit this timing window to bypass security checks, modify files, or escalate privileges.",
+        "explanation": "A race condition (TOCTOU, Time of Check to Time of Use) occurs when a system checks a condition then acts on it, but the condition can change between the check and the action. Attackers exploit this timing window to bypass security checks, modify files, or escalate privileges.",
         "correctAnswers": ["A flaw where the outcome depends on the timing of events, allowing an attacker to exploit the window between a security check and the use of the checked resource"],
         "scenario": null,
         "domainKey": "threats-vulnerabilities-mitigations", "domainName": "Threats, Vulnerabilities & Mitigations", "topicId": 0, "studyPath": "/study#application-attacks"
@@ -5491,7 +5491,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which cloud service model gives the customer the MOST control over the infrastructure, including the operating system, middleware, and applications?",
         "type": "multiple-choice-single", "difficulty": "easy",
         "options": ["IaaS (Infrastructure as a Service)","PaaS (Platform as a Service)","SaaS (Software as a Service)","FaaS (Function as a Service)"],
-        "explanation": "IaaS provides virtualized computing resources (VMs, storage, networking). The customer manages the OS, middleware, runtime, and applications. PaaS manages the OS and runtime. SaaS manages everything — the customer only uses the application. FaaS (serverless) manages everything except the function code.",
+        "explanation": "IaaS provides virtualized computing resources (VMs, storage, networking). The customer manages the OS, middleware, runtime, and applications. PaaS manages the OS and runtime. SaaS manages everything, the customer only uses the application. FaaS (serverless) manages everything except the function code.",
         "correctAnswers": ["IaaS (Infrastructure as a Service)"],
         "scenario": null,
         "domainKey": "security-architecture", "domainName": "Security Architecture", "topicId": 0, "studyPath": "/study#cloud-security"
@@ -5501,7 +5501,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "In the shared responsibility model for cloud security, which of the following is ALWAYS the customer's responsibility regardless of the service model?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Data classification and user access management","Physical security of the data center","Hardware maintenance","Network cabling"],
-        "explanation": "In the shared responsibility model, the customer is always responsible for their data, user identities, access management, and data classification — regardless of whether they use IaaS, PaaS, or SaaS. The cloud provider handles physical infrastructure, hardware, and facility security.",
+        "explanation": "In the shared responsibility model, the customer is always responsible for their data, user identities, access management, and data classification, regardless of whether they use IaaS, PaaS, or SaaS. The cloud provider handles physical infrastructure, hardware, and facility security.",
         "correctAnswers": ["Data classification and user access management"],
         "scenario": null,
         "domainKey": "security-architecture", "domainName": "Security Architecture", "topicId": 0, "studyPath": "/study#cloud-security"
@@ -5558,7 +5558,7 @@ export const EXAM_SETS: ExamSet[] = [
       },
       {
         "id": 298, "qid": "Q0298",
-        "prompt": "Which concept divides a network into very small, granular segments — often down to individual workloads — to enforce strict access policies?",
+        "prompt": "Which concept divides a network into very small, granular segments, often down to individual workloads, to enforce strict access policies?",
         "type": "multiple-choice-single", "difficulty": "hard",
         "options": ["Microsegmentation","VLAN segmentation","Subnetting","Air gapping"],
         "explanation": "Microsegmentation divides a network into very small zones, often at the workload or application level, and applies security policies to each segment. This limits lateral movement and is a key component of zero trust architectures. Unlike VLANs which segment at the network layer, microsegmentation operates at the workload level using software-defined policies.",
@@ -5641,7 +5641,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which VPN protocol operates at Layer 3 and provides both encryption and authentication for IP traffic?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["IPsec","SSL/TLS VPN","PPTP","L2TP alone"],
-        "explanation": "IPsec operates at the network layer (Layer 3) and provides encryption (ESP — Encapsulating Security Payload), authentication (AH — Authentication Header), and key management (IKE). It can operate in tunnel mode (encrypts entire IP packet) or transport mode (encrypts payload only). L2TP alone provides no encryption and is typically paired with IPsec.",
+        "explanation": "IPsec operates at the network layer (Layer 3) and provides encryption (ESP, Encapsulating Security Payload), authentication (AH, Authentication Header), and key management (IKE). It can operate in tunnel mode (encrypts entire IP packet) or transport mode (encrypts payload only). L2TP alone provides no encryption and is typically paired with IPsec.",
         "correctAnswers": ["IPsec"],
         "scenario": null,
         "domainKey": "security-architecture", "domainName": "Security Architecture", "topicId": 0, "studyPath": "/study#vpn"
@@ -5771,7 +5771,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which of the following BEST describes the difference between full-disk encryption (FDE) and file-level encryption?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["FDE encrypts the entire drive including the OS; file-level encryption encrypts individual files and allows granular access control","FDE is faster than file-level encryption","File-level encryption protects against all attacks","FDE only encrypts the boot sector"],
-        "explanation": "FDE (e.g., BitLocker, FileVault) encrypts the entire disk — all data including the OS is encrypted at rest. File-level encryption (e.g., EFS) encrypts individual files, allowing different keys for different files and granular sharing. FDE protects against physical theft; file-level protects against unauthorized user access on the same system.",
+        "explanation": "FDE (e.g., BitLocker, FileVault) encrypts the entire disk, all data including the OS is encrypted at rest. File-level encryption (e.g., EFS) encrypts individual files, allowing different keys for different files and granular sharing. FDE protects against physical theft; file-level protects against unauthorized user access on the same system.",
         "correctAnswers": ["FDE encrypts the entire drive including the OS; file-level encryption encrypts individual files and allows granular access control"],
         "scenario": null,
         "domainKey": "security-operations", "domainName": "Security Operations", "topicId": 0, "studyPath": "/study#data-security"
@@ -5791,7 +5791,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "What is the correct order of the incident response lifecycle according to NIST SP 800-61?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Preparation → Detection & Analysis → Containment, Eradication & Recovery → Post-Incident Activity","Detection → Preparation → Recovery → Eradication","Containment → Detection → Preparation → Recovery","Recovery → Detection → Containment → Preparation"],
-        "explanation": "NIST SP 800-61 defines four phases: (1) Preparation — policies, tools, training; (2) Detection & Analysis — identify and investigate incidents; (3) Containment, Eradication & Recovery — stop the threat, remove it, restore systems; (4) Post-Incident Activity — lessons learned, documentation, process improvement.",
+        "explanation": "NIST SP 800-61 defines four phases: (1) Preparation, policies, tools, training; (2) Detection & Analysis, identify and investigate incidents; (3) Containment, Eradication & Recovery, stop the threat, remove it, restore systems; (4) Post-Incident Activity, lessons learned, documentation, process improvement.",
         "correctAnswers": ["Preparation → Detection & Analysis → Containment, Eradication & Recovery → Post-Incident Activity"],
         "scenario": null,
         "domainKey": "security-operations", "domainName": "Security Operations", "topicId": 0, "studyPath": "/study#incident-response"
@@ -5831,7 +5831,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which access control model assigns permissions based on user roles within an organization (e.g., Manager, Developer, Auditor)?",
         "type": "multiple-choice-single", "difficulty": "easy",
         "options": ["RBAC (Role-Based Access Control)","DAC (Discretionary Access Control)","MAC (Mandatory Access Control)","ABAC (Attribute-Based Access Control)"],
-        "explanation": "RBAC assigns permissions to roles, and users are assigned to roles. This simplifies access management in organizations — when an employee changes roles, their permissions change by updating their role assignment. DAC lets owners set permissions. MAC uses labels/classifications. ABAC uses attributes (time, location, department).",
+        "explanation": "RBAC assigns permissions to roles, and users are assigned to roles. This simplifies access management in organizations, when an employee changes roles, their permissions change by updating their role assignment. DAC lets owners set permissions. MAC uses labels/classifications. ABAC uses attributes (time, location, department).",
         "correctAnswers": ["RBAC (Role-Based Access Control)"],
         "scenario": null,
         "domainKey": "security-operations", "domainName": "Security Operations", "topicId": 0, "studyPath": "/study#identity-access-management"
@@ -5841,7 +5841,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which access control model uses labels such as 'Top Secret,' 'Secret,' and 'Confidential' to enforce access based on clearance levels?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["MAC (Mandatory Access Control)","DAC (Discretionary Access Control)","RBAC (Role-Based Access Control)","Rule-based access control"],
-        "explanation": "MAC enforces access based on security labels/classifications assigned to both users (clearance) and resources (classification). Access is granted only when the user's clearance meets or exceeds the resource's classification. The system administrator sets the labels — users cannot change them (non-discretionary).",
+        "explanation": "MAC enforces access based on security labels/classifications assigned to both users (clearance) and resources (classification). Access is granted only when the user's clearance meets or exceeds the resource's classification. The system administrator sets the labels, users cannot change them (non-discretionary).",
         "correctAnswers": ["MAC (Mandatory Access Control)"],
         "scenario": null,
         "domainKey": "security-operations", "domainName": "Security Operations", "topicId": 0, "studyPath": "/study#identity-access-management"
@@ -5851,7 +5851,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "What is the purpose of network flow data (NetFlow/sFlow) in security monitoring?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Provide metadata about network conversations (source, destination, ports, bytes, duration) for traffic analysis and anomaly detection","Encrypt network traffic","Block malicious packets","Replace firewall logging"],
-        "explanation": "NetFlow/sFlow/IPFIX collect metadata about network conversations: source/destination IPs, ports, protocols, byte counts, and timing. This data enables traffic analysis, baseline establishment, anomaly detection (unusual traffic patterns), capacity planning, and forensic investigation — without capturing full packet content.",
+        "explanation": "NetFlow/sFlow/IPFIX collect metadata about network conversations: source/destination IPs, ports, protocols, byte counts, and timing. This data enables traffic analysis, baseline establishment, anomaly detection (unusual traffic patterns), capacity planning, and forensic investigation, without capturing full packet content.",
         "correctAnswers": ["Provide metadata about network conversations (source, destination, ports, bytes, duration) for traffic analysis and anomaly detection"],
         "scenario": null,
         "domainKey": "security-operations", "domainName": "Security Operations", "topicId": 0, "studyPath": "/study#network-monitoring"
@@ -5871,7 +5871,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "What is the PRIMARY difference between SIEM and SOAR?",
         "type": "multiple-choice-single", "difficulty": "hard",
         "options": ["SIEM collects and correlates security data for detection; SOAR automates response actions through playbooks and orchestration","SIEM and SOAR are the same technology","SOAR replaces SIEM entirely","SIEM automates incident response"],
-        "explanation": "SIEM focuses on data aggregation, correlation, alerting, and analysis. SOAR (Security Orchestration, Automation, and Response) automates response workflows through playbooks — for example, automatically isolating an infected endpoint, blocking a malicious IP, and creating a ticket. SOAR complements SIEM by automating the response to SIEM alerts.",
+        "explanation": "SIEM focuses on data aggregation, correlation, alerting, and analysis. SOAR (Security Orchestration, Automation, and Response) automates response workflows through playbooks, for example, automatically isolating an infected endpoint, blocking a malicious IP, and creating a ticket. SOAR complements SIEM by automating the response to SIEM alerts.",
         "correctAnswers": ["SIEM collects and correlates security data for detection; SOAR automates response actions through playbooks and orchestration"],
         "scenario": null,
         "domainKey": "security-operations", "domainName": "Security Operations", "topicId": 0, "studyPath": "/study#siem-soar"
@@ -5891,7 +5891,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which data sanitization method overwrites data multiple times with random patterns to ensure it cannot be recovered?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Secure erase / data wiping with overwrite passes","Deleting files from the recycle bin","Quick formatting the drive","Defragmenting the drive"],
-        "explanation": "Secure erase overwrites data with random patterns (often multiple passes) to make recovery impossible. Simple deletion only removes file system pointers — the data remains on disk. Quick format reinitializes the file system without overwriting data. For SSDs, cryptographic erase (destroying the encryption key) is preferred.",
+        "explanation": "Secure erase overwrites data with random patterns (often multiple passes) to make recovery impossible. Simple deletion only removes file system pointers, the data remains on disk. Quick format reinitializes the file system without overwriting data. For SSDs, cryptographic erase (destroying the encryption key) is preferred.",
         "correctAnswers": ["Secure erase / data wiping with overwrite passes"],
         "scenario": null,
         "domainKey": "security-operations", "domainName": "Security Operations", "topicId": 0, "studyPath": "/study#data-security"
@@ -5961,7 +5961,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which identity management concept ensures that users are periodically reviewed to verify they still need their current access permissions?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["User access review / access recertification","Account provisioning","Password reset","Single sign-on"],
-        "explanation": "Access reviews (recertification) periodically verify that users still require their assigned permissions. Managers review their team's access and remove unnecessary permissions. This prevents privilege creep — the gradual accumulation of access rights beyond what is needed for the current role.",
+        "explanation": "Access reviews (recertification) periodically verify that users still require their assigned permissions. Managers review their team's access and remove unnecessary permissions. This prevents privilege creep, the gradual accumulation of access rights beyond what is needed for the current role.",
         "correctAnswers": ["User access review / access recertification"],
         "scenario": null,
         "domainKey": "security-operations", "domainName": "Security Operations", "topicId": 0, "studyPath": "/study#identity-access-management"
@@ -6011,7 +6011,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which of the following describes the concept of 'just-in-time' (JIT) access in identity management?",
         "type": "multiple-choice-single", "difficulty": "hard",
         "options": ["Granting elevated privileges only when needed and automatically revoking them after a set time period","Giving all administrators permanent elevated access","Removing all admin accounts entirely","Sharing admin credentials among team members"],
-        "explanation": "JIT access grants elevated privileges on demand for a specific, limited time period, then automatically revokes them. This reduces the window of exposure for privileged accounts — admins only have elevated access when actively performing administrative tasks. JIT is a key component of PAM and zero trust architectures.",
+        "explanation": "JIT access grants elevated privileges on demand for a specific, limited time period, then automatically revokes them. This reduces the window of exposure for privileged accounts, admins only have elevated access when actively performing administrative tasks. JIT is a key component of PAM and zero trust architectures.",
         "correctAnswers": ["Granting elevated privileges only when needed and automatically revoking them after a set time period"],
         "scenario": null,
         "domainKey": "security-operations", "domainName": "Security Operations", "topicId": 0, "studyPath": "/study#identity-access-management"
@@ -6020,9 +6020,9 @@ export const EXAM_SETS: ExamSet[] = [
         "id": 344, "qid": "Q0344",
         "prompt": "What does XDR (Extended Detection and Response) provide beyond EDR?",
         "type": "multiple-choice-single", "difficulty": "hard",
-        "options": ["Unified detection and response across endpoints, network, cloud, and email — correlating data from multiple security layers","Only endpoint protection","Physical security monitoring","Backup management"],
+        "options": ["Unified detection and response across endpoints, network, cloud, and email, correlating data from multiple security layers","Only endpoint protection","Physical security monitoring","Backup management"],
         "explanation": "XDR extends EDR by integrating and correlating telemetry across multiple security layers: endpoints, network traffic, cloud workloads, email, and identity. This provides a holistic view of threats, reduces alert fatigue through cross-layer correlation, and enables coordinated response actions across the entire environment.",
-        "correctAnswers": ["Unified detection and response across endpoints, network, cloud, and email — correlating data from multiple security layers"],
+        "correctAnswers": ["Unified detection and response across endpoints, network, cloud, and email, correlating data from multiple security layers"],
         "scenario": null,
         "domainKey": "security-operations", "domainName": "Security Operations", "topicId": 0, "studyPath": "/study#endpoint-security"
       },
@@ -6031,7 +6031,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which vulnerability management practice involves categorizing discovered vulnerabilities by severity and business impact to determine remediation priority?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Risk-based vulnerability prioritization","Vulnerability scanning","Penetration testing","Threat modeling"],
-        "explanation": "Risk-based vulnerability prioritization considers CVSS score, asset criticality, exploit availability, business context, and threat intelligence to determine which vulnerabilities to fix first. Not all critical CVSS vulnerabilities pose the same risk — a critical vulnerability on an internet-facing production server is more urgent than one on an isolated test system.",
+        "explanation": "Risk-based vulnerability prioritization considers CVSS score, asset criticality, exploit availability, business context, and threat intelligence to determine which vulnerabilities to fix first. Not all critical CVSS vulnerabilities pose the same risk, a critical vulnerability on an internet-facing production server is more urgent than one on an isolated test system.",
         "correctAnswers": ["Risk-based vulnerability prioritization"],
         "scenario": null,
         "domainKey": "security-operations", "domainName": "Security Operations", "topicId": 0, "studyPath": "/study#vulnerability-management"
@@ -6041,7 +6041,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which of the following describes tokenization as a data protection method?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Replacing sensitive data with a non-sensitive placeholder (token) that maps back to the original data in a secure vault","Encrypting data with AES-256","Compressing data for storage","Hashing data for integrity verification"],
-        "explanation": "Tokenization replaces sensitive data elements (like credit card numbers) with non-sensitive tokens that have no exploitable value. The mapping between tokens and original data is stored in a secure token vault. Unlike encryption, tokenized data cannot be mathematically reversed — the token has no relationship to the original data.",
+        "explanation": "Tokenization replaces sensitive data elements (like credit card numbers) with non-sensitive tokens that have no exploitable value. The mapping between tokens and original data is stored in a secure token vault. Unlike encryption, tokenized data cannot be mathematically reversed, the token has no relationship to the original data.",
         "correctAnswers": ["Replacing sensitive data with a non-sensitive placeholder (token) that maps back to the original data in a secure vault"],
         "scenario": null,
         "domainKey": "security-operations", "domainName": "Security Operations", "topicId": 0, "studyPath": "/study#data-security"
@@ -6111,7 +6111,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "What is the formula for Annualized Loss Expectancy (ALE)?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["ALE = SLE × ARO (Annualized Rate of Occurrence)","ALE = AV × EF","ALE = SLE + ARO","ALE = AV / ARO"],
-        "explanation": "ALE = SLE × ARO. ALE represents the expected annual cost of a risk. If SLE is $40,000 and the event is expected to occur twice per year (ARO = 2), then ALE = $40,000 × 2 = $80,000. ALE is used to justify security control investments — if a control costs less than the ALE it prevents, it is cost-effective.",
+        "explanation": "ALE = SLE × ARO. ALE represents the expected annual cost of a risk. If SLE is $40,000 and the event is expected to occur twice per year (ARO = 2), then ALE = $40,000 × 2 = $80,000. ALE is used to justify security control investments, if a control costs less than the ALE it prevents, it is cost-effective.",
         "correctAnswers": ["ALE = SLE × ARO (Annualized Rate of Occurrence)"],
         "scenario": null,
         "domainKey": "security-program-management", "domainName": "Security Program Management & Oversight", "topicId": 0, "studyPath": "/study#risk-management"
@@ -6191,7 +6191,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "What does RTO (Recovery Time Objective) define?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["The maximum acceptable time to restore a system or process after a disruption","The maximum amount of data that can be lost, measured in time","The total cost of a disaster recovery plan","The number of backup copies to maintain"],
-        "explanation": "RTO is the maximum acceptable downtime — how long a system or process can be unavailable before the impact becomes unacceptable. For example, an RTO of 4 hours means the system must be restored within 4 hours of failure. RPO defines acceptable data loss. Together, RTO and RPO drive DR planning decisions.",
+        "explanation": "RTO is the maximum acceptable downtime, how long a system or process can be unavailable before the impact becomes unacceptable. For example, an RTO of 4 hours means the system must be restored within 4 hours of failure. RPO defines acceptable data loss. Together, RTO and RPO drive DR planning decisions.",
         "correctAnswers": ["The maximum acceptable time to restore a system or process after a disruption"],
         "scenario": null,
         "domainKey": "security-program-management", "domainName": "Security Program Management & Oversight", "topicId": 0, "studyPath": "/study#business-continuity-disaster-recovery"
@@ -6201,7 +6201,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "What does RPO (Recovery Point Objective) define?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["The maximum acceptable amount of data loss, measured as the time since the last backup","The time to restore a system","The cost of a backup solution","The number of servers needed for recovery"],
-        "explanation": "RPO defines the maximum acceptable data loss measured in time. If RPO is 1 hour, backups must occur at least every hour — at most 1 hour of data can be lost. An RPO of zero requires real-time replication. RPO drives backup frequency and replication strategy.",
+        "explanation": "RPO defines the maximum acceptable data loss measured in time. If RPO is 1 hour, backups must occur at least every hour, at most 1 hour of data can be lost. An RPO of zero requires real-time replication. RPO drives backup frequency and replication strategy.",
         "correctAnswers": ["The maximum acceptable amount of data loss, measured as the time since the last backup"],
         "scenario": null,
         "domainKey": "security-program-management", "domainName": "Security Program Management & Oversight", "topicId": 0, "studyPath": "/study#business-continuity-disaster-recovery"
@@ -6291,7 +6291,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which business continuity testing method involves walking through the plan step-by-step with key stakeholders but does NOT actually disrupt operations?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Tabletop exercise","Full interruption test","Parallel test","Simulation test"],
-        "explanation": "A tabletop exercise is a discussion-based walkthrough where key personnel review the BC/DR plan, discuss their roles, and identify gaps — without any actual operational disruption. Full interruption tests shut down primary systems. Parallel tests run backup systems alongside primary. Tabletop exercises are low-cost and low-risk.",
+        "explanation": "A tabletop exercise is a discussion-based walkthrough where key personnel review the BC/DR plan, discuss their roles, and identify gaps, without any actual operational disruption. Full interruption tests shut down primary systems. Parallel tests run backup systems alongside primary. Tabletop exercises are low-cost and low-risk.",
         "correctAnswers": ["Tabletop exercise"],
         "scenario": null,
         "domainKey": "security-program-management", "domainName": "Security Program Management & Oversight", "topicId": 0, "studyPath": "/study#business-continuity-disaster-recovery"
@@ -6341,7 +6341,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Performance-based: A healthcare organization must ensure HIPAA compliance for its new cloud-based electronic health records system. Arrange the compliance steps in the CORRECT order.",
         "type": "performance-based", "difficulty": "hard",
         "options": ["Conduct a risk assessment → identify ePHI data flows → implement required safeguards (administrative, physical, technical) → establish BAA with cloud provider → train workforce on HIPAA policies → monitor and audit compliance continuously","Deploy the system immediately → worry about compliance later → train users after a breach","Skip the risk assessment → encrypt everything → assume compliance","Choose the cheapest cloud provider → store all data unencrypted → disable logging"],
-        "explanation": "HIPAA compliance requires: (1) risk assessment to identify threats to ePHI, (2) understanding data flows, (3) implementing required safeguards, (4) Business Associate Agreement with third parties, (5) workforce training, and (6) ongoing monitoring and auditing. Compliance is not a one-time event — it requires continuous oversight.",
+        "explanation": "HIPAA compliance requires: (1) risk assessment to identify threats to ePHI, (2) understanding data flows, (3) implementing required safeguards, (4) Business Associate Agreement with third parties, (5) workforce training, and (6) ongoing monitoring and auditing. Compliance is not a one-time event, it requires continuous oversight.",
         "correctAnswers": ["Conduct a risk assessment → identify ePHI data flows → implement required safeguards (administrative, physical, technical) → establish BAA with cloud provider → train workforce on HIPAA policies → monitor and audit compliance continuously"],
         "scenario": "PBQ: A hospital is migrating its electronic health records to a cloud platform. The CISO must ensure the migration and ongoing operation comply with HIPAA requirements for protecting patient health information.",
         "domainKey": "security-program-management", "domainName": "Security Program Management & Oversight", "topicId": 0, "studyPath": "/study#compliance-frameworks"
@@ -6381,7 +6381,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which of the following describes the concept of 'security by design'?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Integrating security considerations from the earliest stages of system and application development","Adding security features only after deployment","Relying solely on perimeter security","Addressing security only when a breach occurs"],
-        "explanation": "Security by design (also called shift-left security) integrates security throughout the SDLC — from requirements and architecture through coding, testing, and deployment. This is far more effective and cost-efficient than retrofitting security after development. Threat modeling, secure coding guidelines, and security testing are key practices.",
+        "explanation": "Security by design (also called shift-left security) integrates security throughout the SDLC, from requirements and architecture through coding, testing, and deployment. This is far more effective and cost-efficient than retrofitting security after development. Threat modeling, secure coding guidelines, and security testing are key practices.",
         "correctAnswers": ["Integrating security considerations from the earliest stages of system and application development"],
         "scenario": null,
         "domainKey": "security-program-management", "domainName": "Security Program Management & Oversight", "topicId": 0, "studyPath": "/study#security-policies"
@@ -6401,7 +6401,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "An organization's security team discovers that an employee has been accessing sensitive financial data unrelated to their job function for the past 3 months. Which control failed?",
         "type": "multiple-choice-single", "difficulty": "hard",
         "options": ["Least privilege and periodic access review","Firewall rules","Antivirus updates","Physical security"],
-        "explanation": "The least privilege principle was violated — the employee had access to data they didn't need for their role. Additionally, periodic access reviews should have detected the unnecessary access and revoked it. This scenario demonstrates privilege creep and the importance of regular access recertification.",
+        "explanation": "The least privilege principle was violated, the employee had access to data they didn't need for their role. Additionally, periodic access reviews should have detected the unnecessary access and revoked it. This scenario demonstrates privilege creep and the importance of regular access recertification.",
         "correctAnswers": ["Least privilege and periodic access review"],
         "scenario": null,
         "domainKey": "security-operations", "domainName": "Security Operations", "topicId": 0, "studyPath": "/study#identity-access-management"
@@ -6491,7 +6491,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which of the following is a key difference between symmetric and asymmetric encryption?",
         "type": "multiple-choice-single", "difficulty": "easy",
         "options": ["Symmetric uses one shared key for both encryption and decryption; asymmetric uses a public/private key pair","Symmetric is always slower than asymmetric","Asymmetric uses one shared key","Symmetric encryption is more secure than asymmetric"],
-        "explanation": "Symmetric encryption uses the same key for encryption and decryption (AES, 3DES). Asymmetric uses a key pair — public key encrypts, private key decrypts (RSA, ECC). Symmetric is much faster and used for bulk data. Asymmetric is used for key exchange, digital signatures, and encrypting small amounts of data. TLS uses both.",
+        "explanation": "Symmetric encryption uses the same key for encryption and decryption (AES, 3DES). Asymmetric uses a key pair, public key encrypts, private key decrypts (RSA, ECC). Symmetric is much faster and used for bulk data. Asymmetric is used for key exchange, digital signatures, and encrypting small amounts of data. TLS uses both.",
         "correctAnswers": ["Symmetric uses one shared key for both encryption and decryption; asymmetric uses a public/private key pair"],
         "scenario": null,
         "domainKey": "general-security-concepts", "domainName": "General Security Concepts", "topicId": 0, "studyPath": "/study#cryptography"
@@ -6601,7 +6601,7 @@ export const EXAM_SETS: ExamSet[] = [
         "prompt": "Which of the following describes split-tunnel VPN?",
         "type": "multiple-choice-single", "difficulty": "medium",
         "options": ["Only traffic destined for the corporate network goes through the VPN; internet traffic goes directly to the internet","All traffic goes through the VPN tunnel","The VPN connection splits between two servers","Two VPN clients are used simultaneously"],
-        "explanation": "Split-tunnel VPN routes only corporate-bound traffic through the VPN while allowing internet traffic to go directly to the internet. This reduces VPN bandwidth usage but creates a security risk — the user's device is simultaneously connected to the corporate network and the internet, potentially allowing malware to bridge the two.",
+        "explanation": "Split-tunnel VPN routes only corporate-bound traffic through the VPN while allowing internet traffic to go directly to the internet. This reduces VPN bandwidth usage but creates a security risk, the user's device is simultaneously connected to the corporate network and the internet, potentially allowing malware to bridge the two.",
         "correctAnswers": ["Only traffic destined for the corporate network goes through the VPN; internet traffic goes directly to the internet"],
         "scenario": null,
         "domainKey": "security-architecture", "domainName": "Security Architecture", "topicId": 0, "studyPath": "/study#vpn"
@@ -6670,9 +6670,9 @@ export const EXAM_SETS: ExamSet[] = [
         "id": 409, "qid": "Q0409",
         "prompt": "Performance-based: A company needs to calculate whether implementing a $50,000/year intrusion prevention system is justified. The asset being protected is worth $500,000, the exposure factor for the threat is 20%, and the threat occurs an estimated 3 times per year. Calculate the ALE and determine if the investment is justified.",
         "type": "performance-based", "difficulty": "hard",
-        "options": ["SLE = $100,000, ALE = $300,000 — the $50,000 IPS is justified because it costs less than the potential annual loss","SLE = $50,000, ALE = $150,000 — the IPS is not justified","SLE = $500,000, ALE = $1,500,000 — cannot determine","The calculation cannot be performed with the given information"],
-        "explanation": "SLE = AV × EF = $500,000 × 0.20 = $100,000. ALE = SLE × ARO = $100,000 × 3 = $300,000. The IPS costs $50,000/year. Since $50,000 < $300,000, the control is cost-effective — it costs significantly less than the expected annual loss it prevents. The ROI is $250,000/year.",
-        "correctAnswers": ["SLE = $100,000, ALE = $300,000 — the $50,000 IPS is justified because it costs less than the potential annual loss"],
+        "options": ["SLE = $100,000, ALE = $300,000, the $50,000 IPS is justified because it costs less than the potential annual loss","SLE = $50,000, ALE = $150,000, the IPS is not justified","SLE = $500,000, ALE = $1,500,000, cannot determine","The calculation cannot be performed with the given information"],
+        "explanation": "SLE = AV × EF = $500,000 × 0.20 = $100,000. ALE = SLE × ARO = $100,000 × 3 = $300,000. The IPS costs $50,000/year. Since $50,000 < $300,000, the control is cost-effective, it costs significantly less than the expected annual loss it prevents. The ROI is $250,000/year.",
+        "correctAnswers": ["SLE = $100,000, ALE = $300,000, the $50,000 IPS is justified because it costs less than the potential annual loss"],
         "scenario": "PBQ: A CISO presents a business case for a new IPS to the board. The protected asset (customer database) is valued at $500,000. Historical data shows the threat (successful network intrusion) has a 20% exposure factor and occurs approximately 3 times per year.",
         "domainKey": "security-program-management", "domainName": "Security Program Management & Oversight", "topicId": 0, "studyPath": "/study#risk-management"
       },

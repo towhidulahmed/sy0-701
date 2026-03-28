@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { MobileNav } from "@/components/mobile-nav";
 
 export const metadata: Metadata = {
-  title: "Stuick — Why Study Long When You Can Study Quick",
+  title: "Stuick, Why Study Long When You Can Study Quick",
   description: "Your quick and focused learning platform. Study smarter, not longer.",
   appleWebApp: {
     capable: true,
@@ -32,7 +32,7 @@ export default function RootLayout({
           <SiteHeader />
           {children}
         </div>
-        {/* Mobile bottom tab bar — hidden during exam */}
+        {/* Mobile bottom tab bar, hidden during exam */}
         <MobileNav />
       </body>
     </html>

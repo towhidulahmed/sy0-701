@@ -13,7 +13,7 @@ export default function MockTestsPage() {
           <div>
             <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Mock Tests</h2>
             <p className="mt-2 text-sm leading-6 text-zinc-400">
-              {MAX_MOCK_TESTS} full-length SY0-701 exams — 90 minutes, 90 questions each.
+              {MAX_MOCK_TESTS} full-length SY0-701 exams, 90 minutes, 90 questions each.
             </p>
           </div>
           <Link

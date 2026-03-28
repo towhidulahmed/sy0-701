@@ -7,7 +7,7 @@ export default function NmapHome() {
     <main className="space-y-4 px-3 pt-4 sm:space-y-6 sm:px-0 sm:pt-0">
       {/* Hero */}
       <section className="rounded-2xl border border-[#2e1f0e]/70 bg-gradient-to-br from-orange-950/50 via-[#120c06] to-[#080b10] p-5 sm:rounded-xl sm:p-6">
-        <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Nmap — Network Scanning</h2>
+        <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Nmap, Network Scanning</h2>
         <p className="mt-2 text-sm leading-6 text-zinc-400">
           Master Nmap for host discovery, port scanning, service detection, OS fingerprinting, and evasion techniques.
         </p>
@@ -37,7 +37,7 @@ export default function NmapHome() {
             <div>
               <h3 className="text-base font-semibold">Study Guide</h3>
               <p className="mt-1 text-sm leading-6 text-zinc-400">
-                {NMAP_TOTAL_TOPICS} topics — commands, techniques, and exam tips.
+                {NMAP_TOTAL_TOPICS} topics, commands, techniques, and exam tips.
               </p>
             </div>
             <span className="flex-shrink-0 text-lg text-orange-500/60 transition-transform group-hover:translate-x-1">→</span>
@@ -52,7 +52,7 @@ export default function NmapHome() {
             <div>
               <h3 className="text-base font-semibold">Flashcards</h3>
               <p className="mt-1 text-sm leading-6 text-zinc-400">
-                {NMAP_TOTAL_FLASHCARDS} cards — flip to test recall on key concepts.
+                {NMAP_TOTAL_FLASHCARDS} cards, flip to test recall on key concepts.
               </p>
             </div>
             <span className="flex-shrink-0 text-lg text-orange-500/60 transition-transform group-hover:translate-x-1">→</span>

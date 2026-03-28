@@ -13,11 +13,11 @@ export const NMAP_STUDY: LinuxDomain[] = [
         content: `Nmap (Network Mapper) is the world's most widely used open-source network scanner, originally created by Gordon Lyon (Fyodor) in 1997. It is a staple tool for security professionals, penetration testers, and network administrators to discover hosts, open ports, running services, and potential vulnerabilities across a network.
 
 **Core Capabilities:**
-- **Host discovery** — determine which hosts are online
-- **Port scanning** — identify open, closed, and filtered ports
-- **Service & version detection** — identify what software is listening on each port
-- **OS fingerprinting** — estimate the operating system and version of a target
-- **Scriptable interaction** — automate tasks with the Nmap Scripting Engine (NSE)
+- **Host discovery**, determine which hosts are online
+- **Port scanning**, identify open, closed, and filtered ports
+- **Service & version detection**, identify what software is listening on each port
+- **OS fingerprinting**, estimate the operating system and version of a target
+- **Scriptable interaction**, automate tasks with the Nmap Scripting Engine (NSE)
 
 **Basic Syntax:**
 \`\`\`
@@ -46,18 +46,18 @@ Scanning any network without written authorization from the owner is illegal in 
           { cmd: "nmap --version", desc: "Display Nmap version and build info" },
           { cmd: "nmap -h", desc: "Show quick help and usage summary" },
           { cmd: "nmap 192.168.1.1", desc: "Default scan: top 1000 ports on a single host" },
-          { cmd: "sudo nmap -sS 192.168.1.1", desc: "SYN scan (requires root) — the most common scan type" },
-          { cmd: "nmap -sT 192.168.1.1", desc: "TCP Connect scan — works without root privileges" },
+          { cmd: "sudo nmap -sS 192.168.1.1", desc: "SYN scan (requires root), the most common scan type" },
+          { cmd: "nmap -sT 192.168.1.1", desc: "TCP Connect scan, works without root privileges" },
           { cmd: "nmap -A 192.168.1.1", desc: "Aggressive scan: OS, version, script, and traceroute" },
         ],
         tips: [
-          "Always run Nmap as root (or with sudo) for best results — most advanced scan types require raw socket access",
+          "Always run Nmap as root (or with sudo) for best results, most advanced scan types require raw socket access",
           "The default scan without any flags runs a TCP SYN scan on the top 1000 most common ports",
           "Use -v or -vv to get verbose output and see results as they come in, rather than waiting for the full scan",
-          "Install nmap from official repositories or nmap.org — third-party builds may be outdated",
+          "Install nmap from official repositories or nmap.org, third-party builds may be outdated",
         ],
         flashcards: [
-          { front: "What does Nmap stand for?", back: "Network Mapper — an open-source tool for network discovery and security auditing" },
+          { front: "What does Nmap stand for?", back: "Network Mapper, an open-source tool for network discovery and security auditing" },
           { front: "What scan type does a default Nmap run (no flags)?", back: "SYN scan (-sS) on the top 1000 most common TCP ports if run as root; TCP Connect (-sT) if not root" },
           { front: "Why do many Nmap scans require root/administrator privileges?", back: "They craft raw IP packets at a low level, which requires direct access to the network interface" },
           { front: "What is the basic Nmap syntax structure?", back: "nmap [scan type] [options] {target specification}" },
@@ -74,7 +74,7 @@ Scanning any network without written authorization from the owner is illegal in 
 Specify a hostname (\`nmap scanme.nmap.org\`), IPv4 address (\`nmap 192.168.1.1\`), or IPv6 address (\`nmap -6 ::1\`).
 
 **CIDR Notation:**
-Scan an entire subnet by appending the prefix length. \`nmap 192.168.1.0/24\` scans all 256 addresses in the subnet (192.168.1.0 – 192.168.1.255). \`nmap 10.0.0.0/8\` scans 16.7 million addresses — only do this with permission and appropriate timing.
+Scan an entire subnet by appending the prefix length. \`nmap 192.168.1.0/24\` scans all 256 addresses in the subnet (192.168.1.0 – 192.168.1.255). \`nmap 10.0.0.0/8\` scans 16.7 million addresses, only do this with permission and appropriate timing.
 
 **IP Ranges:**
 Use a hyphen to specify a range within an octet: \`nmap 192.168.1.1-50\` scans .1 through .50.
@@ -103,18 +103,18 @@ Nmap resolves hostnames by default. Disable with \`-n\` (no DNS resolution) to s
           { cmd: "nmap -n 192.168.1.0/24", desc: "Skip DNS resolution for faster scanning" },
         ],
         tips: [
-          "Use -n to skip DNS resolution when scanning large ranges — it dramatically speeds up scans",
+          "Use -n to skip DNS resolution when scanning large ranges, it dramatically speeds up scans",
           "Always use --exclude to protect critical infrastructure like routers and production servers",
           "For large engagements, put all targets in a file with -iL to keep scans organized and reproducible",
-          "CIDR /24 = 256 hosts, /16 = 65536 hosts, /8 = 16.7M hosts — be mindful of scope",
+          "CIDR /24 = 256 hosts, /16 = 65536 hosts, /8 = 16.7M hosts, be mindful of scope",
         ],
         flashcards: [
-          { front: "How do you scan an entire /24 subnet with Nmap?", back: "nmap 192.168.1.0/24 — or equivalently nmap 192.168.1.*" },
+          { front: "How do you scan an entire /24 subnet with Nmap?", back: "nmap 192.168.1.0/24, or equivalently nmap 192.168.1.*" },
           { front: "What flag reads scan targets from a file?", back: "-iL filename.txt (input list)" },
           { front: "How do you exclude a specific host from a scan?", back: "Use --exclude 192.168.1.1 after the target specification" },
           { front: "What does -n do in Nmap?", back: "Disables DNS reverse resolution, making scans faster (no DNS lookups)" },
           { front: "What syntax scans 192.168.1.1, .5, and .10 through .20?", back: "nmap 192.168.1.1,5,10-20" },
-          { front: "What flag scans a random set of Internet hosts?", back: "-iR <number> — selects that many random hosts (use ethically and legally only)" },
+          { front: "What flag scans a random set of Internet hosts?", back: "-iR <number>, selects that many random hosts (use ethically and legally only)" },
         ],
       },
       {
@@ -123,7 +123,7 @@ Nmap resolves hostnames by default. Disable with \`-n\` (no DNS resolution) to s
         content: `Nmap categorizes ports into six possible states based on the responses (or lack thereof) it receives during scanning. Understanding these states is fundamental to interpreting Nmap output correctly.
 
 **Open:**
-An application is actively accepting connections on this port. A service (e.g., Apache on TCP 80, SSH on TCP 22) is listening. This is the most interesting state from a security perspective — open ports represent potential attack surface.
+An application is actively accepting connections on this port. A service (e.g., Apache on TCP 80, SSH on TCP 22) is listening. This is the most interesting state from a security perspective, open ports represent potential attack surface.
 
 **Closed:**
 The port is accessible (not filtered by a firewall), but no application is currently listening on it. The host is reachable and the port responds, but returns a TCP RST (reset) for TCP or an ICMP port unreachable for UDP. Useful for OS detection.
@@ -135,7 +135,7 @@ Nmap cannot determine whether the port is open because a packet filter (firewall
 The port is accessible but Nmap cannot determine if it is open or closed. This state only appears with ACK scan (\`-sA\`), which is used to map firewall rules. The host responds to the ACK probe but the state of the application is indeterminate.
 
 **Open|Filtered:**
-Nmap cannot determine whether a port is open or filtered. This occurs with scan types where open and filtered ports give the same response (no response). Common with UDP, FIN, NULL, and XMAS scans. If an open port receives a FIN packet, it silently drops it — same as a filtered port.
+Nmap cannot determine whether a port is open or filtered. This occurs with scan types where open and filtered ports give the same response (no response). Common with UDP, FIN, NULL, and XMAS scans. If an open port receives a FIN packet, it silently drops it, same as a filtered port.
 
 **Closed|Filtered:**
 Nmap cannot determine whether a port is closed or filtered. Only appears with IP ID idle scan (\`-sI\`).
@@ -146,20 +146,20 @@ In most penetration tests, the states of interest are **open** (service is runni
           { cmd: "nmap --open 192.168.1.1", desc: "Only show open (or open|filtered) ports in results" },
           { cmd: "nmap -sA 192.168.1.1", desc: "ACK scan to identify filtered vs unfiltered ports (maps firewall rules)" },
           { cmd: "nmap --reason 192.168.1.1", desc: "Show the reason Nmap assigned a particular port state" },
-          { cmd: "nmap -sU 192.168.1.1", desc: "UDP scan — commonly produces open|filtered results" },
+          { cmd: "nmap -sU 192.168.1.1", desc: "UDP scan, commonly produces open|filtered results" },
           { cmd: "nmap -v --reason 192.168.1.0/24", desc: "Verbose scan with state reasons across a subnet" },
         ],
         tips: [
-          "Use --reason to see exactly WHY Nmap assigned a port state — great for debugging unexpected results",
+          "Use --reason to see exactly WHY Nmap assigned a port state, great for debugging unexpected results",
           "Heavily filtered scans (many 'filtered' results) indicate a firewall between you and the target",
-          "Closed ports still respond — they are useful for confirming host availability even when all ports are filtered",
+          "Closed ports still respond, they are useful for confirming host availability even when all ports are filtered",
           "The --open flag keeps output clean by hiding closed and filtered ports when you just need the attack surface",
         ],
         flashcards: [
-          { front: "What does a 'filtered' port state mean in Nmap?", back: "A firewall or filter is blocking packets to that port — Nmap receives no response or an ICMP unreachable error" },
+          { front: "What does a 'filtered' port state mean in Nmap?", back: "A firewall or filter is blocking packets to that port, Nmap receives no response or an ICMP unreachable error" },
           { front: "What is the difference between 'closed' and 'filtered'?", back: "Closed: port accessible, no service listening (returns RST). Filtered: a firewall blocks packets, no RST received" },
-          { front: "When does Nmap report 'open|filtered'?", back: "When open and filtered ports give the same response (silence) — common with UDP, FIN, NULL, XMAS scans" },
-          { front: "What scan type produces 'unfiltered' port results?", back: "ACK scan (-sA) — used to map firewall rules, can't distinguish open from closed but identifies filtering" },
+          { front: "When does Nmap report 'open|filtered'?", back: "When open and filtered ports give the same response (silence), common with UDP, FIN, NULL, XMAS scans" },
+          { front: "What scan type produces 'unfiltered' port results?", back: "ACK scan (-sA), used to map firewall rules, can't distinguish open from closed but identifies filtering" },
           { front: "What flag shows only open ports in Nmap output?", back: "--open (hides closed and filtered ports)" },
           { front: "What flag shows the reason for each port state assignment?", back: "--reason (e.g., 'syn-ack' for open, 'reset' for closed, 'no-response' for filtered)" },
         ],
@@ -182,19 +182,19 @@ In most penetration tests, the states of interest are **open** (service is runni
 Also called a ping sweep. Nmap sends probes but doesn't scan ports. It simply reports which hosts are up. Fast and non-intrusive for mapping live hosts on a subnet.
 
 **Skip Host Discovery (\`-Pn\`):**
-Treat all hosts as online — skip the discovery phase and proceed directly to port scanning. Essential when targets are behind firewalls that block all ping probes. Slower on large ranges (scans all hosts even if offline).
+Treat all hosts as online, skip the discovery phase and proceed directly to port scanning. Essential when targets are behind firewalls that block all ping probes. Slower on large ranges (scans all hosts even if offline).
 
 **ICMP Probes:**
-- \`-PE\` — ICMP echo request (classic "ping")
-- \`-PP\` — ICMP timestamp request (sometimes passes firewalls that block echo)
-- \`-PM\` — ICMP address mask request
+- \`-PE\`, ICMP echo request (classic "ping")
+- \`-PP\`, ICMP timestamp request (sometimes passes firewalls that block echo)
+- \`-PM\`, ICMP address mask request
 
 **TCP Probes:**
-- \`-PS[portlist]\` — TCP SYN probe (default port 80). A SYN/ACK (open) or RST (closed) indicates host is up
-- \`-PA[portlist]\` — TCP ACK probe (default port 80). RST response indicates host is up (useful when SYN is blocked)
+- \`-PS[portlist]\`, TCP SYN probe (default port 80). A SYN/ACK (open) or RST (closed) indicates host is up
+- \`-PA[portlist]\`, TCP ACK probe (default port 80). RST response indicates host is up (useful when SYN is blocked)
 
 **UDP Probes:**
-- \`-PU[portlist]\` — UDP probe (default port 40125). ICMP port unreachable = host is up
+- \`-PU[portlist]\`, UDP probe (default port 40125). ICMP port unreachable = host is up
 
 **ARP Ping (\`-PR\`):**
 Used automatically on local networks. Sends ARP requests, which are reliable and fast. Cannot be blocked by host-based firewalls. Nmap uses ARP by default when scanning local subnets with root privilege.
@@ -205,7 +205,7 @@ Always combine with host discovery on large ranges to avoid slow reverse DNS loo
 **Firewall Bypass Strategy:**
 When ICMP is blocked, try \`-PS443\`, \`-PA80\`, or \`-PU53\`. Different probes have different chances of passing through firewalls.`,
         commands: [
-          { cmd: "nmap -sn 192.168.1.0/24", desc: "Ping sweep — find live hosts without port scanning" },
+          { cmd: "nmap -sn 192.168.1.0/24", desc: "Ping sweep, find live hosts without port scanning" },
           { cmd: "nmap -Pn 192.168.1.1", desc: "Skip host discovery, treat host as online" },
           { cmd: "nmap -PE 192.168.1.0/24", desc: "Use ICMP echo requests for host discovery" },
           { cmd: "nmap -PS22,80,443 192.168.1.0/24", desc: "TCP SYN probe on ports 22, 80, 443 for discovery" },
@@ -213,18 +213,18 @@ When ICMP is blocked, try \`-PS443\`, \`-PA80\`, or \`-PU53\`. Different probes 
           { cmd: "nmap -sn -n --exclude 192.168.1.1 192.168.1.0/24", desc: "Fast ping sweep excluding gateway, no DNS" },
         ],
         tips: [
-          "-sn is the fastest way to map a live network — combine with -n for large subnets",
+          "-sn is the fastest way to map a live network, combine with -n for large subnets",
           "Use -Pn when hosts appear offline but you know they're up (firewall blocking pings)",
-          "On local Ethernet networks, Nmap uses ARP automatically — it's more reliable than ICMP",
+          "On local Ethernet networks, Nmap uses ARP automatically, it's more reliable than ICMP",
           "Combine multiple discovery probes: '-PE -PS80,443 -PA' for comprehensive host detection",
         ],
         flashcards: [
-          { front: "What does -sn do in Nmap?", back: "Ping sweep — discovers live hosts without port scanning them" },
-          { front: "What does -Pn do in Nmap?", back: "Skips host discovery and treats all hosts as online — scan proceeds even if host doesn't respond to pings" },
-          { front: "Which discovery probe works best on local Ethernet networks?", back: "ARP ping (-PR) — used automatically on local subnets, cannot be blocked by host firewalls" },
-          { front: "What TCP probes can Nmap use for host discovery?", back: "-PS (TCP SYN probe) and -PA (TCP ACK probe) — a RST or SYN-ACK response indicates the host is online" },
-          { front: "Why use -PA (ACK probe) for host discovery?", back: "Some firewalls allow established TCP traffic but block SYN — an ACK probe bypasses stateful firewall rules" },
-          { front: "What flag skips DNS reverse resolution?", back: "-n — essential for fast scanning of large ranges" },
+          { front: "What does -sn do in Nmap?", back: "Ping sweep, discovers live hosts without port scanning them" },
+          { front: "What does -Pn do in Nmap?", back: "Skips host discovery and treats all hosts as online, scan proceeds even if host doesn't respond to pings" },
+          { front: "Which discovery probe works best on local Ethernet networks?", back: "ARP ping (-PR), used automatically on local subnets, cannot be blocked by host firewalls" },
+          { front: "What TCP probes can Nmap use for host discovery?", back: "-PS (TCP SYN probe) and -PA (TCP ACK probe), a RST or SYN-ACK response indicates the host is online" },
+          { front: "Why use -PA (ACK probe) for host discovery?", back: "Some firewalls allow established TCP traffic but block SYN, an ACK probe bypasses stateful firewall rules" },
+          { front: "What flag skips DNS reverse resolution?", back: "-n, essential for fast scanning of large ranges" },
         ],
       },
       {
@@ -270,22 +270,22 @@ Exclude specific ports from a scan to avoid disrupting sensitive services.
 | 3389 | TCP | RDP |`,
         commands: [
           { cmd: "nmap -p 80,443 192.168.1.1", desc: "Scan only ports 80 and 443" },
-          { cmd: "nmap -p 1-65535 192.168.1.1", desc: "Full port scan — all 65535 TCP ports" },
+          { cmd: "nmap -p 1-65535 192.168.1.1", desc: "Full port scan, all 65535 TCP ports" },
           { cmd: "nmap -p- 192.168.1.1", desc: "Short form for all TCP ports scan" },
           { cmd: "nmap -F 192.168.1.1", desc: "Fast scan: top 100 ports only" },
           { cmd: "nmap --top-ports 500 192.168.1.0/24", desc: "Scan the 500 most common ports across subnet" },
           { cmd: "nmap -p T:80,443 -p U:53,161 192.168.1.1", desc: "Scan specific TCP and UDP ports together" },
         ],
         tips: [
-          "Use -p- for full port scans in CTFs and penetration tests — services often run on non-standard ports",
+          "Use -p- for full port scans in CTFs and penetration tests, services often run on non-standard ports",
           "-F (fast scan, top 100) is useful for quick reconnaissance when time is limited",
           "Always combine full port scans with -T4 or --min-rate to prevent them from taking hours",
-          "Non-standard ports above 1024 often indicate backdoors or admin interfaces — always scan -p-",
+          "Non-standard ports above 1024 often indicate backdoors or admin interfaces, always scan -p-",
         ],
         flashcards: [
           { front: "How many ports does Nmap scan by default?", back: "The top 1000 most commonly open TCP ports (ranked by frequency in nmap-services)" },
           { front: "What flag scans all 65535 TCP ports?", back: "-p- or -p 1-65535" },
-          { front: "What does -F do in Nmap?", back: "Fast scan — scans only the top 100 most common ports instead of 1000" },
+          { front: "What does -F do in Nmap?", back: "Fast scan, scans only the top 100 most common ports instead of 1000" },
           { front: "How do you scan top 500 ports?", back: "--top-ports 500" },
           { front: "How do you scan both TCP and UDP ports in one command?", back: "Use -sU -sS together, and specify with -p T:80 U:53 for specific protocol ports" },
           { front: "What is the well-known port for RDP?", back: "TCP 3389 (Remote Desktop Protocol)" },
@@ -296,17 +296,17 @@ Exclude specific ports from a scan to avoid disrupting sensitive services.
         title: "TCP Scanning Methods",
         content: `Nmap provides multiple TCP scanning techniques, each with different stealth levels, reliability, and privilege requirements. Understanding which to use in which situation is a key skill.
 
-**SYN Scan (\`-sS\`) — Half-open / Stealth Scan:**
+**SYN Scan (\`-sS\`), Half-open / Stealth Scan:**
 The default scan type when run as root. Sends a SYN packet and waits for a response:
 - SYN/ACK received → port is **open** (Nmap sends RST, connection never completes)
 - RST received → port is **closed**
 - No response / ICMP unreachable → port is **filtered**
 Faster than Connect scan and less likely to be logged since the three-way handshake is never completed. Requires raw packet privileges.
 
-**TCP Connect Scan (\`-sT\`) — Full Connection:**
+**TCP Connect Scan (\`-sT\`), Full Connection:**
 Uses the OS's \`connect()\` syscall to complete the full TCP three-way handshake. Works without root privileges. More likely to be logged by target firewalls and applications. Slower than SYN scan. Used when raw packet access is unavailable.
 
-**ACK Scan (\`-sA\`) — Firewall Rule Mapping:**
+**ACK Scan (\`-sA\`), Firewall Rule Mapping:**
 Sends ACK packets (which appear to be part of established sessions). Always returns RST (port never appears open). Used to determine if ports are **filtered** or **unfiltered** (not to find open ports). Excellent for mapping stateful firewall rules.
 
 **NULL Scan (\`-sN\`):**
@@ -324,26 +324,26 @@ Sends FIN/ACK. Similar to NULL/FIN/XMAS. Originally worked on some BSD systems.
 **Window Scan (\`-sW\`):**
 Same as ACK but uses the TCP window size to differentiate open vs. closed (exploits a quirk in some TCP implementations). Works on a small number of systems.`,
         commands: [
-          { cmd: "sudo nmap -sS 192.168.1.1", desc: "SYN (stealth) scan — default when root" },
-          { cmd: "nmap -sT 192.168.1.1", desc: "TCP Connect scan — no root needed" },
-          { cmd: "sudo nmap -sA 192.168.1.1", desc: "ACK scan — maps firewall rules" },
-          { cmd: "sudo nmap -sN 192.168.1.1", desc: "NULL scan — no TCP flags set" },
-          { cmd: "sudo nmap -sF 192.168.1.1", desc: "FIN scan — only FIN flag set" },
-          { cmd: "sudo nmap -sX 192.168.1.1", desc: "XMAS scan — FIN, PSH, URG flags set" },
+          { cmd: "sudo nmap -sS 192.168.1.1", desc: "SYN (stealth) scan, default when root" },
+          { cmd: "nmap -sT 192.168.1.1", desc: "TCP Connect scan, no root needed" },
+          { cmd: "sudo nmap -sA 192.168.1.1", desc: "ACK scan, maps firewall rules" },
+          { cmd: "sudo nmap -sN 192.168.1.1", desc: "NULL scan, no TCP flags set" },
+          { cmd: "sudo nmap -sF 192.168.1.1", desc: "FIN scan, only FIN flag set" },
+          { cmd: "sudo nmap -sX 192.168.1.1", desc: "XMAS scan, FIN, PSH, URG flags set" },
         ],
         tips: [
-          "SYN scan (-sS) is the default and best choice in most situations — fast, stealthy, reliable",
+          "SYN scan (-sS) is the default and best choice in most situations, fast, stealthy, reliable",
           "Use -sT when you don't have root access or when scanning through certain proxies",
-          "NULL/FIN/XMAS scans don't work on Windows hosts — always verify the target OS first",
-          "ACK scan (-sA) is not for finding open ports — it's specifically for firewall rule analysis",
+          "NULL/FIN/XMAS scans don't work on Windows hosts, always verify the target OS first",
+          "ACK scan (-sA) is not for finding open ports, it's specifically for firewall rule analysis",
         ],
         flashcards: [
-          { front: "Why is SYN scan (-sS) called a 'half-open' or 'stealth' scan?", back: "Because the TCP three-way handshake is never completed — Nmap sends RST after receiving SYN/ACK, so no full connection is logged by most applications" },
-          { front: "What scan type works without root privileges?", back: "TCP Connect scan (-sT) — uses the OS connect() syscall" },
-          { front: "What is the purpose of ACK scan (-sA)?", back: "To map firewall rules — determines if ports are filtered or unfiltered, not to find open ports" },
-          { front: "What flags does an XMAS scan set?", back: "FIN, PSH, and URG — three TCP flags set simultaneously" },
-          { front: "Why don't NULL/FIN/XMAS scans work on Windows?", back: "Windows ignores packets with unexpected flag combinations rather than responding per RFC 793 — all ports appear closed|filtered" },
-          { front: "What response indicates a closed port in a SYN scan?", back: "RST (TCP reset) — the host acknowledges the port exists but no service is listening" },
+          { front: "Why is SYN scan (-sS) called a 'half-open' or 'stealth' scan?", back: "Because the TCP three-way handshake is never completed, Nmap sends RST after receiving SYN/ACK, so no full connection is logged by most applications" },
+          { front: "What scan type works without root privileges?", back: "TCP Connect scan (-sT), uses the OS connect() syscall" },
+          { front: "What is the purpose of ACK scan (-sA)?", back: "To map firewall rules, determines if ports are filtered or unfiltered, not to find open ports" },
+          { front: "What flags does an XMAS scan set?", back: "FIN, PSH, and URG, three TCP flags set simultaneously" },
+          { front: "Why don't NULL/FIN/XMAS scans work on Windows?", back: "Windows ignores packets with unexpected flag combinations rather than responding per RFC 793, all ports appear closed|filtered" },
+          { front: "What response indicates a closed port in a SYN scan?", back: "RST (TCP reset), the host acknowledges the port exists but no service is listening" },
         ],
       },
     ],
@@ -358,7 +358,7 @@ Same as ACK but uses the TCP window size to differentiate open vs. closed (explo
       {
         slug: "udp-scanning",
         title: "UDP Scanning",
-        content: `UDP scanning is one of the most challenging aspects of network reconnaissance because UDP is a connectionless protocol — there is no handshake to reliably detect an open port.
+        content: `UDP scanning is one of the most challenging aspects of network reconnaissance because UDP is a connectionless protocol, there is no handshake to reliably detect an open port.
 
 **How UDP Scan Works (\`-sU\`):**
 Nmap sends a UDP packet to each target port. The response determines the state:
@@ -372,7 +372,7 @@ Because no response = open|filtered, Nmap must wait for timeouts. The Linux kern
 
 **Optimization Strategies:**
 1. Limit to common UDP ports: \`-sU --top-ports 20\`
-2. Combine with version detection: \`-sU -sV\` — some UDP services respond to specific protocol probes (NSE scripts)
+2. Combine with version detection: \`-sU -sV\`, some UDP services respond to specific protocol probes (NSE scripts)
 3. Use higher timing: \`-sU -T4\`
 4. Combine with TCP: \`-sSU -T4 -p T:1-1000,U:53,67,68,69,161,162\`
 
@@ -397,17 +397,17 @@ SNMP can leak enormous amounts of system info if community strings are default (
           { cmd: "sudo nmap -sU -T4 --open 192.168.1.1", desc: "Fast UDP scan showing only open ports" },
         ],
         tips: [
-          "UDP scanning is extremely slow — always limit scope with --top-ports 20 or specific ports",
-          "SNMP (UDP 161) and DNS (UDP 53) are among the highest-value targets — always scan them",
+          "UDP scanning is extremely slow, always limit scope with --top-ports 20 or specific ports",
+          "SNMP (UDP 161) and DNS (UDP 53) are among the highest-value targets, always scan them",
           "Combine -sU with -sV to help identify open|filtered ports through protocol-specific probes",
           "Use -T4 with UDP scans to reduce wait times, but be aware of rate limits on the target",
         ],
         flashcards: [
-          { front: "Why is UDP scanning slower than TCP scanning?", back: "UDP is connectionless — no response means open|filtered (Nmap can't tell). Must wait for timeouts and is limited by ICMP rate limiting" },
+          { front: "Why is UDP scanning slower than TCP scanning?", back: "UDP is connectionless, no response means open|filtered (Nmap can't tell). Must wait for timeouts and is limited by ICMP rate limiting" },
           { front: "What response indicates a closed UDP port?", back: "ICMP port unreachable message (type 3, code 3)" },
-          { front: "What does 'open|filtered' mean in UDP scanning?", back: "Nmap received no response — the port could be open (application silently drops probe) or filtered (firewall blocking)" },
-          { front: "Which high-value service runs on UDP 161?", back: "SNMP (Simple Network Management Protocol) — can expose vast system information if using default community strings" },
-          { front: "How do you combine TCP SYN and UDP scanning in one command?", back: "sudo nmap -sS -sU [target] — both scan types run simultaneously" },
+          { front: "What does 'open|filtered' mean in UDP scanning?", back: "Nmap received no response, the port could be open (application silently drops probe) or filtered (firewall blocking)" },
+          { front: "Which high-value service runs on UDP 161?", back: "SNMP (Simple Network Management Protocol), can expose vast system information if using default community strings" },
+          { front: "How do you combine TCP SYN and UDP scanning in one command?", back: "sudo nmap -sS -sU [target], both scan types run simultaneously" },
           { front: "What flag limits UDP scan to the top 20 common ports?", back: "--top-ports 20" },
         ],
       },
@@ -425,9 +425,9 @@ After discovering open ports, Nmap sends protocol-specific probes and matches re
 
 **Intensity Levels (\`--version-intensity 0-9\`):**
 Controls how aggressively Nmap probes:
-- \`0\` — only light probes, fastest
-- \`5\` — default
-- \`9\` — all probes, slowest but most thorough
+- \`0\`, only light probes, fastest
+- \`5\`, default
+- \`9\`, all probes, slowest but most thorough
 
 **Light/Default/All shortcuts:**
 - \`--version-light\` → intensity 2
@@ -437,7 +437,7 @@ Controls how aggressively Nmap probes:
 Enables version detection (-sV), OS detection (-O), script scanning (-sC), and traceroute in one flag. The go-to for comprehensive scanning.
 
 **Banner Grabbing:**
-Version detection often captures service banners — the text a service sends when you connect. Banners can reveal software name, version, and OS. Nmap also uses version probes to trigger more specific responses.
+Version detection often captures service banners, the text a service sends when you connect. Banners can reveal software name, version, and OS. Nmap also uses version probes to trigger more specific responses.
 
 **CPE (Common Platform Enumeration):**
 Version detection output often includes CPE strings (e.g., \`cpe:/a:apache:http_server:2.4.50\`) which can be used to look up CVEs in vulnerability databases.
@@ -447,24 +447,24 @@ Version detection output often includes CPE strings (e.g., \`cpe:/a:apache:http_
 This might return: \`22/tcp open ssh OpenSSH 8.2p1 Ubuntu (protocol 2.0)\``,
         commands: [
           { cmd: "nmap -sV 192.168.1.1", desc: "Version detection on all discovered open ports" },
-          { cmd: "nmap -sV --version-intensity 9 192.168.1.1", desc: "Maximum version intensity — most thorough" },
-          { cmd: "nmap -sV --version-light 192.168.1.1", desc: "Lightweight version detection — faster" },
+          { cmd: "nmap -sV --version-intensity 9 192.168.1.1", desc: "Maximum version intensity, most thorough" },
+          { cmd: "nmap -sV --version-light 192.168.1.1", desc: "Lightweight version detection, faster" },
           { cmd: "nmap -A 192.168.1.1", desc: "Aggressive: version + OS + scripts + traceroute" },
           { cmd: "nmap -sV -p 22,80,443,8080 192.168.1.0/24", desc: "Version detection on specific ports across subnet" },
           { cmd: "nmap -sV --version-all 192.168.1.1", desc: "Try all version probes (intensity 9)" },
         ],
         tips: [
-          "Always run -sV on discovered open ports — version numbers directly map to CVEs",
-          "-A is convenient for complete scans but is noisy — use it for targeted hosts, not large subnets",
+          "Always run -sV on discovered open ports, version numbers directly map to CVEs",
+          "-A is convenient for complete scans but is noisy, use it for targeted hosts, not large subnets",
           "Lower --version-intensity for UDP scans where you just need a rough service identification",
           "CPE strings in -sV output can be fed directly into vulnerability databases like NVD/CVE",
         ],
         flashcards: [
-          { front: "What flag enables service and version detection in Nmap?", back: "-sV — sends service-specific probes and matches responses against the nmap-service-probes database" },
-          { front: "What does --version-intensity 9 do?", back: "Tries all available version probes — most thorough but slowest" },
+          { front: "What flag enables service and version detection in Nmap?", back: "-sV, sends service-specific probes and matches responses against the nmap-service-probes database" },
+          { front: "What does --version-intensity 9 do?", back: "Tries all available version probes, most thorough but slowest" },
           { front: "What does the -A flag enable in Nmap?", back: "Aggressive mode: OS detection (-O), version detection (-sV), script scanning (-sC), and traceroute" },
-          { front: "What is a CPE string in Nmap output?", back: "Common Platform Enumeration — a standardized identifier like cpe:/a:apache:http_server:2.4.50, useful for CVE lookups" },
-          { front: "What is banner grabbing in the context of Nmap?", back: "Capturing the text a service sends upon connection — reveals software name, version, and sometimes OS information" },
+          { front: "What is a CPE string in Nmap output?", back: "Common Platform Enumeration, a standardized identifier like cpe:/a:apache:http_server:2.4.50, useful for CVE lookups" },
+          { front: "What is banner grabbing in the context of Nmap?", back: "Capturing the text a service sends upon connection, reveals software name, version, and sometimes OS information" },
           { front: "What is the default version intensity level for -sV?", back: "5 (scale of 0-9)" },
         ],
       },
@@ -511,13 +511,13 @@ Along with OS, Nmap often reports device type: general purpose, router, firewall
           { cmd: "sudo nmap -O -p 1-1000 192.168.1.1", desc: "Ensure enough ports are scanned for OS detection" },
         ],
         tips: [
-          "OS detection needs at least one open AND one closed port — scan more ports if results are inconclusive",
-          "NAT devices and firewalls can make all hosts on a LAN look like the same OS — verify results",
+          "OS detection needs at least one open AND one closed port, scan more ports if results are inconclusive",
+          "NAT devices and firewalls can make all hosts on a LAN look like the same OS, verify results",
           "Use --osscan-guess when you need any result, but treat low-confidence guesses as hints only",
           "Virtual machines often fingerprint as the host OS or show hypervisor characteristics",
         ],
         flashcards: [
-          { front: "What flag enables OS detection in Nmap?", back: "-O — analyzes TCP/IP stack responses to identify the target OS and version" },
+          { front: "What flag enables OS detection in Nmap?", back: "-O, analyzes TCP/IP stack responses to identify the target OS and version" },
           { front: "What does Nmap need to perform accurate OS detection?", back: "At least one open and one closed TCP port, plus root/administrator privileges" },
           { front: "What does --osscan-guess do?", back: "Forces Nmap to report its best OS guess even when confidence is below the normal threshold" },
           { front: "Why might OS detection give incorrect results behind a NAT?", back: "NAT devices modify packet headers, making all internal hosts appear to have the same TCP/IP characteristics" },
@@ -541,37 +541,37 @@ Along with OS, Nmap often reports device type: general purpose, router, firewall
 
 **Script Categories:**
 Scripts are organized into categories. A script can belong to multiple categories:
-- \`auth\` — authentication bypass and credential testing
-- \`broadcast\` — discover hosts via broadcast messages
-- \`brute\` — brute-force credential attacks
-- \`default\` — run when using -sC or -A (safe, useful scripts)
-- \`discovery\` — service information gathering
-- \`dos\` — denial-of-service attacks (dangerous — use with extreme caution)
-- \`exploit\` — actively exploit vulnerabilities
-- \`external\` — contact third-party databases (Shodan, DNS, WHOIS)
-- \`fuzzer\` — send malformed packets for fuzzing
-- \`intrusive\` — likely to crash services or be logged — not in default
-- \`malware\` — detect malware backdoors
-- \`safe\` — unlikely to crash services or be logged
-- \`version\` — help identify service versions
-- \`vuln\` — check for known vulnerabilities
+- \`auth\`, authentication bypass and credential testing
+- \`broadcast\`, discover hosts via broadcast messages
+- \`brute\`, brute-force credential attacks
+- \`default\`, run when using -sC or -A (safe, useful scripts)
+- \`discovery\`, service information gathering
+- \`dos\`, denial-of-service attacks (dangerous, use with extreme caution)
+- \`exploit\`, actively exploit vulnerabilities
+- \`external\`, contact third-party databases (Shodan, DNS, WHOIS)
+- \`fuzzer\`, send malformed packets for fuzzing
+- \`intrusive\`, likely to crash services or be logged, not in default
+- \`malware\`, detect malware backdoors
+- \`safe\`, unlikely to crash services or be logged
+- \`version\`, help identify service versions
+- \`vuln\`, check for known vulnerabilities
 
 **Running Scripts:**
-- \`-sC\` — run default scripts (same as \`--script=default\`)
-- \`--script=<name>\` — run a specific script: \`--script=http-title\`
-- \`--script=<category>\` — run all scripts in a category: \`--script=vuln\`
-- \`--script=<pattern>\` — wildcard: \`--script=http-*\`
-- \`--script-args key=value\` — pass arguments to scripts
+- \`-sC\`, run default scripts (same as \`--script=default\`)
+- \`--script=<name>\`, run a specific script: \`--script=http-title\`
+- \`--script=<category>\`, run all scripts in a category: \`--script=vuln\`
+- \`--script=<pattern>\`, wildcard: \`--script=http-*\`
+- \`--script-args key=value\`, pass arguments to scripts
 
 **Script Location:**
 Scripts are in \`/usr/share/nmap/scripts/\` on Linux. Use \`nmap --script-updatedb\` after adding custom scripts.
 
 **Useful Default Scripts:**
-- \`http-title\` — grabs HTML page title
-- \`ssl-cert\` — retrieves TLS certificate info
-- \`smb-os-discovery\` — SMB OS fingerprinting
-- \`ftp-anon\` — check for anonymous FTP access
-- \`ssh-hostkey\` — retrieve SSH host keys`,
+- \`http-title\`, grabs HTML page title
+- \`ssl-cert\`, retrieves TLS certificate info
+- \`smb-os-discovery\`, SMB OS fingerprinting
+- \`ftp-anon\`, check for anonymous FTP access
+- \`ssh-hostkey\`, retrieve SSH host keys`,
         commands: [
           { cmd: "nmap -sC 192.168.1.1", desc: "Run default NSE scripts" },
           { cmd: "nmap --script=vuln 192.168.1.1", desc: "Run all vulnerability detection scripts" },
@@ -581,19 +581,19 @@ Scripts are in \`/usr/share/nmap/scripts/\` on Linux. Use \`nmap --script-update
           { cmd: "nmap --script=ssh-brute --script-args userdb=users.txt,passdb=pass.txt -p 22 192.168.1.1", desc: "SSH brute force with custom wordlists" },
         ],
         tips: [
-          "Always use --script=vuln with caution — some scripts are intrusive and may crash services",
-          "The default category (-sC) is designed to be safe and useful — a good starting point",
+          "Always use --script=vuln with caution, some scripts are intrusive and may crash services",
+          "The default category (-sC) is designed to be safe and useful, a good starting point",
           "Use ls /usr/share/nmap/scripts/ | grep <keyword> to find scripts for a specific service",
           "nmap --script-help <scriptname> shows documentation and usage for any script",
         ],
         flashcards: [
-          { front: "What flag runs the default NSE scripts in Nmap?", back: "-sC or --script=default — runs scripts in the 'default' category (safe and useful)" },
+          { front: "What flag runs the default NSE scripts in Nmap?", back: "-sC or --script=default, runs scripts in the 'default' category (safe and useful)" },
           { front: "What language are NSE scripts written in?", back: "Lua" },
-          { front: "What script category checks for known vulnerabilities?", back: "vuln — run with --script=vuln" },
+          { front: "What script category checks for known vulnerabilities?", back: "vuln, run with --script=vuln" },
           { front: "What does the 'brute' script category do?", back: "Performs brute-force credential attacks against login services" },
           { front: "Where are NSE scripts stored on Linux?", back: "/usr/share/nmap/scripts/" },
           { front: "How do you run all scripts matching http-*?", back: "--script=http-* (wildcard pattern matching)" },
-          { front: "What is a dangerous NSE category to use without authorization?", back: "exploit and dos — they actively exploit vulnerabilities or cause denial of service" },
+          { front: "What is a dangerous NSE category to use without authorization?", back: "exploit and dos, they actively exploit vulnerabilities or cause denial of service" },
         ],
       },
       {
@@ -606,21 +606,21 @@ Nmap provides six timing templates that adjust multiple timing parameters simult
 
 | Template | Name | Use Case |
 |----------|------|----------|
-| \`-T0\` | Paranoid | IDS evasion — sends one packet every 5 minutes |
-| \`-T1\` | Sneaky | Slow IDS evasion — one packet every 15 seconds |
-| \`-T2\` | Polite | Minimal network impact — slows scan by 10x |
-| \`-T3\` | Normal | Default — balanced speed and reliability |
+| \`-T0\` | Paranoid | IDS evasion, sends one packet every 5 minutes |
+| \`-T1\` | Sneaky | Slow IDS evasion, one packet every 15 seconds |
+| \`-T2\` | Polite | Minimal network impact, slows scan by 10x |
+| \`-T3\` | Normal | Default, balanced speed and reliability |
 | \`-T4\` | Aggressive | Faster scans on reliable networks (LAN/fast internet) |
-| \`-T5\` | Insane | Maximum speed — may miss results on slow networks |
+| \`-T5\` | Insane | Maximum speed, may miss results on slow networks |
 
 **Fine-Grained Control:**
-- \`--min-rate <n>\` — send at least n packets per second
-- \`--max-rate <n>\` — send at most n packets per second
-- \`--max-retries <n>\` — limit probe retransmissions (default varies, use 2 for speed)
-- \`--max-rtt-timeout <time>\` — maximum round-trip timeout
-- \`--min-hostgroup <n>\` — scan at least n hosts in parallel
-- \`--max-hostgroup <n>\` — scan at most n hosts in parallel
-- \`--max-parallelism <n>\` — cap the number of parallel probes
+- \`--min-rate <n>\`, send at least n packets per second
+- \`--max-rate <n>\`, send at most n packets per second
+- \`--max-retries <n>\`, limit probe retransmissions (default varies, use 2 for speed)
+- \`--max-rtt-timeout <time>\`, maximum round-trip timeout
+- \`--min-hostgroup <n>\`, scan at least n hosts in parallel
+- \`--max-hostgroup <n>\`, scan at most n hosts in parallel
+- \`--max-parallelism <n>\`, cap the number of parallel probes
 
 **Recommended Combinations:**
 - Fast legitimate scan: \`-T4 --min-rate 1000 --max-retries 3\`
@@ -634,8 +634,8 @@ Nmap provides six timing templates that adjust multiple timing parameters simult
 **Timing and IDS:**
 -T0 and -T1 spread packets over long periods to avoid triggering IDS threshold-based alerts. However, modern behavioral IDS systems can still detect slow scans.`,
         commands: [
-          { cmd: "nmap -T4 192.168.1.0/24", desc: "Aggressive timing — good for reliable networks" },
-          { cmd: "nmap -T0 192.168.1.1", desc: "Paranoid timing — maximum stealth (very slow)" },
+          { cmd: "nmap -T4 192.168.1.0/24", desc: "Aggressive timing, good for reliable networks" },
+          { cmd: "nmap -T0 192.168.1.1", desc: "Paranoid timing, maximum stealth (very slow)" },
           { cmd: "nmap -T4 --min-rate 1000 192.168.1.0/24", desc: "Minimum 1000 packets/sec with aggressive timing" },
           { cmd: "nmap -p- -T4 --min-rate 5000 192.168.1.1", desc: "Fast full-port scan with rate control" },
           { cmd: "nmap --max-retries 2 -T4 192.168.1.0/24", desc: "Limit retransmissions for speed" },
@@ -645,15 +645,15 @@ Nmap provides six timing templates that adjust multiple timing parameters simult
           "-T4 is the recommended default for most penetration tests on reliable networks",
           "Use -T1 or -T2 only when stealth is more important than speed",
           "--min-rate with -p- is the standard way to do fast full-port scans in CTFs",
-          "Never use -T5 in production environments — it will saturate links and may crash services",
+          "Never use -T5 in production environments, it will saturate links and may crash services",
         ],
         flashcards: [
-          { front: "What does -T4 mean in Nmap?", back: "Aggressive timing template — faster scans suitable for reliable/local networks" },
-          { front: "What is the slowest Nmap timing template and why would you use it?", back: "-T0 (Paranoid) — sends one packet every 5 minutes to evade IDS threshold detection" },
-          { front: "What flag sets a minimum packet send rate?", back: "--min-rate <n> — sends at least n packets per second" },
+          { front: "What does -T4 mean in Nmap?", back: "Aggressive timing template, faster scans suitable for reliable/local networks" },
+          { front: "What is the slowest Nmap timing template and why would you use it?", back: "-T0 (Paranoid), sends one packet every 5 minutes to evade IDS threshold detection" },
+          { front: "What flag sets a minimum packet send rate?", back: "--min-rate <n>, sends at least n packets per second" },
           { front: "What is the default timing template?", back: "-T3 (Normal)" },
-          { front: "How do you reduce retransmissions to speed up a scan?", back: "--max-retries <n> — limits how many times a probe is resent (e.g., --max-retries 2)" },
-          { front: "What flag caps the maximum packet send rate?", back: "--max-rate <n> — useful to avoid overwhelming a target or triggering rate-limiting" },
+          { front: "How do you reduce retransmissions to speed up a scan?", back: "--max-retries <n>, limits how many times a probe is resent (e.g., --max-retries 2)" },
+          { front: "What flag caps the maximum packet send rate?", back: "--max-rate <n>, useful to avoid overwhelming a target or triggering rate-limiting" },
         ],
       },
     ],
@@ -686,12 +686,12 @@ A flat, grep-friendly format where each host/port is on a single line. Easy to p
 Saves normal, XML, and grepable simultaneously with a common basename. \`nmap -oA scan_results 192.168.1.0/24\` creates \`scan_results.nmap\`, \`scan_results.xml\`, \`scan_results.gnmap\`.
 
 **Verbosity and Debugging:**
-- \`-v\` / \`-vv\` — increase verbosity (shows results as they come in)
-- \`-d\` / \`-dd\` — debug mode (very detailed, for troubleshooting)
-- \`--reason\` — show why each port was assigned its state
-- \`--open\` — only show open ports
-- \`--stats-every <time>\` — print progress stats every n seconds (e.g., \`--stats-every 30s\`)
-- \`--packet-trace\` — show all packets sent and received
+- \`-v\` / \`-vv\`, increase verbosity (shows results as they come in)
+- \`-d\` / \`-dd\`, debug mode (very detailed, for troubleshooting)
+- \`--reason\`, show why each port was assigned its state
+- \`--open\`, only show open ports
+- \`--stats-every <time>\`, print progress stats every n seconds (e.g., \`--stats-every 30s\`)
+- \`--packet-trace\`, show all packets sent and received
 
 **Practical Workflow:**
 Always save output when doing professional assessments:
@@ -707,14 +707,14 @@ This saves three format files and gives comprehensive results. XML can be import
           { cmd: "nmap -T4 -p- --stats-every 30s 192.168.1.1", desc: "Full port scan with progress updates every 30s" },
         ],
         tips: [
-          "Always use -oA on professional engagements — save all formats for maximum flexibility later",
+          "Always use -oA on professional engagements, save all formats for maximum flexibility later",
           "-oX is essential when importing results into Metasploit, Faraday, or other security platforms",
           "Use -oG with grep to quickly extract hosts with a specific open port from a large scan",
           "Add -v to long-running scans so you can see results in real-time instead of waiting",
         ],
         flashcards: [
-          { front: "What flag saves all three output formats simultaneously?", back: "-oA <basename> — creates .nmap (normal), .xml, and .gnmap (grepable) files" },
-          { front: "Which Nmap output format is best for importing into Metasploit?", back: "XML (-oX) — machine-parseable and directly supported by many security tools" },
+          { front: "What flag saves all three output formats simultaneously?", back: "-oA <basename>, creates .nmap (normal), .xml, and .gnmap (grepable) files" },
+          { front: "Which Nmap output format is best for importing into Metasploit?", back: "XML (-oX), machine-parseable and directly supported by many security tools" },
           { front: "What is grepable output (-oG) useful for?", back: "Processing with grep/awk/cut to extract specific information like all hosts with port 80 open" },
           { front: "What does --reason show?", back: "The specific reason Nmap assigned a port state (e.g., syn-ack → open, reset → closed, no-response → filtered)" },
           { front: "How do you show progress updates during a long scan?", back: "--stats-every <interval> (e.g., --stats-every 30s)" },
@@ -759,19 +759,19 @@ ACK packets often pass through firewalls that only filter incoming SYN packets (
           { cmd: "sudo nmap --source-port 53 192.168.1.1", desc: "Spoof source port as DNS (53) to bypass ACLs" },
           { cmd: "sudo nmap --data-length 24 192.168.1.1", desc: "Append 24 random bytes to packets" },
           { cmd: "sudo nmap --spoof-mac 0 192.168.1.1", desc: "Use a random spoofed MAC address" },
-          { cmd: "sudo nmap -sI zombie_host target_host", desc: "Idle scan — scan target through zombie host" },
+          { cmd: "sudo nmap -sI zombie_host target_host", desc: "Idle scan, scan target through zombie host" },
         ],
         tips: [
           "Fragmentation (-f) is less effective against modern firewalls with full reassembly; still works on legacy systems",
-          "Decoy scans (-D) don't hide your IP perfectly — the real IP must be present to receive responses",
+          "Decoy scans (-D) don't hide your IP perfectly, the real IP must be present to receive responses",
           "Source port 53 (--source-port 53) is one of the most effective simple ACL bypasses",
           "Idle scan (-sI) is the gold standard for anonymous scanning but requires finding a suitable zombie host",
-          "Always confirm you have authorization before using evasion techniques — they may constitute illegal activity",
+          "Always confirm you have authorization before using evasion techniques, they may constitute illegal activity",
         ],
         flashcards: [
           { front: "What does -f do in Nmap?", back: "Fragments IP packets into 8-byte chunks to bypass packet filters that can't reassemble fragments" },
           { front: "What is a decoy scan (-D) in Nmap?", back: "Sends scan packets appearing to come from multiple IPs simultaneously, making it hard to identify the real scanner" },
-          { front: "What is an idle scan (-sI)?", back: "Uses a quiet zombie host with predictable IP IDs to scan a target anonymously — the target never sees the real scanner's IP" },
+          { front: "What is an idle scan (-sI)?", back: "Uses a quiet zombie host with predictable IP IDs to scan a target anonymously, the target never sees the real scanner's IP" },
           { front: "Why does --source-port 53 help bypass some firewalls?", back: "Some firewall ACLs allow traffic from source port 53 (DNS) as it appears to be DNS reply traffic" },
           { front: "What does --data-length do?", back: "Appends random padding bytes to packets, making them appear less like typical Nmap probe packets to IDS systems" },
           { front: "What does --spoof-mac 0 do?", back: "Uses a randomly generated MAC address as the source MAC (only effective on local Ethernet segments)" },

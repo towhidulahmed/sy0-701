@@ -151,7 +151,7 @@ export function StudyModule({ domains }: { domains: Domain[] }) {
             id={`domain-${domain.id}`}
             className="scroll-mt-4 rounded-2xl border border-zinc-800 bg-zinc-900 sm:rounded-xl"
           >
-            {/* Domain header — always visible, acts as accordion toggle */}
+            {/* Domain header, always visible, acts as accordion toggle */}
             <button
               type="button"
               onClick={() => toggleDomain(domain.id)}
@@ -177,7 +177,7 @@ export function StudyModule({ domains }: { domains: Domain[] }) {
               </div>
             </button>
 
-            {/* Topics list — collapsible */}
+            {/* Topics list, collapsible */}
             {isExpanded ? (
               <div className="space-y-2.5 px-4 pb-4 sm:px-5 sm:pb-5">
                 {domain.topics.map((topic) => {
@@ -221,7 +221,7 @@ export function StudyModule({ domains }: { domains: Domain[] }) {
                         </button>
                       </div>
 
-                      {/* Topic content — collapsible */}
+                      {/* Topic content, collapsible */}
                       {isTopicExpanded ? (
                         <div className="border-t border-zinc-700/40 px-3.5 pb-4 pt-3 sm:px-4">
                           <p className="whitespace-pre-line break-words text-[13px] leading-6 text-zinc-300 sm:text-sm sm:leading-7">

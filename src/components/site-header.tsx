@@ -13,7 +13,7 @@ export function SiteHeader() {
 
   const isHome = pathname === "/";
 
-  // Landing page — hero Logo handles branding, no header needed
+  // Landing page, hero Logo handles branding, no header needed
   if (isHome) return null;
 
   return (

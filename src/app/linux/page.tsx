@@ -32,7 +32,7 @@ export default function LinuxHome() {
         </div>
       </section>
 
-      {/* Feature CTAs — 2-column on desktop */}
+      {/* Feature CTAs, 2-column on desktop */}
       <div className="grid gap-4 sm:grid-cols-2">
         <Link
           href="/linux/flashcards"
@@ -42,7 +42,7 @@ export default function LinuxHome() {
             <div>
               <h3 className="text-base font-semibold">Flashcards</h3>
               <p className="mt-1 text-sm leading-6 text-zinc-400">
-                {totalFlashcards} cards — flip to test your recall.
+                {totalFlashcards} cards, flip to test your recall.
               </p>
             </div>
             <span className="flex-shrink-0 text-lg text-emerald-500/60 transition-transform group-hover:translate-x-1">→</span>

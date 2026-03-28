@@ -137,9 +137,9 @@ export function FlashcardRunner({ domains, backHref = "/linux/flashcards", accen
       </div>
 
       {/* Topic label */}
-      <p className="mb-3 text-xs font-medium text-emerald-500">{currentTopicTitle} — {card.topic}</p>
+      <p className="mb-3 text-xs font-medium text-emerald-500">{currentTopicTitle}, {card.topic}</p>
 
-      {/* Flashcard — takes major space */}
+      {/* Flashcard, takes major space */}
       <button
         onClick={() => setFlipped(!flipped)}
         className="flex flex-1 flex-col justify-center rounded-2xl border border-zinc-700/60 bg-zinc-900 p-6 text-left transition-all active:scale-[0.995] sm:p-10 md:p-12 min-h-[300px] sm:min-h-[400px]"
@@ -158,7 +158,7 @@ export function FlashcardRunner({ domains, backHref = "/linux/flashcards", accen
         )}
       </button>
 
-      {/* Actions — show after flipping */}
+      {/* Actions, show after flipping */}
       {flipped && (
         <div className="mt-4 grid grid-cols-2 gap-3">
           <button

@@ -253,7 +253,7 @@ export function ExamRunner({ testId }: { testId: number }) {
             </p>
           </div>
 
-          {/* Timer — compact on mobile */}
+          {/* Timer, compact on mobile */}
           <div
             className={`rounded-md px-2 py-1 text-[13px] font-bold tabular-nums sm:rounded-lg sm:px-4 sm:py-2 sm:text-2xl ${
               isUrgent
@@ -361,7 +361,7 @@ export function ExamRunner({ testId }: { testId: number }) {
       >
         {/* Mobile: no card wrapper, direct content for max space */}
         <div className="sm:rounded-xl sm:border sm:border-zinc-800 sm:bg-zinc-900 sm:p-5">
-          {/* Badges — desktop only */}
+          {/* Badges, desktop only */}
           <div className="mb-3 hidden flex-wrap items-center gap-2 sm:flex">
             {multi ? (
               <span className="rounded-md bg-violet-900/50 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-violet-300">
@@ -378,7 +378,7 @@ export function ExamRunner({ testId }: { testId: number }) {
             </span>
           </div>
 
-          {/* Mobile: multi-select hint — tiny, inline */}
+          {/* Mobile: multi-select hint, tiny, inline */}
           {multi ? (
             <p className="mb-1.5 text-[11px] font-medium text-violet-400 sm:hidden">
               Select {requiredSelections(currentQuestion)} answers
@@ -417,7 +417,7 @@ export function ExamRunner({ testId }: { testId: number }) {
             {currentQuestion.prompt}
           </p>
 
-          {/* Options — tighter on mobile */}
+          {/* Options, tighter on mobile */}
           <div className="mt-3 space-y-1.5 sm:mt-5 sm:space-y-3">
             {currentQuestion.options.map((option, optIndex) => {
               const selected = (answers[currentQuestion.id] || []).includes(option);
@@ -548,7 +548,7 @@ export function ExamRunner({ testId }: { testId: number }) {
         ) : null}
       </div>
 
-      {/* ─── MOBILE BOTTOM BAR — single row of small icons ─── */}
+      {/* ─── MOBILE BOTTOM BAR, single row of small icons ─── */}
       <div className="fixed inset-x-0 bottom-0 z-30 border-t border-zinc-700/50 bg-zinc-900/95 pb-[max(0.25rem,env(safe-area-inset-bottom))] backdrop-blur-md sm:hidden">
         <div className="flex items-center justify-between px-4 py-1">
           {/* Prev */}

@@ -82,7 +82,7 @@ export function HomeClient({ tests }: { tests: number[] }) {
               {labelExtra ? (
                 <span className="mt-0.5">{labelExtra}</span>
               ) : (
-                <span className="mt-0.5 text-[10px] text-zinc-600">—</span>
+                <span className="mt-0.5 text-[10px] text-zinc-600">·</span>
               )}
             </Link>
           );

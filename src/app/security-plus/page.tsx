@@ -27,7 +27,7 @@ export default function SecurityPlusHome() {
         </div>
       </section>
 
-      {/* Feature CTAs — 2-column on desktop */}
+      {/* Feature CTAs, 2-column on desktop */}
       <div className="grid gap-4 sm:grid-cols-2">
         <Link
           href="/security-plus/mock-tests"
@@ -42,7 +42,7 @@ export default function SecurityPlusHome() {
                 </span>
               </div>
               <p className="mt-1 text-sm leading-6 text-zinc-400">
-                Full-length SY0-701 exams — 90 minutes, 90 questions each.
+                Full-length SY0-701 exams, 90 minutes, 90 questions each.
               </p>
             </div>
             <span className="flex-shrink-0 text-lg text-cyan-400/70 transition-transform group-hover:translate-x-1">→</span>
@@ -56,7 +56,7 @@ export default function SecurityPlusHome() {
             <div>
               <h3 className="text-base font-semibold">Flashcards</h3>
               <p className="mt-1 text-sm leading-6 text-zinc-400">
-                {SECPLUS_TOTAL_FLASHCARDS} cards — flip to test your recall on key concepts.
+                {SECPLUS_TOTAL_FLASHCARDS} cards, flip to test your recall on key concepts.
               </p>
             </div>
             <span className="flex-shrink-0 text-lg text-cyan-500/60 transition-transform group-hover:translate-x-1">→</span>
@@ -86,7 +86,7 @@ export default function SecurityPlusHome() {
             <div>
               <h3 className="text-base font-semibold">Study Guide</h3>
               <p className="mt-1 text-sm leading-6 text-zinc-400">
-                All 5 domains — key terms, scenarios, and exam tips.
+                All 5 domains, key terms, scenarios, and exam tips.
               </p>
             </div>
             <span className="flex-shrink-0 text-lg text-zinc-600 transition-transform group-hover:translate-x-1">→</span>

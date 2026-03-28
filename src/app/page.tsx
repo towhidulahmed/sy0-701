@@ -42,7 +42,7 @@ const COURSES = [
   },
   {
     href: "/nmap",
-    title: "Nmap — Network Scanning",
+    title: "Nmap, Network Scanning",
     subtitle: "Network Recon & Pen Testing",
     description: "Master port scanning, service detection, NSE scripting, and evasion techniques.",
     accent: "orange",
@@ -64,7 +64,7 @@ const COURSES = [
 export default function Home() {
   return (
     <main className="px-3 pt-4 sm:px-0 sm:pt-0">
-      {/* Hero — full-width centered */}
+      {/* Hero, full-width centered */}
       <section className="flex flex-col items-center justify-center pt-12 pb-8 text-center sm:py-20">
         <h2 className="leading-none">
           <Logo large />
@@ -73,7 +73,7 @@ export default function Home() {
           Why study long when you can study quick?
         </p>
         <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-zinc-500 sm:max-w-md sm:mt-4 sm:text-base">
-          Pick a course and start learning with flashcards, practice questions, and mock exams — all in one place.
+          Pick a course and start learning with flashcards, practice questions, and mock exams, all in one place.
         </p>
       </section>
 
