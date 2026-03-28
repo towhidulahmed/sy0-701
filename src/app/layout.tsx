@@ -6,6 +6,10 @@ import { MobileNav } from "@/components/mobile-nav";
 export const metadata: Metadata = {
   title: "Stuick, Why Study Long When You Can Study Quick",
   description: "Your quick and focused learning platform. Study smarter, not longer.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
