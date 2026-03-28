@@ -191,7 +191,7 @@ export function ExamRunner({ testId }: { testId: number }) {
     saveAttempt(attempt);
 
     const suffix = autoSubmit ? `?attempt=${attempt.id}&auto=1` : `?attempt=${attempt.id}`;
-    router.push(`/mock-tests/${testId}/result${suffix}`);
+    router.push(`/security-plus/mock-tests/${testId}/result${suffix}`);
   };
 
   if (loading || !exam || !currentQuestion) {
