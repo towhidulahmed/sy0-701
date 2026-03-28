@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/logo";
 
 const COURSES = [
   {
@@ -65,8 +66,8 @@ export default function Home() {
     <main className="px-3 pt-4 sm:px-0 sm:pt-0">
       {/* Hero — full-width centered */}
       <section className="flex flex-col items-center justify-center pt-12 pb-8 text-center sm:py-20">
-        <h2 className="text-3xl font-black tracking-tight sm:text-5xl sm:font-extrabold lg:text-6xl">
-          Stuick
+        <h2 className="leading-none">
+          <Logo large />
         </h2>
         <p className="mt-3 text-base font-semibold text-zinc-300 sm:mt-4 sm:text-lg sm:font-normal sm:text-zinc-400">
           Why Study Long When You Can Study Quick
