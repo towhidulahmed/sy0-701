@@ -69,9 +69,12 @@ export default function Home() {
         <h2 className="leading-none">
           <Logo large />
         </h2>
-        <p className="mt-4 text-base italic font-light tracking-wide text-zinc-500 sm:mt-5 sm:text-lg">
-          Why study long when you can study quick?
-        </p>
+        <div className="mt-8 flex flex-col items-center gap-3">
+          <div className="h-px w-12 bg-gradient-to-r from-transparent via-zinc-600/60 to-transparent" />
+          <p className="text-[10px] sm:text-[11px] font-medium tracking-[0.28em] uppercase text-zinc-500">
+            why study long when you can study quick
+          </p>
+        </div>
       </section>
 
       {/* Course cards */}
