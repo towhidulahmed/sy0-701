@@ -72,9 +72,6 @@ export default function Home() {
         <p className="mt-4 text-base italic font-light tracking-wide text-zinc-500 sm:mt-5 sm:text-lg">
           Why study long when you can study quick?
         </p>
-        <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-zinc-500 sm:max-w-md sm:mt-4 sm:text-base">
-          Pick a course and start learning with flashcards, practice questions, and mock exams, all in one place.
-        </p>
       </section>
 
       {/* Course cards */}
