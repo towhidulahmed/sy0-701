@@ -1,29 +1,10 @@
 # Stuick
 
-A focused study platform for IT certifications and tools. No accounts, no fluff — just study content that works.
+A quick learning and practice site for different courses. Pick a course, study the material, test yourself with flashcards and practice questions, and track how you do. No account needed, works in the browser.
 
-**Live → [neurosc1.web.app](https://neurosc1.web.app)**
+Currently covers CompTIA Security+, Linux Administration, and Nmap.
 
----
-
-## What's inside
-
-**CompTIA Security+ SY0-701**
-35 mock exams, flashcards, topic practice, and a full study guide across all 5 domains.
-
-**Linux Administration**
-Study guides, flashcards, and practice questions from beginner to advanced — file systems, networking, scripting, containers, and more.
-
-**Nmap — Network Scanning**
-Practical Nmap content covering host discovery, port scanning, NSE scripting, OS detection, and evasion techniques.
-
----
-
-## Stack
-
-Next.js · TypeScript · Tailwind CSS · Firebase Hosting
-
-Progress is saved to browser localStorage — no backend, no account needed.
+[neurosc1.web.app](https://neurosc1.web.app)
 
 ---
 
@@ -33,13 +14,5 @@ Progress is saved to browser localStorage — no backend, no account needed.
 npm install
 npm run dev
 ```
-
-```bash
-# build & deploy
-npm run build
-firebase deploy --only hosting
-```
-
----
 
 Built by [towhid.info](https://www.towhid.info)
