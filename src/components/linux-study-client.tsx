@@ -45,11 +45,11 @@ function TopicCard({ topic }: { topic: LinuxTopic }) {
               <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">Key Commands</h4>
               <div className="space-y-1.5">
                 {topic.commands.map((cmd, i) => (
-                  <div key={i} className="flex items-start gap-3 rounded-lg bg-zinc-900/60 px-3 py-2">
-                    <code className="flex-shrink-0 rounded bg-zinc-700/50 px-2 py-0.5 text-xs font-mono text-emerald-400">
+                  <div key={i} className="rounded-lg bg-zinc-900/60 px-3 py-2.5">
+                    <code className="block break-words text-xs font-mono text-emerald-400">
                       {cmd.cmd}
                     </code>
-                    <span className="text-xs text-zinc-400">{cmd.desc}</span>
+                    <span className="mt-1 block text-xs leading-5 text-zinc-400">{cmd.desc}</span>
                   </div>
                 ))}
               </div>
