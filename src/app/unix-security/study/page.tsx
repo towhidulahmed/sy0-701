@@ -7,7 +7,12 @@ export const dynamic = "force-static";
 export default function UnixSecurityStudyPage() {
   return (
     <main>
-      <LinuxStudyClient domains={UNIX_SECURITY_STUDY as any} />
+      <LinuxStudyClient
+        domains={UNIX_SECURITY_STUDY as any}
+        title="Unix Security Study Guide"
+        backHref="/unix-security"
+        flashcardsBasePath="/unix-security/flashcards"
+      />
       <PageFooter />
     </main>
   );

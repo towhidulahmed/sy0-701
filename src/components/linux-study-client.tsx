@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import type { LinuxDomain, LinuxTopic } from "@/lib/linux-study-data";
 
-function TopicCard({ topic }: { topic: LinuxTopic }) {
+function TopicCard({ topic, flashcardsBasePath }: { topic: LinuxTopic; flashcardsBasePath: string }) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -73,7 +73,7 @@ function TopicCard({ topic }: { topic: LinuxTopic }) {
 
           {/* Flashcard count link */}
           <Link
-            href={`/linux/flashcards?topic=${topic.slug}`}
+            href={`${flashcardsBasePath}?topic=${topic.slug}`}
             className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-950/40 px-3 py-1.5 text-xs font-medium text-emerald-400 transition-colors hover:bg-emerald-950/60"
           >
             <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -87,20 +87,20 @@ function TopicCard({ topic }: { topic: LinuxTopic }) {
   );
 }
 
-export function LinuxStudyClient({ domains }: { domains: LinuxDomain[] }) {
+export function LinuxStudyClient({ domains, title = "Linux Study Guide", backHref = "/linux", flashcardsBasePath = "/linux/flashcards" }: { domains: LinuxDomain[]; title?: string; backHref?: string; flashcardsBasePath?: string }) {
   return (
     <div className="space-y-4 px-3 pt-4 sm:space-y-6 sm:px-0 sm:pt-0">
       {/* Header */}
       <section className="rounded-2xl border border-zinc-800 bg-gradient-to-br from-emerald-950/30 to-zinc-900 p-5 sm:rounded-xl sm:p-6">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Linux Study Guide</h2>
+            <h2 className="text-xl font-bold tracking-tight sm:text-2xl">{title}</h2>
             <p className="mt-2 text-sm leading-6 text-zinc-400">
               Expand each topic to read the guide, view key commands, and access flashcards.
             </p>
           </div>
           <Link
-            href="/linux"
+            href={backHref}
             className="flex-shrink-0 rounded-lg bg-zinc-800 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:bg-zinc-700"
           >
             ← Back
@@ -126,7 +126,7 @@ export function LinuxStudyClient({ domains }: { domains: LinuxDomain[] }) {
                 <h3 className="mb-3 text-base font-semibold sm:text-lg">{domain.name}</h3>
                 <div className="space-y-2">
                   {domain.topics.map((topic) => (
-                    <TopicCard key={topic.slug} topic={topic} />
+                    <TopicCard key={topic.slug} topic={topic} flashcardsBasePath={flashcardsBasePath} />
                   ))}
                 </div>
               </section>
