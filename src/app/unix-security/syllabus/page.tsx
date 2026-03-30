@@ -11,7 +11,7 @@ export default function UnixSecuritySyllabusPage() {
           <div>
             <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Unix Security Topics Covered</h2>
             <p className="mt-2 text-sm leading-6 text-zinc-400">
-              All domains and modules organized by difficulty level. Covers both macOS and Linux.
+              All domains and modules organized by difficulty. Builds from system fundamentals up to hands-on C2 beacon and process injection detection.
             </p>
           </div>
           <Link

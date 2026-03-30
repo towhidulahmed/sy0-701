@@ -8,7 +8,7 @@ export default function UnixSecurityHome() {
       <section className="rounded-2xl border border-[#1a2840]/70 bg-gradient-to-br from-blue-950/50 via-[#07090f] to-[#080b12] p-5 sm:rounded-xl sm:p-6">
         <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Unix Security Monitoring</h2>
         <p className="mt-2 text-sm leading-6 text-zinc-400">
-          Learn to read what your system is actually doing and spot what should not be there. Practical blue team skills for Unix and macOS.
+          Learn to detect C2 backdoors and malicious activity on Unix and macOS systems. Covers processes, network connections, persistence, log analysis, and step-by-step C2 detection techniques.
         </p>
         <div className="mt-4 grid grid-cols-3 gap-2.5">
           <div className="rounded-lg bg-[#0a1226]/70 px-3 py-2.5 text-center">
