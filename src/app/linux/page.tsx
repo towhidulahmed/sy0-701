@@ -79,23 +79,6 @@ export default function LinuxHome() {
           </div>
         </Link>
 
-        <Link
-          href="/linux/terminal"
-          className="group block rounded-2xl border border-emerald-800/30 bg-gradient-to-br from-emerald-950/30 to-[#0b0d16] p-5 transition-all active:from-emerald-950/40 sm:rounded-xl sm:hover:from-emerald-950/40 sm:hover:border-emerald-700/30 sm:col-span-2"
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-base font-semibold">Terminal Practice</h3>
-                <span className="rounded-full bg-emerald-900/50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-emerald-400">Interactive</span>
-              </div>
-              <p className="mt-1 text-sm leading-6 text-zinc-400">
-                Run real Linux commands in a simulated terminal. Works in your browser.
-              </p>
-            </div>
-            <span className="flex-shrink-0 text-lg text-emerald-400/70 transition-transform group-hover:translate-x-1">→</span>
-          </div>
-        </Link>
 
         <Link
           href="/linux/syllabus"
