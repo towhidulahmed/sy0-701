@@ -3,6 +3,7 @@ import { Logo } from "@/components/logo";
 import { DOMAIN_KEYS } from "@/lib/constants";
 import { LINUX_STUDY } from "@/lib/linux-study-data";
 import { NMAP_TOTAL_TOPICS } from "@/lib/nmap-study-data";
+import { UNIX_SECURITY_TOTAL_TOPICS } from "@/lib/unix-security-study-data";
 
 const COURSES = [
   {
@@ -60,6 +61,25 @@ const COURSES = [
       iconBg: "bg-orange-950/40 text-orange-400",
       tag: "bg-orange-950/40 text-orange-400",
       arrow: "text-orange-500/40",
+    },
+  },
+  {
+    href: "/unix-security",
+    title: "Unix Security Monitoring",
+    subtitle: "Defense & Threat Detection",
+    description: "Learn to read what your system is really doing and spot what should not be there.",
+    accent: "blue",
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+      </svg>
+    ),
+    tags: [`${UNIX_SECURITY_TOTAL_TOPICS} Modules`, "Flashcards", "Practice"],
+    accentClasses: {
+      card: "sm:hover:border-blue-800/40",
+      iconBg: "bg-blue-950/40 text-blue-400",
+      tag: "bg-blue-950/40 text-blue-400",
+      arrow: "text-blue-500/40",
     },
   },
 ];
