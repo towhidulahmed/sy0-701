@@ -72,6 +72,21 @@ export default function UnixSecurityHome() {
             <span className="flex-shrink-0 text-lg text-blue-500/60 transition-transform group-hover:translate-x-1">→</span>
           </div>
         </Link>
+
+        <Link
+          href="/unix-security/syllabus"
+          className="group block rounded-2xl border border-[#1c2438]/70 bg-gradient-to-br from-[#0e1220]/90 to-[#0b0d16] p-5 transition-all active:from-[#131a2e]/90 sm:rounded-xl sm:hover:from-[#111827]/90 sm:hover:border-[#253050]/60"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-base font-semibold">Topics Covered</h3>
+              <p className="mt-1 text-sm leading-6 text-zinc-400">
+                Full module list across all 3 domains.
+              </p>
+            </div>
+            <span className="flex-shrink-0 text-lg text-blue-500/60 transition-transform group-hover:translate-x-1">→</span>
+          </div>
+        </Link>
       </div>
 
       <footer className="mt-8 pb-2 text-center sm:mt-10">
