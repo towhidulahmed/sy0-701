@@ -49,6 +49,21 @@ export default function SecurityPlusHome() {
           </div>
         </Link>
         <Link
+          href="/security-plus/study"
+          className="group block rounded-2xl border border-[#1c2438]/70 bg-gradient-to-br from-[#0e1220]/90 to-[#0b0d16] p-5 transition-all active:from-[#131a2e]/90 sm:rounded-xl sm:hover:from-[#111827]/90 sm:hover:border-[#253050]/60"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-base font-semibold">Study Guide</h3>
+              <p className="mt-1 text-sm leading-6 text-zinc-400">
+                All 5 domains, key terms, scenarios, and exam tips.
+              </p>
+            </div>
+            <span className="flex-shrink-0 text-lg text-cyan-500/60 transition-transform group-hover:translate-x-1">→</span>
+          </div>
+        </Link>
+
+        <Link
           href="/security-plus/flashcards"
           className="group block rounded-2xl border border-[#1c2438]/70 bg-gradient-to-br from-[#0e1220]/90 to-[#0b0d16] p-5 transition-all active:from-[#131a2e]/90 sm:rounded-xl sm:hover:from-[#111827]/90 sm:hover:border-[#253050]/60"
         >
@@ -74,22 +89,7 @@ export default function SecurityPlusHome() {
                 Pick a topic and practice with instant feedback.
               </p>
             </div>
-            <span className="flex-shrink-0 text-lg text-violet-500/60 transition-transform group-hover:translate-x-1">→</span>
-          </div>
-        </Link>
-
-        <Link
-          href="/security-plus/study"
-          className="group block rounded-2xl border border-[#1c2438]/70 bg-gradient-to-br from-[#0e1220]/90 to-[#0b0d16] p-5 transition-all active:from-[#131a2e]/90 sm:rounded-xl sm:hover:from-[#111827]/90 sm:hover:border-[#253050]/60"
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-base font-semibold">Study Guide</h3>
-              <p className="mt-1 text-sm leading-6 text-zinc-400">
-                All 5 domains, key terms, scenarios, and exam tips.
-              </p>
-            </div>
-            <span className="flex-shrink-0 text-lg text-zinc-600 transition-transform group-hover:translate-x-1">→</span>
+            <span className="flex-shrink-0 text-lg text-cyan-500/60 transition-transform group-hover:translate-x-1">→</span>
           </div>
         </Link>
 

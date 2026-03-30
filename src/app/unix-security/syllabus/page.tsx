@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { UNIX_SECURITY_STUDY } from "@/lib/unix-security-study-data";
+import { PageFooter } from "@/components/page-footer";
 
 export default function UnixSecuritySyllabusPage() {
   return (
@@ -63,6 +64,7 @@ export default function UnixSecuritySyllabusPage() {
           </section>
         );
       })}
+      <PageFooter />
     </main>
   );
 }

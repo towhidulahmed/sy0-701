@@ -35,6 +35,21 @@ export default function LinuxHome() {
       {/* Feature CTAs, 2-column on desktop */}
       <div className="grid gap-4 sm:grid-cols-2">
         <Link
+          href="/linux/study"
+          className="group block rounded-2xl border border-[#1c2438]/70 bg-gradient-to-br from-[#0e1220]/90 to-[#0b0d16] p-5 transition-all active:from-[#131a2e]/90 sm:rounded-xl sm:hover:from-[#111827]/90 sm:hover:border-[#253050]/60"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-base font-semibold">Study Guide</h3>
+              <p className="mt-1 text-sm leading-6 text-zinc-400">
+                {totalTopics} topics with commands, examples, and tips.
+              </p>
+            </div>
+            <span className="flex-shrink-0 text-lg text-emerald-500/60 transition-transform group-hover:translate-x-1">→</span>
+          </div>
+        </Link>
+
+        <Link
           href="/linux/flashcards"
           className="group block rounded-2xl border border-[#1c2438]/70 bg-gradient-to-br from-[#0e1220]/90 to-[#0b0d16] p-5 transition-all active:from-[#131a2e]/90 sm:rounded-xl sm:hover:from-[#111827]/90 sm:hover:border-[#253050]/60"
         >
@@ -55,24 +70,9 @@ export default function LinuxHome() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-semibold">Practice Exams</h3>
+              <h3 className="text-base font-semibold">Practice</h3>
               <p className="mt-1 text-sm leading-6 text-zinc-400">
-                Test your Linux knowledge with instant feedback.
-              </p>
-            </div>
-            <span className="flex-shrink-0 text-lg text-emerald-500/60 transition-transform group-hover:translate-x-1">→</span>
-          </div>
-        </Link>
-
-        <Link
-          href="/linux/study"
-          className="group block rounded-2xl border border-[#1c2438]/70 bg-gradient-to-br from-[#0e1220]/90 to-[#0b0d16] p-5 transition-all active:from-[#131a2e]/90 sm:rounded-xl sm:hover:from-[#111827]/90 sm:hover:border-[#253050]/60"
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-base font-semibold">Study Guide</h3>
-              <p className="mt-1 text-sm leading-6 text-zinc-400">
-                Commands, examples, and tips for all topics.
+                Multiple-choice questions with instant feedback.
               </p>
             </div>
             <span className="flex-shrink-0 text-lg text-emerald-500/60 transition-transform group-hover:translate-x-1">→</span>

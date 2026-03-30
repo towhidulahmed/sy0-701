@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { SECPLUS_FLASHCARD_DOMAINS, SECPLUS_TOTAL_FLASHCARDS } from "@/lib/secplus-flashcard-data";
+import { PageFooter } from "@/components/page-footer";
 
 export const dynamic = "force-static";
 
@@ -87,6 +88,7 @@ function FlashcardsContent() {
           </div>
         </section>
       ))}
+      <PageFooter />
     </div>
   );
 }

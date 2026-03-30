@@ -80,7 +80,7 @@ export default function NmapHome() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-semibold">Syllabus</h3>
+              <h3 className="text-base font-semibold">Topics Covered</h3>
               <p className="mt-1 text-sm leading-6 text-zinc-400">
                 All domains and topics organized by difficulty.
               </p>

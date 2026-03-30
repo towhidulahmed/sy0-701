@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LINUX_STUDY } from "@/lib/linux-study-data";
 import { LINUX_QUESTIONS } from "@/lib/linux-questions";
+import { PageFooter } from "@/components/page-footer";
 
 export default function LinuxPracticePage() {
   return (
@@ -63,6 +64,7 @@ export default function LinuxPracticePage() {
           </section>
         );
       })}
+      <PageFooter />
     </main>
   );
 }

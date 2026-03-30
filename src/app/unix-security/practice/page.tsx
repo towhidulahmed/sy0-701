@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { UNIX_SECURITY_STUDY } from "@/lib/unix-security-study-data";
 import { UNIX_SECURITY_QUESTIONS } from "@/lib/unix-security-questions";
+import { PageFooter } from "@/components/page-footer";
 
 export default function UnixSecurityPracticePage() {
   return (
@@ -63,6 +64,7 @@ export default function UnixSecurityPracticePage() {
           </section>
         );
       })}
+      <PageFooter />
     </main>
   );
 }

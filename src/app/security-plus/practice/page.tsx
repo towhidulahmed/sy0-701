@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { STATIC_SYLLABUS } from "@/lib/static-syllabus";
 import { getQuestionsByTopicSlug } from "@/lib/exam";
+import { PageFooter } from "@/components/page-footer";
 
 export const dynamic = "force-static";
 
@@ -53,6 +54,7 @@ export default function PracticePage() {
           </div>
         </section>
       ))}
+      <PageFooter />
     </main>
   );
 }

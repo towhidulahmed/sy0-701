@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MAX_MOCK_TESTS } from "@/lib/constants";
 import { HomeClient } from "@/components/home-client";
+import { PageFooter } from "@/components/page-footer";
 
 const tests = Array.from({ length: MAX_MOCK_TESTS }, (_, i) => i + 1);
 
@@ -27,6 +28,7 @@ export default function MockTestsPage() {
 
       {/* Mock test grid with completion indicators */}
       <HomeClient tests={tests} />
+      <PageFooter />
     </main>
   );
 }
