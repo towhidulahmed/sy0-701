@@ -3,14 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const NAV_LINKS = [
-  { label: "Home",          href: "/"               },
-  { label: "Security+",     href: "/security-plus"  },
-  { label: "Linux Admin",   href: "/linux"          },
-  { label: "Nmap",          href: "/nmap"           },
-  { label: "Unix Security", href: "/unix-security"  },
-];
-
 const COURSE_PREFIXES = ["/security-plus", "/linux", "/nmap", "/unix-security"];
 
 export function PageFooter() {
@@ -23,37 +15,29 @@ export function PageFooter() {
 
   return (
     <footer
-      className={`mt-10 border-t border-zinc-800/40 px-4 pt-6 sm:px-0 sm:pb-10 ${
-        hasBottomNav ? "pb-28" : "pb-6"
+      className={`mt-10 flex items-center justify-between border-t border-zinc-800/40 px-4 pt-4 sm:px-0 sm:pb-6 ${
+        hasBottomNav ? "pb-28" : "pb-5"
       }`}
     >
-      {/* Nav links — 3-col grid on mobile, single row on desktop */}
-      <nav className="grid grid-cols-3 place-items-center gap-y-3 sm:flex sm:flex-row sm:justify-center sm:gap-x-8">
-        {NAV_LINKS.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="text-xs !text-zinc-600 transition-colors hover:!text-zinc-500 sm:text-sm"
-          >
-            {link.label}
-          </Link>
-        ))}
-      </nav>
+      <Link
+        href="/"
+        className="text-xs !text-zinc-600 transition-colors hover:!text-zinc-400"
+      >
+        Home
+      </Link>
 
-      {/* Branding */}
-      <div className="mt-5 flex flex-col items-center gap-1">
-        <p className="text-xs text-zinc-600">© {new Date().getFullYear()} Stuick</p>
-        <p className="flex items-center gap-1.5 text-[11px] text-zinc-600">
-          <span className="font-mono">&lt;/&gt;</span>
-          <a
-            href="https://www.towhid.info"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-zinc-400"
-          >
-            towhid.info
-          </a>
-        </p>
+      <div className="flex items-center gap-2 text-[11px] text-zinc-600">
+        <span>© {new Date().getFullYear()} Stuick</span>
+        <span className="text-zinc-700">·</span>
+        <span className="font-mono text-zinc-700">&lt;/&gt;</span>
+        <a
+          href="https://www.towhid.info"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="!text-zinc-600 transition-colors hover:!text-zinc-400"
+        >
+          towhid.info
+        </a>
       </div>
     </footer>
   );
