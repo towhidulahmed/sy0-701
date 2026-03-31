@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { MobileNav } from "@/components/mobile-nav";
+import { CourseNavBar } from "@/components/course-nav-bar";
 
 export const metadata: Metadata = {
   title: "Stuick, Why Study Long When You Can Study Quick",
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body>
         <div className="mx-auto min-h-dvh max-w-5xl px-0 pb-20 sm:px-6 sm:pb-6 sm:pt-6">
           <SiteHeader />
+          <CourseNavBar />
           {children}
         </div>
         {/* Mobile bottom tab bar, hidden during exam */}
