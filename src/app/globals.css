@@ -82,3 +82,15 @@ button, a {
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* Liquid glass active pill — spring-in animation */
+@keyframes liquidIn {
+  0%   { transform: scale(0.75); opacity: 0; }
+  60%  { transform: scale(1.06); opacity: 1; }
+  80%  { transform: scale(0.97); }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
+.animate-liquid-in {
+  animation: liquidIn 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
