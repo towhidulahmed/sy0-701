@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 type Accent = "cyan" | "emerald" | "orange" | "blue";
 
 const PILL: Record<Accent, string> = {
-  cyan:    "bg-gradient-to-b from-cyan-400/15 to-cyan-400/5 border border-cyan-400/30 shadow-sm shadow-cyan-500/20",
-  emerald: "bg-gradient-to-b from-emerald-400/15 to-emerald-400/5 border border-emerald-400/30 shadow-sm shadow-emerald-500/20",
-  orange:  "bg-gradient-to-b from-orange-400/15 to-orange-400/5 border border-orange-400/30 shadow-sm shadow-orange-500/20",
-  blue:    "bg-gradient-to-b from-blue-400/15 to-blue-400/5 border border-blue-400/30 shadow-sm shadow-blue-500/20",
+  cyan:    "bg-zinc-700/55 border border-cyan-400/30 shadow-lg shadow-black/50",
+  emerald: "bg-zinc-700/55 border border-emerald-400/30 shadow-lg shadow-black/50",
+  orange:  "bg-zinc-700/55 border border-orange-400/30 shadow-lg shadow-black/50",
+  blue:    "bg-zinc-700/55 border border-blue-400/30 shadow-lg shadow-black/50",
 };
 
 const ACTIVE_TEXT: Record<Accent, string> = {
